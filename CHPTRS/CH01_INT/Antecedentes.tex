@@ -1,0 +1,137 @@
+\chapter{Antecedentes}
+\label{ch:CH01}
+\ihead[]{Cap\'itulo 1: Antecedentes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En este capítulo, \lipsum[1][1-3]
+\section{Problemática y Motivación}
+\label{sec:CH01_Problematica}
+\lipsum[2] Usando motores de corriente continua \ac{DC}.
+ 
+La relevancia ... en la industria se refleja en el comportamiento del mercado global, que ha experimentado un crecimiento en los últimos años y proyecta un incremento continuo hasta 2030. Según \textcite{ej-01-cita-web}, se estima que ... alcanzará un 5.3\% en los próximos años, como se muestra en el gráfico de la Figura \ref{fig:estadistica_problemática}. Este crecimiento está impulsado por su demanda en  aplicaciones, tanto en Z como en P, donde estos motores son fundamentales para garantizar Q en la industrias. La tendencia mostrada subraya R para altos estándares de calidad. 
+\begin{figure}[!hb]
+\centering
+\includegraphics[width=0.55\textwidth]{CHPTRS/CH01_INT/Fig/01_EstudioMercado.png}
+\caption{Estudio de mercado de ...}
+\label{fig:estadistica_problemática}
+\end{figure}
+
+
+En el campo de la ingeniería mecatrónica, los motores \ac{DC} son ampliamente utilizados debido a su capacidad para proporcionar un control preciso de velocidad y torque, características esenciales en proyectos de robótica y automatización de procesos \parencites{ej-02-cita-articulo-en-revista}. Dos proyectos mecatrónicos relevantes donde se utilicen estos componentes, se presentan a continuación. Ambos proyectos son investigaciones desarrolladas por la empresa \textcite{ej-03-cita-pag-web}, reconocida por su especialización en el diseño, desarrollo y fabricación de motores eléctricos de alta calidad.  
+    
+El primero de estos proyectos es un robot humanoide llamado Romeo, accionado exclusivamente por motores \ac{DC} de esta empresa. Este robot, ilustrado en la Figura \ref{fig:romeo}, está diseñado para asistir a personas de edad avanzada. Romeo está equipado con 37 motores .... El segundo proyecto está relacionado con el rover \textit{Perseverance}, diseñado para la exploración y navegación en Marte. En colaboración con la NASA, la empresa \textcite{ej-03-cita-pag-web} fue responsable de probar el sistema del rover \textit{Perseverance}, el cual cuenta con diez motores eléctricos que realizan funciones críticas. El rover \textit{Perseverance} se presenta en la Figura \ref{fig:perseverance}.
+% NOTA: Para usar una figura al lado de otra se puede usar el paquete \tabularx, la idea es:
+%       COL-1     COL-2
+%   |----------*-----------*
+%   | fig.A    | fig.B     |  FILA-1
+%   |----------*-----------*
+%   |caption a | caption b |  FILA-2
+%   |label a   | label b   |
+%   |----------*-----------*
+%   |Nota a    | Nota b    |  FILA-3
+%   |----------*-----------*
+%   caption figura en general
+%   label Figura en general.
+\begin{figure}[!ht]
+    \begin{tabularx}{\linewidth}{*{2}{>{\centering\arraybackslash}X}}
+        % FILA-1, COL-1.
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=.9\linewidth]{CHPTRS/CH01_INT/Fig/02a_Maxon-Romeo.png}
+            %\label{fig:romeo} %LABEL ESTA DESPUES
+        \end{subfigure}
+        & %Nueva Columna, es decir: % FILA-1, COL-2
+        \begin{subfigure}[t]{0.45\textwidth}
+            \centering
+            \includegraphics[width=.68\linewidth]{CHPTRS/CH01_INT/Fig/02b_Perseverance.png}
+        \end{subfigure}
+        \\ %Nueva Fila, es decir: % FILA-2, COL-1
+        \begin{subfigure}[t]{0.8\linewidth}
+            \caption{Imagen referencial del robot humanoide Romeo}
+            \label{fig:romeo}
+        \end{subfigure} 
+        & %Nueva Columna, es decir: % FILA-2, COL-2
+        \begin{subfigure}[t]{0.8\linewidth}
+            \caption{Imagen referencial del rover \textit{Perseverance}}
+            \label{fig:perseverance}
+        \end{subfigure}
+        \\ %Nueva Fila, es decir: % FILA-3, COL-1
+        \begin{subfigure}[t]{\linewidth}
+            \caption*{\textit{Nota: Figura tomada de la página oficial de \linebreak\textcite{ej-03-cita-pag-web}}}
+        \end{subfigure} 
+        & %Nueva Columna, es decir: % FILA-3, COL-2
+        \begin{subfigure}[t]{\linewidth}
+            \caption*{\textit{Nota: Figura tomada de la página oficial de \linebreak\textcite{ej-03-cita-pag-web}}}
+        \end{subfigure}
+    \end{tabularx}
+    \caption{Descripción General de las figuras presentadas}
+    \label{fig:figuraEnGeneral}
+\end{figure}
+%
+\lipsum[5] De la \ac{PUCP}. Simplemente se opta por comprar \ac{HW} que permita el control de motores DC.
+    
+\lipsum[6]
+    
+En el capítulo \ref{ch:CH02-Estado-del-Arte} y \ref{ch:CH03-Diseno-Conceptual} se presentarán los distintos métodos para la estimación de parámetros en motores \ac{DC}, la mayoría de estos, se basan en algoritmos que permiten calcular los parámetros eléctricos y mecánicos presentes en el modelo de un motor \ac{DC}. Sin embargo, estos no son las únicas formas de hallar los parámetros de motores. \textcite{ej-04-cita-white-paper-pag-web} presenta la estimación de estos utilizando un método de respuesta en frecuencia, también se presentarán métodos se considerarán para este trabajo de investigación como empíricos, tomando de referencia al libro de \textcite{ej-05-cita-libro}. Sin embargo, se dará énfasis en los algoritmos de estimación debido a la facilidad de implementación de estos y por ser procesos que puedan ser automatizados.
+
+\lipsum[6] \textit{ know-how} necesario para ...
+
+\section{Propuesta de solución}
+\label{sec:CH01_Propuesta}
+Este trabajo se enfocará en el diseño e implementación de XXX. El sistema estará compuesto por dos partes, una de \ac{HW} y otra de \ac{SW}. La primera se encargará del acondicionamiento de señales y la recolección de data, que luego serán procesada por el algoritmo de estimación de parámetros. La segunda consistirá en el desarrollo del \ac{SW}, el cual se llevará a cabo en la plataforma aaa. Se implementará un algoritmo capaz de bbb, para ello se desarrollará una interfaz gráfica de usuario (\ac{GUI}) que permita .... La solución será (semi)automatizada, ya que ccc. Por lo tanto, se espera que el usuario ....
+    
+    \section{Objetivos}
+    \label{sec:CH01_Objetivos}
+    El presente trabajo de investigación tiene como objetivos principales el xxx usando yyy. Para lograr este propósito, se han definido cinco objetivos específicos, los cuales permiten estructurar y guiar el desarrollo de la solución propuesta
+    
+        \subsection{Objetivos Generales}
+        El objetivo general es diseñar e implementar un sistema mecatrónico para xxx . Se diseñará utilizando la metodología VDI 2221 y VDI 2206 \autocite{ej-06-cita-norma-vdi2206} y se espera obtener, según los niveles de \ac{TRL}, una solución con un nivel de madurez tecnológica TRL4 \autocite{ej-07-cita-TRL}, luego de las respectivas validaciones.
+        
+        \subsection{Objetivos específicos}
+        \begin{itemize}
+            
+            \item  Diseñar ...
+            
+            \item Comparar el prototipo desarrollado con métodos existentes de ... descritos en la literatura, considerando costos de implementación, versatilidad y exactitud. Para ello, se realizarán pruebas empleando métodos empíricos, herramientas de calidad de \ac{SW} en el diseño propuesto.
+
+            \item Presentar los métodos más utilizados en la literatura para xxx, con el objetivo de yyy en la implementación en el diseño final.
+            
+            \item Evaluar las soluciones que satisfagan la lista de requerimientos usando zzz.
+
+            \item Validar la solución propuesta determinando www.
+            \end{itemize}
+            
+    \section{Alcance}
+    \label{sec:Alcance}
+    \lipsum[6]
+    
+    \section{Metodología}
+    \label{sec:CH01_Metodologia}
+    \begin{figure}[b!]
+        \centering
+        \includegraphics[width=0.5\textwidth]{CHPTRS/CH01_INT/Fig/03_VDI2221.PNG}
+        \caption{Proceso Generalizado de Desarrollo y Diseño VDI 2221}     \caption*{\textit{Nota: Figura adaptada de \autocite{ej-08-cita-norma-vdi2221}}}
+        \label{fig:vdi2221}
+    \end{figure}
+    
+    En el desarrollo de este trabajo de investigación se usará la metodología VDI 2221 y VDI 2206, ambas desarrolladas por ... \autocite{ej-06-cita-norma-vdi2206}. La primera metodología \lipsum[1] \ref{fig:vdi2221}. Ver \lipsum[2]\autocite{ej-08-cita-norma-vdi2221}.
+    
+    Por otro lado, la segunda en mención,  ... como se muestra en la Figura \ref{fig:ch01-vdi2206}, \lipsum[9]
+    \begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{CHPTRS/CH01_INT/Fig/04_VDI2206.PNG}
+    \caption{Modelo V propuesto en la norma VDI 2206}
+    \label{fig:ch01-vdi2206}
+    \end{figure}
+    
+    Según lo descrito anteriormente, se organizará el documento de la siguiente manera:
+    \begin{itemize}
+        \item En el capítulo \ref{ch:CH02-Estado-del-Arte} se presentará \lipsum[1]\autocite{ej-09-Articulo-Electronics}.
+        \item En el capítulo X ....
+        \item En el capítulo Y ....
+        \item En el capítulo Z ....
+        \item Posteriormente, se procederá a ...
+        \item Finalmente, ...
+    \end{itemize}
+     
+    
+    

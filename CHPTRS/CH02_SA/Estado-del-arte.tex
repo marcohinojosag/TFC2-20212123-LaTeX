@@ -1,0 +1,79 @@
+\chapter{Estado del arte}
+\ihead[]{Capítulo 2: Estado del arte}
+\label{ch:CH02-Estado-del-Arte}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+En este capítulo se presenta una revisión de ....
+\section{Softwares comerciales}
+    \lipsum[2]
+\subsection{Software A}
+    \lipsum[3]
+\subsection{Software B}
+    \lipsum[4]
+    
+A continuación se presenta en la Tabla \ref{tab:comparasion-sw} una comparación entre los dos \ac{SW} presentados. \lipsum[5]
+% NOTA: cada columna tiene un tamaño de x\textwidth, la idea es que la suma de todas las columnas de como máximo 1.
+%       Si la suma es mayor a 1, tendras un warning como resultado.
+\begin{longtblr}[theme=pucp,
+    label = {tab:comparasion-sw},
+    caption = {Comparacion de \ac{SWA} y \ac{SWB}},
+]{
+    colspec = {X[c,m]X[c,m]X[c,m]},
+    column{1}={0.20\textwidth},
+    column{2}={0.25\textwidth},
+    column{3}={0.25\textwidth},  %este ejemplo 0.3+0.3+.0.2 = 0.8 < 1 (OK!)
+    rowhead = 1,
+    rowfoot = 0,
+    hlines,
+    vlines,
+}
+Característica  & \ac{SWA}        & \ac{SWB} \\
+    Caract. 1   & Descripción A-1 & Descripción B-1\\
+    Caract. 2   & Descripción A-2 & Descripción B-2\\
+    Caract. 3   & Descripción A-3 & Descripción B-3
+\end{longtblr}
+%
+\section{Productos en el mercado}
+En este apartado se ...  
+\subsection{Máquina 1}
+        \lipsum[6] Tabla~\ref{tab:ejemplo_tabla_con_unidades}.
+
+    \begin{table}[H]
+        \centering
+        
+        \caption{Parámetros Máquina 1 (modelo 80085). Ver paquete \url{https://ctan.org/pkg/siunitx}}
+        \begin{tblr}{
+              cell{1}{3} = {c},
+              cell{2}{3} = {c},
+              cell{3}{3} = {c},
+              cell{4}{3} = {c},
+              cell{5}{3} = {c},
+        }
+        \hline
+        Características & Valor          &  \\
+        \hline
+        Param. físico 1 & \SI{4.1}{\ohm} &  \\
+        Param. físico 2 & \SI{0.14}{\mH} &  \\
+        Param. físico 3 & ... &  \\
+        Param. físico 4 & ... &  \\
+        Param. físico 5 & ... &  \\
+        Param. físico 6 & ... &  \\
+        Param. físico 7 & ... &
+        \end{tblr}
+        \caption*{\small\textit{Nota: Información adaptada de xxxx ..., revisada el día DD de MM de AAAA.\autocite{ej-03-cita-pag-web}}} %revisada el día 25 de setiembre del 2024}
+        \label{tab:ejemplo_tabla_con_unidades}
+    \end{table}
+
+    \subsection{Máquina 2}
+   \lipsum[7]
+
+    
+    \section{Artículos académicos:}
+    A continuación se presentan ...
+    
+    \subsection{Artículo A}
+    En este artículo se cita con \verb!\textcite! =~\textcite{ej-04-cita-white-paper-pag-web} ....\lipsum[4]
+
+    \subsection{Artículo B}
+    En este artículo se cita con \verb!\autocite! =~\autocite{ej-04-cita-white-paper-pag-web} ....\lipsum[5]
+    \subsection{Artículo C}
+    \lipsum[6]
