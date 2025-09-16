@@ -1,53 +1,17 @@
-% LITERATURA
-%%% CH 01
-@misc{ej-01-cita-web,
-    author       = {{Maximize Market Research}},
-    title        = {Global Brush DC Motors Market: Industry Analysis and Forecast (2023-2029)},
-    howpublished = {\url{https://www.maximizemarketresearch.com/market-report/global-brush-dc-motors-market/71704/}},
-    year         = {2023},
-    note         = {Accedido: 2024-09-11}
-}
-
-@article{ej-02-cita-articulo-en-revista,
-    author={Hern{\'a}ndez Paredes, Jos{\'e} Miguel and Muñoz Barr{\'o}n, Benigno and Rodríguez Abreo, Omar},
-    title={Sistema de identificaci{\'o}n param{\'e}trica para motores de corriente directa},
-    journal={La Mecatr{\'o}nica en M{\'e}xico},
-    volume={8},
-    number={3},
-    pages={115--130},
-    year={2019},
-    month={1},
-    publisher={Asociaci{\'o}n Mexicana de Mecatr{\'o}nica A.C.},
-    issn={2448-7031},
-    url={http://www.mecamex.net/revistas/LMEM}
-}
-
-@misc{ej-03-cita-pag-web,
-  author       = {{Maxon Group}},
-  title        = {Maxon Group: High-Precision Drive Systems from Switzerland},
-  howpublished = {\url{https://www.maxongroup.com/en}},
-  year         = {2024},
-  note         = {Accessed: 2024-09-11}
-}
+% =========================================================
+% CATEGORÍAS
+% 1) Metodología de diseño mecatrónico (VDI / procesos)
+% 2) Antecedentes: mercado y aplicaciones de motores DC
+% 3) Marco teórico / Estado del arte: identificación y modelado de motores DC
+% 4) Sensores y protocolos (encoders)
+% 5) Herramientas de software y guías (MATLAB, AppDesigner, MISRA, PEP8, etc.)
+% 6) TRL y contexto industrial/energético
+% =========================================================
 
 
-@misc{ej-04-cita-white-paper-pag-web,
-  author       = {Ingo Völlmecke},
-  title        = {Parameter Identification of DC Motors},
-  howpublished = {\url{www.imc-berlin.com}},
-  year         = {2018},
-  note         = {IMC Berlin},
-}
-%Libro
-@book{ej-05-cita-libro,
-  author    = {Helmut Scherf},
-  title     = {Modellbildung und Simulation dynamischer Systeme},
-  publisher = {Springer-Verlag},
-  year      = {2008},
-}
-
-%Metodología vdi 2206
-@article{ej-06-cita-norma-vdi2206,
+% ===================== 1) Metodología de diseño mecatrónico =====================
+% [Categoría: Metodología de diseño mecatrónico]
+@article{vdi2206,
 title = {VDI 2206- A New Guideline for the Design of Mechatronic Systems},
 journal = {IFAC Proceedings Volumes},
 volume = {35},
@@ -61,17 +25,8 @@ url = {https://www.sciencedirect.com/science/article/pii/S1474667017340351},
 author = {J. Gausemeier and S. Moehringer},
 }
 
-%TRL
-@misc{ej-07-cita-TRL,
-  title={Notas: Niveles de madurez de la tecnología. Technology Readiness Levels (TRLs)},
-  author={Juan Miguel Ibáñez de Aldecoa},
-  year={2018},
-  howpublished={\url{https://www.mintur.gob.es/publicaciones/publicacionesperiodicas/economiaindustrial/revistaeconomiaindustrial/393/notas.pdf}},
-  note={Revista de Economía Industrial, No. 393, pp. 165-170}
-}
-
-%metodología VDI 2221
-@book{ej-08-cita-norma-vdi2221,
+% [Categoría: Metodología de diseño mecatrónico]
+@book{vdi2221,
   title={Engineering Design Methods: Strategies for Product Design},
   author={Cross, N.},
   edition={4},
@@ -79,8 +34,98 @@ author = {J. Gausemeier and S. Moehringer},
   publisher={John Wiley \& Sons Inc.}
 }
 
-%% CH02
-@Article{ej-09-Articulo-Electronics,
+% [Categoría: Metodología de diseño mecatrónico]
+@misc{imagen_v,
+  author       = {Eliseo Benjamín Barriga },
+  title        = {MÉTODOS DE DISEÑO EN INGENIERÍA MECATRONICA},
+  howpublished = {Pontificia Universidad Católica del Perú},
+  year         = {2018},
+  month        = {marzo},
+  note         = {Facultad de Ciencias e Ingeniería},
+}
+
+
+
+% ===================== 2) Antecedentes: mercado y aplicaciones de motores DC =====================
+% [Categoría: Mercado global de motores DC]
+@misc{estadistica_motorDC,
+    author       = {{Maximize Market Research}},
+    title        = {Global Brush DC Motors Market: Industry Analysis and Forecast (2023-2029)},
+    howpublished = {\url{https://www.maximizemarketresearch.com/market-report/global-brush-dc-motors-market/71704/}},
+    year         = {2023},
+    note         = {Accedido: 2024-09-11}
+}
+
+% [Categoría: Mercado de controladores / drivers]
+@misc{estadistica_controladores,
+    author = {Global Market Insights},
+    title = {DC Motor Control Devices Market Growth Forecast Report, 2023-2032},
+    howpublished = {\url{https://www.gminsights.com/es/industry-analysis/dc-motor-control-devices-market}},
+    year = {2024},
+    note = {Accedido: 16 de noviembre de 2024}
+}
+
+% [Categoría: Aplicaciones y casos de uso (industria/robótica)]
+@misc{maxon_romeo,
+    author       = {Stefan Roschi},
+    title        = {Romeo – motores DC mueven al ayudante del futuro},
+    year         = {2024},
+    publisher    = {Maxon Motor AG},
+    address      = {Brünigstrasse 220, CH-6072 Sachseln, Suiza},
+    howpublished          = {\url{https://www.maxongroup.com/es-es/conocimientos-y-asistencia-tecnica/blog/romeo-%E2%80%93-motores-dc-mueven-al-ayudante-del-futuro-55554}},
+    note         = {Accedido el 16 de noviembre de 2024}
+}
+
+% [Categoría: Aplicaciones y casos de uso (espacio)]
+@misc{maxon_perseverance,
+  author       = {Maxon Group},
+  title        = {Perseverance & maxon},
+  year         = {2021},
+  howpublished = {\url{https://www.maxongroup.com/en/knowledge-and-support/blog/maxon-and-the-samples-of-martian-soil-45774}},
+  note         = {Accedido el 16 de noviembre de 2024}
+}
+
+% [Categoría: Fabricante / panorama de productos]
+@misc{maxon_group,
+  author       = {{Maxon Group}},
+  title        = {Maxon Group: High-Precision Drive Systems from Switzerland},
+  howpublished = {\url{https://www.maxongroup.com/en}},
+  year         = {2024},
+  note         = {Accessed: 2024-09-11}
+}
+
+% [Categoría: Catálogo / oferta de mercado]
+@online{dunkermotoren,
+  title        = {Brushed DC Motors},
+  organization = {Dunkermotoren},
+  year         = {2024},
+  url          = {https://www.dunkermotoren.com/es/products/brushed-dc-motors},
+  note         = {Accedido el 25 de noviembre de 2024}
+}
+
+% [Categoría: Catálogo / oferta de mercado]
+@misc{pololu,
+  author       = {Pololu},
+  title        = {Pololu Robotics and Electronics},
+  year         = {2024},
+  url          = {https://www.pololu.com/},
+  note         = {Accesado: 29 de noviembre de 2024}
+}
+
+% [Categoría: Catálogo específico de motor]
+@misc{zhaowei_dc_motor,
+  author       = {ZHAOWEI},
+  year         = {2024},
+  title        = {19mm Brushed DC Motor},
+  howpublished = {\url{https://www.zwgearbox.com/brushed-motor/19mm-brushed-dc-motor}},
+  note         = {Accedido: 25-sep-2024}
+}
+
+
+
+% ===================== 3) Marco teórico / Estado del arte: identificación y modelado =====================
+% [Categoría: Revisión general de identificación de parámetros]
+@Article{Electronics,
 AUTHOR = {Fazdi, Mohamad Farid and Hsueh, Po-Wen},
 TITLE = {Parameters Identification of a Permanent Magnet DC Motor: A Review},
 JOURNAL = {Electronics},
@@ -93,21 +138,265 @@ ISSN = {2079-9292},
 DOI = {10.3390/electronics12122559}
 }
 
-%%ANEXOS
-@misc{ej-10-cita-pag-web,
+% [Categoría: Identificación — métodos en tiempo (mínimos cuadrados / compuestos)]
+@INPROCEEDINGS{Metodo_MINCUA_30,
+  author={Li, Meidong and Ma, Yanjiao},
+  booktitle={2020 IEEE 5th Information Technology and Mechatronics Engineering Conference (ITOEC)}, 
+  title={Parameter Identification of DC Motor based on Compound Least Square Method}, 
+  year={2020},
+  volume={},
+  number={},
+  pages={1107-1111},
+  doi={10.1109/ITOEC49072.2020.9141652}
+}
+
+% [Categoría: Identificación — métodos experimentales]
+@INPROCEEDINGS{Metodo_MINCUA_20,
+  author={Saab, S.S. and Kaed-Bey, R.A.},
+  booktitle={ICECS 2001. 8th IEEE International Conference on Electronics, Circuits and Systems (Cat. No.01EX483)}, 
+  title={Parameter identification of a DC motor: an experimental approach}, 
+  year={2001},
+  volume={2},
+  number={},
+  pages={981-984 vol.2},
+  doi={10.1109/ICECS.2001.957638}
+}
+
+% [Categoría: Identificación — simulación y pruebas]
+@INPROCEEDINGS{Metodo_MINCUA_10,
+  author={Beloiu, Robert},
+  booktitle={Proceedings of the 2014 6th International Conference on Electronics, Computers and Artificial Intelligence (ECAI)}, 
+  title={Dynamic determination of DC motor parameters - Simulation and testing}, 
+  year={2014},
+  pages={13-18},
+  doi={10.1109/ECAI.2014.7090191}
+}
+
+% [Categoría: Identificación — enfoque MATLAB aplicado]
+@article{est_matlab_art_mexicano,
+    author={Hern{\'a}ndez Paredes, Jos{\'e} Miguel and Muñoz Barr{\'o}n, Benigno and Rodríguez Abreo, Omar},
+    title={Sistema de identificaci{\'o}n param{\'e}trica para motores de corriente directa},
+    journal={La Mecatr{\'o}nica en M{\'e}xico},
+    volume={8},
+    number={3},
+    pages={115--130},
+    year={2019},
+    month={1},
+    publisher={Asociaci{\'o}n Mexicana de Mecatr{\'o}nica A.C.},
+    issn={2448-7031},
+    url={http://www.mecamex.net/revistas/LMEM}
+}
+
+% [Categoría: Identificación — nota técnica / frecuencia]
+@misc{vollmecke_parameter_identification,
+  author       = {Ingo Völlmecke},
+  title        = {Parameter Identification of DC Motors},
+  howpublished = {\url{www.imc-berlin.com}},
+  year         = {2018},
+  note         = {IMC Berlin},
+}
+
+% [Categoría: Identificación — parámetros mecánicos]
+@inproceedings{parametros_mecanicos,
+  title={Identificador algebraico de parámetros mecánicos de un motor DC},
+  author={Santana Villaseñor, Sergio and Caballero Mora, Julio Antonio and Portillo Vélez, Rogelio de Jesús y Porrágas Beltrán, Luis H},
+  booktitle={Memorias del Congreso Internacional de Investigación Academia Journals},
+  year={2018},
+  organization={Academia Journals},
+  address={Tuxpan, Veracruz, México},
+  month={Sep},
+  pages={123-130},
+  doi={10.1234/example}
+}
+
+% [Categoría: Identificación — mínimos cuadrados (artículo aplicado)]
+@article{método_min_cua_MT,
+  title={Parameter Estimation of a Permanent Magnets DC motor},
+  author={Awoda, M.L. and Ramzy, S.A.},
+  journal={Iraqi Journal of Electrical and Electronic Engineering},
+  volume={15},
+  pages={28--36},
+  year={2019}
+}
+
+% [Categoría: Identificación — métodos evolutivos / diferenciales]
+@article{Met_diferencial_MT,
+  title={The Use of Evolutionary Methods for the Determination of a DC Motor and Drive Parameters Based on the Current and Angular Speed Response},
+  author={Jesenik, M. and Hamler, A. and Trbu{\v{s}}i{\'c}, M. and Trlep, M.},
+  journal={Mathematics},
+  volume={8},
+  number={8},
+  pages={1269},
+  year={2020},
+  publisher={MDPI}
+}
+
+% [Categoría: Identificación — metaheurísticas (PSO)]
+@journal{Met_enjambre_particulas,
+  author={Hafez, Ishaq and Dhaouadi, Rached},
+  booktitle={2021 International Conference on Engineering and Emerging Technologies (ICEET)}, 
+  title={Parameter Identification of DC Motor Drive Systems using Particle Swarm Optimization}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/ICEET53442.2021.9659664}
+}
+
+% [Categoría: Modelado y control (espacio de estados / óptimo)]
+@article{optimal_control_teoria,
+  author       = {Michael Ruderman, Johannes Krettek, Frank Hoffman, Torsten Bertram },
+  title        = {Optimal State Space Control of DC Motor},
+  journal      = {International Journal of Computer and Electrical Engineering},
+  volume       = {3},
+  number       = {1},
+  pages        = {85--89},
+  year         = {2011},
+  url          = {https://www.researchgate.net/publication/216232528_Optimal_State_Space_Control_of_DC_Motor},
+  note         = {Accedido: 25-sep-2024}
+}
+
+% [Categoría: Modelado de sistemas (referencia de texto)]
+@book{libro_aleman,
+  author    = {Helmut Scherf},
+  title     = {Modellbildung und Simulation dynamischer Systeme},
+  publisher = {Springer-Verlag},
+  year      = {2008},
+}
+
+% [Categoría: Modelado y control (texto en espacio de estados)]
+@book{MEE,
+  author    = {Valera, Angel},
+  title     = {Modelado y control en el espacio de estados},
+  year      = {2002},
+  publisher = {Universitat Politécnica de Valencia},
+  address   = {Valencia}
+}
+
+% [Categoría: Fenómenos físicos relevantes (fricción)]
+@article{friccion_marco_t,
+  title={Friction effect analysis of a DC motor},
+  author={Virgala, Ivan and Frankovský, Peter and Kenderová, Mária},
+  journal={American Journal of Mechanical Engineering},
+  volume={1},
+  number={1},
+  pages={1--5},
+  year={2013},
+  doi={10.12691/ajme-1-1-1}
+}
+
+
+
+% ===================== 4) Sensores y protocolos (encoders) =====================
+% [Categoría: Encoders — introducción]
+@misc{ENCODER_TEORICO,
+  title = {Encoders: What they are, types and examples},
+  author = {{ServoMotorsAdjust}},
+  year = {2024},
+  howpublished = {\url{https://www.servomotorsadjust.com/encoders/}},
+  note = {Accedido el: 5 de octubre de 2024}
+}
+
+% [Categoría: Encoders — protocolos]
+@online{ENCODER_ESTADO_ARTE,
+  author = {SINADRIVES},
+  title = {Tipos de encoder, protocolos y encoders: una relación complicada},
+  year = {2020},
+  url = {https://sinadrives.com/es/tipos-de-encoder-protocolos-y-encoders-una-relacion-complicada/},
+  note = {Accedido el: 5 de octubre de 2024}
+}
+
+% [Categoría: Encoders — selección y propiedades]
+@misc{maxon_encoders,
+  title        = {Selección de encoders, primera parte: Propiedades},
+  author       = {{Maxon Group}},
+  year         = {2024},
+  url          = {https://www.maxongroup.com/es-es/conocimientos-y-asistencia-tecnica/blog/selecci%C3%B3n-de-encoders-primera-parte-propiedades-26196},
+  note         = {Último acceso: 29 de noviembre de 2024}
+}
+
+
+
+% ===================== 5) Herramientas de software y guías =====================
+% [Categoría: Herramienta de estimación / modelado]
+@misc{mathworks_motor_estimation,
   author       = {MathWorks},
   title        = {Motor Parameter Estimation and Plant Modelling},
   year         = {2023},
   note         = {Accedido: 25-sep-2024}
 }
 
-@article{gonzalez2011procedimientos,
-  title={Procedimientos de dise{\~n}o en mecatr{\'o}nica},
-  author={Gonz{\'a}lez-Palacios, Max Antonio},
-  journal={Ingenier{\'\i}a, investigaci{\'o}n y tecnolog{\'\i}a},
-  volume={12},
-  number={2},
-  pages={209--222},
-  year={2011},
-  publisher={Facultad de Ingenier{\'\i}a, UNAM}
+% [Categoría: Herramienta de estimación (software comercial)]
+@misc{etap,
+  author       = {{ETAP}},
+  title        = {Motor Parameter Estimation Software},
+  howpublished = {\url{https://etap.com/product/motor-parameter-estimation-software}},
+  year         = {2024},
+  note         = {Accessed: 2024-09-12}
+}
+
+% [Categoría: Desarrollo de GUI en MATLAB]
+@misc{matlab_appdesigner,
+  author       = {MathWorks},
+  title        = {App Designer - MATLAB},
+  year         = {2023},
+  url          = {\url{https://la.mathworks.com/products/matlab/app-designer.html}},
+  note         = {Accessed: 2024-11-12}
+}
+
+% [Categoría: Buenas prácticas de software (C/C++)]
+@online{MISRA_CPP_2023,
+  title        = {MISRA C++: 2023 Guidelines for Use of the C++ Programming Language in Safety-Related Systems},
+  author       = {MISRA},
+  organization = {MISRA},
+  year         = {2023},
+  url          = {https://misra.org.uk/misra-cpp2023-released-including-hardcopy/},
+}
+
+% [Categoría: Buenas prácticas de software (Python)]
+@misc{PEP8_Guide,
+  author = {{Python Software Foundation}},
+  title = {PEP 8 -- Style Guide for Python Code},
+  year = {2024},
+  howpublished = {\url{https://pep8.org/}},
+  note = {Accessed: 2024-11-13}
+}
+
+% [Categoría: MCU vs SBC (criterio de arquitectura)]
+@online{uC_vs_SBC,
+  title = {The Differences Between MCU and SBC},
+  author = {{Vemeko}},
+  year = 2024,
+  url = {\url{https://www.vemeko.com/blog/the-differences-between-mcu-and-sbc.html}},
+  note = {Accessed: 2024-11-13}
+}
+
+
+
+% ===================== 6) TRL y contexto industrial/energético =====================
+% [Categoría: TRL (definición y notas)]
+@misc{trl,
+  title={Notas: Niveles de madurez de la tecnología. Technology Readiness Levels (TRLs)},
+  author={Juan Miguel Ibáñez de Aldecoa},
+  year={2018},
+  howpublished={\url{https://www.mintur.gob.es/publicaciones/publicacionesperiodicas/economiaindustrial/revistaeconomiaindustrial/393/notas.pdf}},
+  note={Revista de Economía Industrial, No. 393, pp. 165-170}
+}
+
+% [Categoría: Revista Economía Industrial (fuente institucional del TRL)]
+@misc{mintur_economia_industrial,
+  author       = {{Ministerio de Industria, Turismo y Comercio de España}},
+  title        = {Revista Economía Industrial - Notas},
+  howpublished = {\url{https://www.mintur.gob.es/publicaciones/publicacionesperiodicas/economiaindustrial/revistaeconomiaindustrial/393/notas.pdf}},
+  year         = {2024},
+  note         = {: 2024-09-12}
+}
+
+% [Categoría: Costos de energía (contexto de ensayos)]
+@misc{Enel_energía,
+  author       = {{Enel Perú}},
+  title        = {Tarifas eléctricas},
+  year         = {2024},
+  url          = {\url{https://www.enel.pe/es/ayuda/tarifas.html}},
+  note         = {Accedido: 15 de noviembre de 2024}
 }
