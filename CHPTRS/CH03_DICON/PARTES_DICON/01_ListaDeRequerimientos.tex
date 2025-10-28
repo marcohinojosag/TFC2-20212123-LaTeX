@@ -1,0 +1,93 @@
+\section{Lista de requerimientos}
+\label{sec:.lista de req}
+Se presenta en la Tabla \ref{tab:CH04_LISTA} la lista de requerimientos que presenta las necesidades y deseos para la propuesta de solución, de igual manera se procederá a justificar cada uno de los requerimientos encontrados. Para definir los requerimientos del sistema, se entrevistó al actual director de la maestría en Automatización y Control de la PUCP, el ingeniero Celso de la Cruz, quien aportó su visión sobre las características que debería tener un módulo de estimación de parámetros de motores \ac{DC}. En base a ello, se ha propuesto los siguientes requerimientos de diseño.
+
+\begin{longtblr}[theme=pucp,
+    label = {tab:CH04_LISTA},
+    caption = {Descripción de señales de entrada y salida},
+    ]{
+        colspec = {Q[l,m]Q[l,m]Q[l,m]},
+        column{1}={2cm},
+        column{2}={2.75cm},
+        column{3}={9cm},
+        rowhead = 1, 
+        rowfoot = 0,
+        hlines,
+        vlines
+    }
+    \textbf{Deseo ó Exigencia} & \textbf{Característica} & \textbf{Descripción}\\
+    Exigencia & Función principal & Estimar el modelo de motores \ac{DC} en el rango de $ 3-12 V $, mediante la adquisición de datos y excitación del sistema con voltaje. \\
+    
+    Exigencia & Geometría & Dimensiones mínimas: Tamaño hoja B6 (125x176 mm); Dimensiones máximas: 300x300 mm. \\
+    
+    Deseo & Capacidad de la máquina & Estimar el modelo de un solo motor a la vez. \\
+    
+    Exigencia & Tiempo de procesamiento & Identificación de un motor en menos de 2 horas. \\
+    
+    Exigencia & Señales de información &  \ac{GUI} para adquirir datos, usar algoritmos de estimación, y mostrar resultados comparativos. \\
+    
+    Exigencia & Control & Registro y visualización de los parámetros estimados para su uso en el diseño de controladores. \\
+    
+    Exigencia & Electrónica & \ac{HW} electrónico: microcontroladores, filtros, tarjetas de adquisición, sistema de alimentación, memorias, conexiones a \ac{PC}. \\
+    
+    Exigencia & Energía & Alimentación a la red eléctrica de $220\text{VAC }60\text{Hz}$ con aislamiento adecuado entre los sistemas de control y potencia. \\
+
+    Exigencia & Fuente externa & Se requerirá que para utilizar el estimador, el usuario tiene que regular el voltaje de alimentación del motor con el voltaje nominal de este. \\
+    
+    Exigencia & Comunicaciones & Comunicación con una \ac{PC} para el procesamiento y ejecución de algoritmos de estimación. \\
+    
+    Exigencia & Fabricación & Impresión 3D, \ac{PCB} para los circuitos y uniones atornilladas. \\
+    
+    Exigencia & Montaje & Acceso sencillo al hardware para reparación o cambio de componentes con herramientas manuales. \\
+    
+    Exigencia & Seguridad & Circuitos aislados y disipación de calor para evitar lesiones durante la interacción.\\
+    
+    Exigencia & Interfaz & La interfaz a diseñar deberá cumplir con los estándares de codificación recomendados por las organizaciones correspondientes según el lenguaje de programación a utilizar.
+\end{longtblr}
+
+\subsection{Requerimientos en base a entrevista}
+    \begin{itemize}
+       \item Función principal: 
+       La función principal de la máquina es estimar el modelo de un motor \ac{DC} en el rango de 3-12V, a partir de una primera adquisición de datos como se explicó en el capítulo \ref{ch:CH02-Estado-del-Arte}. La mayoría de las estimaciones de modelos lineales de motores se inician con la excitación del sistema mediante una entrada de voltaje. 
+       
+       \item Geometría:
+       Se sugirió que el módulo tenga un tamaño mínimo equivalente a una hoja B6 (125x176 mm), con el fin que sea un módulo para realizar experiencias en laboratorio.
+       
+       \item Capacidad de la máquina: 
+       El sistema debe ser capaz de estimar el modelo de un solo motor por vez, debido a las limitaciones de espacio y las conexiones de \ac{HW}. Se espera contar con un único espacio de entrada donde colocar el motor para las pruebas.
+       %``texto''-> para abrir las comillas
+       \item Tiempo de procesamiento:  
+       Si se plantea utilizarlo como una experiencia de laboratorio será necesario que la experiencia de estimar parámetros no tome demasiado tiempo. Por lo tanto, el tiempo de procesamiento e identificación de un motor no deberá exceder las 2 horas, que es la duración estándar de una sesión de laboratorio en la PUCP.
+       
+       \item Control: 
+       Dado que la estimación del modelo de un motor \ac{DC} requiere conocer los valores de sus parámetros, estos deberán ser mostrados y registrados para su uso posterior en el diseño de controladores, en caso se implemente como actividad en un laboratorio.
+       
+       \item Energía:  
+       El sistema será alimentado por la red eléctrica de $220\text{VAC }60\text{Hz}$, con un aislamiento adecuado entre los sistemas de control, adquisición de datos y la parte de potencia.
+       
+        \item Montaje: 
+        En caso de fallo, el acceso al hardware deberá ser sencillo para facilitar reparaciones o sustituciones, con una persona y herramientas manuales.
+        
+        \item Seguridad: 
+        El sistema debe contar con un adecuado sistema de disipación de calor y circuitos aislados para evitar riesgos de lesión al interactuar los estudiantes con el módulo.
+        
+        \item Costos: 
+        El precio del sistema no deberá exceder los S/. 1000 (mil nuevos soles).
+        %\item Plazos: 
+        %La fecha límite para la entrega del diseño de la propuesta es julio de 2025, conforme al calendario académico.
+    \end{itemize}
+\subsection{Requerimientos en base al Marco teórico y Estado del Arte}
+    \begin{itemize}
+        \item Señales de información:  
+       El sistema deberá contar con una \ac{GUI} para que los estudiantes puedan realizar tareas como la adquisición de datos del motor, aplicar algoritmos de estimación, visualizar gráficas comparativas de las estimaciones, entre otras.
+       \item Electrónica: 
+       El sistema deberá incluir hardware electrónico encargado de la adquisición correcta de datos del motor, como microcontroladores, filtros, tarjetas de adquisición, sistemas de alimentación, memorias y conexiones a una PC.
+       \item Comunicaciones: 
+       Se requerirá que el sistema cuente con una \ac{PC} para estimar y mostrar los resultados obtenidos por el sistema que se desea diseñar.
+       \item Fabricación:
+        La fabricación del módulo deberá considerar las dimensiones de los componentes, soldaduras del \ac{HW} electrónico y la posible inclusión de componentes mecánicos como fijaciones para el motor, engranajes y disipadores de calor.
+        \item Interfaz:
+        Para asegurar un código claro y formal que cumpla con los estándares vigentes, se deberán seguir las normas establecidas por las entidades correspondientes en cada lenguaje de programación. Así, si la interfaz se desarrolla en C\texttt{++}, deberá regirse por el estándar MISRA C\texttt{++} \autocite{MISRA_CPP_2023}; en Python, deberá seguir el estándar PEP 8 según PSF \autocite{PEP8_Guide}. Cabe resaltar,  que se debe cumplir con el estándar más actualizado a la fecha en que se redacte el presente trabajo de investigación.
+    \end{itemize}
+
+
