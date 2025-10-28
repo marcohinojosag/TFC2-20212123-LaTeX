@@ -178,8 +178,11 @@
 \usepackage{tabularray}
 \setlength\bibitemsep{0.6\baselineskip} % Adds spaces between references entries
 \usepackage{hhline} % For \hhline in tables
-\DefTblrTemplate{contfoot-text}{default}{Continúa en la siguiente página}
-\DefTblrTemplate{conthead-text}{default}{(Continúa)}
+\DefTblrTemplate{contfoot-text}{es}{Continúa en la siguiente página}
+\DefTblrTemplate{conthead-text}{es}{(Continúa)}
+% Para no declarar el diseño de tabla utilizar esta línea de comando
+% \DefTblrTemplate{contfoot-text}{default}{Continúa en la siguiente página}
+% \DefTblrTemplate{conthead-text}{default}{(Continúa)}
 \SetTblrTemplate{contfoot-text}{default}
 \SetTblrTemplate{conthead-text}{default}
 \UseTblrLibrary{amsmath}
@@ -188,8 +191,11 @@
 \UseTblrLibrary{counter,varwidth} %To fix some counter in images within tables
 \NewTblrTheme{pucp}{
 \SetTblrStyle{firsthead}{}
-\SetTblrTemplate{contfoot-text}{normal}
-\SetTblrTemplate{conthead-text}{normal}
+\SetTblrTemplate{contfoot-text}{es}
+\SetTblrTemplate{conthead-text}{es}
+% Para no declarar el diseño de tabla utilizar esta línea de comando
+% \SetTblrTemplate{contfoot-text}{normal}
+% \SetTblrTemplate{conthead-text}{normal}
 }
 
 \usepackage{bigstrut}
@@ -207,4 +213,62 @@
 \input{style/usDefCmd/Math.tex}
 \input{style/usDefCmd/DefsConstants.tex}
 
+\usepackage{listings}
+\usepackage{listingsutf8}   % comentarios con acentos en UTF-8
 
+% Nombres en español
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Índice de códigos}
+
+% Estilo base (evita overflow)
+\lstdefinestyle{codebase}{
+  inputencoding=utf8,
+  backgroundcolor=\color{codebg},
+  frame=single, rulecolor=\color{codeborder}, framerule=0.6pt, framesep=6pt,
+  numbers=left, numberstyle=\tiny, numbersep=8pt,
+  xleftmargin=1.5em, xrightmargin=0em,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries\color{codekw},
+  commentstyle=\itshape\color{codecm},
+  stringstyle=\color{codestr},
+  identifierstyle=\color{codeid},
+  showstringspaces=false, upquote=true, tabsize=2, keepspaces=true,
+  breaklines=true,            % <--- quiebra líneas largas
+  breakatwhitespace=false,    % permite cortar dentro de tokens si es necesario
+  columns=fullflexible,       % mejora el ajuste para evitar desbordes
+  postbreak=\mbox{\textcolor{codecm}{\(\hookrightarrow\)}\space}, % marca de continuación
+  captionpos=b, aboveskip=1ex, belowskip=1ex
+}
+
+% Estilo específico para C
+\lstdefinestyle{cstyle}{
+  style=codebase,
+  language=C,
+  morekeywords={uint8_t,uint16_t,uint32_t,bool,true,false}
+}
+
+% MATLAB/Octave (listings suele traer 'Matlab'; si no, usa 'Octave')
+\lstdefinestyle{matlabstyle}{
+  style=codebase,
+  language=Matlab        % o: language=Octave
+}
+
+%  Mapea caracteres españoles en comentarios si hiciera falta:
+\lstset{
+  literate=
+   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+   {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+   {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {°}{{$^\circ$}}1
+}
+
+
+% Paleta
+\definecolor{codebg}{HTML}{F7F7F7}
+\definecolor{codeborder}{HTML}{DDDDDD}
+\definecolor{codekw}{HTML}{005CC5}
+\definecolor{codestr}{HTML}{22863A}
+\definecolor{codecm}{HTML}{6A737D}
+\definecolor{codeid}{HTML}{24292E}
+
+
+\usepackage{rotating} 
