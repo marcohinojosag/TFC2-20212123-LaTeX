@@ -1,0 +1,199 @@
+\section{Matriz morfológica}
+De acuerdo al diagrama de funciones del inciso anterior, se realiza la matriz morfológica con las posibles opciones de cada función. Así, se establecen conexiones entre las funciones para desarrollar las tres alternativas de solución. Las siguientes tablas se dividen en los dominios vistos en la sec. \ref{sec:CH03_FUNCIONES}.
+\newpage
+    \begin{longtblr}[theme=pucp,
+    label = {tab:matriz_interfaz},
+    caption = {Matriz morfológica del dominio de Interfaz},
+]{
+    colspec = {Q[c,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2.5cm},
+    column{2}={3.5cm},
+    column{3}={3.5cm},
+    column{4}={3.5cm},
+    rowhead = 1,
+    rowfoot = 0,
+    cell{2}{2} = {c=3,r=3}{c},
+    cell{5}{2} = {c},
+    cell{5}{3} = {c=2}{c},
+    cell{6}{2} = {r=2}{c},
+    cell{6}{3} = {c=2,r=2}{c},
+    cell{8}{2} = {c},
+    cell{8}{3} = {c},
+    cell{8}{4} = {c},
+    vlines,
+    hline{1-2,5-6,8-9} = {-}{},
+    hline{3-4,7} = {1}{},
+    %colspec = \{XXX\}, width = 0.85\textbackslash{}linewidth, 
+    %row\{odd\} = \{gray9\}, row\{even\} = \{brown9\}, 
+    %row\{1-2\} = \{purple7\}, row\{Z\} = \{blue7\}, 
+}
+Funciones                  & Alternativa 1                     & Alternativa 2 & Alternativa 3           \\
+Leer/Escribir              & CPU + Interfaz Gráfica de Usuario &               &                         \\
+Procesar datos de entrada  &                                   &               &                         \\
+Procesar datos de salida   &                                   &               &                         \\
+Ejecutar estimador         & \textit{Script} de Matlab               & Python        &                         \\
+Mostrar estado del proceso & Monitor de PC                     & Pantalla OLED &                         \\
+Mostrar falla ocurrida     &                                   &               &                         \\
+Interfaz                   & Matlab App Designer               & JavaScript    & Framework basado en C\texttt{++} 
+\end{longtblr}
+
+\begin{longtblr}[theme=pucp,
+    label = {tab:matriz_comunicación},
+    caption = {Matriz morfológica del dominio de Comunicación},
+]{
+    colspec = {Q[c,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2.5cm},
+    column{2}={3.5cm},
+    column{3}={3.5cm},
+    column{4}={3.5cm},
+    cell{2}{2} = {c=3,r=2}{c},
+    vlines,
+    hline{1-2,4} = {-}{},
+    hline{3} = {1}{},
+}
+Funciones                          & Alternativa 1                        & Alternativa 2 & Alternativa 3 \\
+Recibir información de la interfaz & \SetCell[r=2]{m,6.5cm} Interfaces seriales (UART, SPI, I2C) &               &               \\
+Enviar información a la interfaz    &                                      &               &      
+\end{longtblr}
+\newpage
+\begin{longtblr}[theme=pucp,
+    label = {tab:matriz_cntrl},
+    caption = {Matriz morfológica del dominio de Control},
+]{
+    colspec = {Q[l,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2.5cm},
+    column{2}={3.5cm},
+    column{3}={3.5cm},
+    column{4}={3.5cm},
+    cells = {c},
+    rowhead = 1,
+    rowfoot = 0,
+  cell{2}{2} = {r=2}{},
+  cell{2}{3} = {r=2}{},
+  cell{2}{4} = {r=2}{},
+  cell{4}{2} = {c=3}{},
+  cell{5}{2} = {c=3}{},
+  vlines,
+  hline{1-2,4-7} = {-}{},
+  hline{3} = {1}{},
+}
+Funciones                                                         & Alternativa 1      & Alternativa 2          & Alternativa 3         \\
+Procesar data                                                     & Microcontroladores & FPGA                   & Single Board Computer \\
+Controlar entrada de motor                                        &                    &                        &                       \\
+Acondicionar voltaje de entrada (SW)        &   PWM + TIMER        &                        &                       \\
+Controlar ajuste y desajuste de motor  (SW) & PWM                &                        &                       \\
+Corroborar si el sistema esta listo                               & Interrupciones     & Señal digital (Enable) & Señal digital    
+\end{longtblr}
+
+
+\begin{longtblr}[theme=pucp,
+    label = {tab:matriz_sens},
+    caption = {Matriz morfológica del dominio de Sensores},
+]{
+    colspec = {Q[l,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2.5cm},
+    column{2}={3.5cm},
+    column{3}={3.5cm},
+    column{4}={3.5cm},
+    cells = {c},
+    rowhead = 1,
+    rowfoot = 0,
+  cell{4}{3} = {c=2}{},
+  cell{6}{3} = {c=2}{},
+  hlines,
+  vlines,
+}
+Funciones                            & Alternativa 1                  & Alternativa 2                      & Alternativa 3         \\
+Sensar corriente                     & Sensor de  efecto Hall         & Resistencia de derivación (shunt). & Inducción no invasiva \\
+Sensar velocidad angular             & Encoder capacitivo              & Encoder magnético                  & Encoder óptico        \\
+Sensar voltaje                       & Divisor de tensión             & Sensor de voltaje de efecto Hall   &                       \\
+Sensar motor se encuentre en soporte & Sensor de proximidad inductivo & Sensor capacitivo                  & Sensor infrarrojo     \\
+Avisar que actuadores estén listos   & LED                            & Buzzer                             &                
+\end{longtblr}
+
+
+\begin{longtblr}[theme=pucp,
+    label = {tab:matriz_act},
+    caption = {Matriz morfológica del dominio de Actuadores},
+]{
+    colspec = {Q[l,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2.5cm},
+    column{2}={3.5cm},
+    column{3}={3.5cm},
+    column{4}={3.5cm},
+    cells = {c},
+    rowhead = 1,
+    rowfoot = 0,
+    cell{3}{3} = {c=2}{},
+    cell{4}{3} = {c=2}{},
+    hlines,
+    vlines,
+}
+Funciones                          & Alternativa 1         & Alternativa 2 & Alternativa 3         \\
+Cortar suministro de energía       & Relé electromagnético & Fusible       & Relé de estado sólido \\
+Ajustar y desajustar al motor      & Servomotor            & Motor \ac{DC}      &                       \\
+Avisar que actuadores estén listos & LED                   & Buzzer        & 
+\end{longtblr}
+
+\begin{longtblr}[theme=pucp,
+    label = {tab:matriz_mecanica},
+    caption = {Matriz morfológica del dominio de Mecánica},
+]{
+    colspec = {Q[l,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2.5cm},
+    column{2}={3.5cm},
+    column{3}={3.5cm},
+    column{4}={3.5cm},
+    cells = {c},
+    rowhead = 1,
+    rowfoot = 0,
+    cell{3}{3} = {c=2}{},
+    cell{5}{2} = {c=3}{},
+    hlines,
+    vlines,
+}
+Funciones                                     & Alternativa 1          & Alternativa 2       & Alternativa 3                  \\
+Fijar motor                                   & Abrazaderas ajustables & Bridas              & Mecanismo de tensión de correa \\
+Disipar calor en los circuitos de potencia    & Disipadores de calor   & Ventiladores        &                                \\
+Estabilizar y soportar componentes y al motor & Impresión 3D           & Estructura de chapa & Estructura de madera (MDF)           \\
+Uniones con componentes                       & Uniones atornilladas   &                     &                                        
+\end{longtblr}
+
+ 
+\begin{longtblr}[theme=pucp,
+    label = {tab:matriz energia},
+    caption = {Matriz morfológica del dominio de Energía},
+]{
+    colspec = {Q[l,m]Q[c,m]Q[c,m]Q[c,m]},
+    column{1}={2cm},
+    column{2}={3cm},
+    column{3}={3cm},
+    column{4}={3cm},
+    cells = {c},
+    rowhead = 1,
+    rowfoot = 0,
+    cell{4}{2} = {c=3}{},
+    cell{5}{2} = {c=2}{},
+    cell{6}{2} = {c=2}{},
+    cell{8}{3} = {c=2}{},
+    hlines,
+    vlines,
+}
+Funciones                            & Alternativa 1                               & Alternativa 2               & Alternativa 3                         \\
+Acondicionar voltaje de alimentación & Fuente switching                            & Fuente switching            & Fuente lineal                         \\
+Activar alimentación eléctrica       & Switch                                      & Botón                       & Relé                                  \\
+Interrumpir la línea de alimentación & Botón de emergencia                         &                             &                                       \\
+Energizar actuadores                 & Regulador de voltaje conmutado (BUCK-BOOST) &                             & Regulador de voltaje lineal           \\
+Energizar sensores                   & Regulador de voltaje conmutado (BUCK-BOOST) &                             & Regulador de voltaje lineal           \\
+Energizar procesador                 & Regulador de voltaje conmutado (BUCK)       & Regulador de voltaje lineal & Diodo zener (con voltaje ya regulado) \\
+Energizar motor                      & Fuente BUCK                                 & Driver de motor             &                    
+\end{longtblr}
+
+
+
+
+
+
+
+
+
