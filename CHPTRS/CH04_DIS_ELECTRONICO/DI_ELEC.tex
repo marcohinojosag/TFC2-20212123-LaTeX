@@ -511,12 +511,12 @@ Finalmente, en la Tabla \ref{tab:pines_pcb} se presenta la distribución de pine
     \toprule
     \textbf{Red / función} & \textbf{Ancho adoptado} & \textbf{Justificación} \\
     \midrule
-    Señales digitales (GPIO, SPI, PWM, ALERT) & 12 mil (0.30 mm) & Mínimo de fábrica; \(I \ll 10\) mA \\
-    3.3 V — tramo principal (hasta 1.5 A)     & 24 mil (0.61 mm) & Cálculo 11.86 mil; se duplica por margen \\
-    3.3 V — ramales a cargas (ESP32, ENC28J60, TMAG) & 12 mil (0.30 mm) & Corrientes \(\leq\) 0.5 A por ramal; cálculo 2.61 mil \\
-    GND (control)                              & Plano            & Menor impedancia y retorno controlado \\
-    12 V — entrada (conector → driver)         & 80 mil (2.03 mm) & Margen sobre cálculo 5 A = 62.4 mil; tramo corto y ancho \\
-    OUTA/OUTB → bornero motor                  & 100 mil (2.54 mm) + polígono/estañado & Robustez, baja caída; admite picos \\
+    Señales digitales (GPIO, SPI, PWM, ALERT) & 12 mil (0.30 mm) &  \(I \ll 10\) mA \\
+    3.3 V     & 24 mil (0.61 mm) & Cálculo 11.86 mil; se duplica por factor de seguridad \\
+    3.3 V (ESP32, ENC28J60, TMAG) & 12 mil (0.30 mm) & Corrientes \(\leq\) 0.5 A por ramal; cálculo 2.61 mil \\
+    GND                            & Plano            & Es la malla de tierra que cubre toda la \ac{PCB} \\
+    12 V entrada al \textit{driver}         & 80 mil (2.03 mm) & Cálculo 5 A = 62.4 mil, es un tramo corto y ancho \\
+    OUTA/OUTB a las borneras                  & 100 mil (2.54 mm) & admite picos de corriente por el arranque\\
     Sense y señales analógicas                 & 12 mil (0.30 mm) & Separación de lazos de potencia \\
     \bottomrule
     \end{tabularx}
