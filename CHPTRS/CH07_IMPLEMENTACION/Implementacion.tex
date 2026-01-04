@@ -1,16 +1,110 @@
 \chapter{Implementación y pruebas del prototipo}
-\ihead[]{Capítulo 7: Implementación del prototipo}
+\ihead[]{Capítulo 6: Implementación del prototipo}
 \label{ch:CH07_Implementacion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     En este capítulo se recopilarán todas las pruebas utilizando un prototipo para validar el funcionamiento del diseño electrónico y mecánico, además del \ac{SW} para lograr una correcta implementación de toda la solución general que se ha planteado en los Capítulos \ref{ch:CH04-Diseno-Electronico}, \ref{ch:CH04-Diseno-Mecanico} y \ref{ch:CH06_Diseno-software}. Se comenzará viendo las pruebas y configuraciones de todos los componentes que conforman el \ac{HW} utilizando piezas para el prototipado rápido como lo son piezas en impresión 3D y placas perforadas para la parte electrónica. En cuanto al \ac{SW} de la solución se mostrarán partes del código a utilizar y principalmente la recepción y envío de datos en ella. 
 \section{Prueba del sensor Hall}
+    \subsection{Configuración mínima del TMAG5170 A1 para detección de giro (ángulo XY)}
+    \label{sec:tmag_min_cfg}
+    % ---- Inserta este párrafo al inicio de la subsección \ref{sec:tmag_min_cfg} ----
+    Para el desarrollo de las pruebas se cuenta tanto con el sensor TMAG5170 como con el \textit{driver} del motor, cortesía del profesor Enrique Vidal, asesor del presente documento. Con el fin de agilizar la validación y configuración del sensor, se mandó a fabricar una \ac{PCB} adaptadora que permite su interconexión mediante \textit{headers} hacia una placa de prueba. En la Figura~\ref{fig:tmag_pcb_poc} se muestra el diseño realizado en EasyEDA y su implementación durante las pruebas.
     
+    % ---- Figura: izquierda EasyEDA / derecha implementación ----
+    \begin{figure}[H]
+    \centering
     
+    \begin{minipage}[t]{0.48\textwidth}
+    \vspace{0pt}
+    \centering
+    \includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/3D_PCB_TMAG.png}
+    \vspace{0.3em}
+    {\footnotesize\textit{(a) Diseño de la \ac{PCB} adaptadora en EasyEDA}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+    \vspace{0pt}
+    \centering
+    \includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/TMAG5170.jpeg}
+    \vspace{0.3em}
+    {\footnotesize\textit{(b) Implementación de la \ac{PCB} adaptadora para pruebas}}
+    \end{minipage}
+    
+    \caption{\ac{PCB} adaptadora para pruebas y configuración del sensor TMAG5170}
+    \label{fig:tmag_pcb_poc}
+    \caption*{\footnotesize\textit{Nota: Elaboración propia; componentes cortesía del profesor Enrique Vidal.}}
+    \end{figure}
 
     
+    % (Opcional) aquí irá tu figura de PCB + foto, cuando la tengas
+    % \begin{figure}[H] ... \caption{...} \label{fig:tmag_pcb_poc} \caption*{Nota: ...} \end{figure}
+    
+    
+    \begin{lstlisting}[language=C,basicstyle=\ttfamily\small,caption={Inicialización mínima y lectura de ángulo XY (TMAG5170 A1).},label={lst:tmag_min_init}]
+    void tmag5170_init_angle_xy(void)
+    {
+        tmag_disable_crc_once();  // opcional durante pruebas (ver datasheet)
+        tmag_write16_nocrc(0x01, TMAG_SENSOR_CONFIG_VAL);  // SENSOR_CONFIG
+        tmag_write16_nocrc(0x00, TMAG_DEVICE_CONFIG_VAL);  // DEVICE_CONFIG
+        tmag_write16_nocrc(0x03, TMAG_ALERT_CONFIG_VAL);   // ALERT_CONFIG
+    }
+    
+    float tmag5170_read_angle_deg(void)
+    {
+        uint16_t raw = tmag_read16_nocrc(0x13);  // ANGLE_RESULT
+        return (float)(raw >> 4) + (float)(raw & 0xF)/16.0f;
+    }
+    \end{lstlisting}
+
+    
+  
 \section{Pruebas con el \textit{driver} de motor}
+\label{sec:pruebas_driver}
+
+Para las pruebas con el \textit{driver} VNH7070BAS se empleó una etapa de potencia basada en el puente H seleccionado en el Capítulo~\ref{ch:CH04-Diseno-Electronico}, con el objetivo de validar su funcionamiento antes de integrarlo al prototipo final. En esta etapa se verificó la correcta excitación del motor \ac{DC} mediante señales de control provenientes de la ESP32 (habilitación, sentido de giro y \ac{PWM}), así como la lectura de la salida de sensado CS para su posterior adquisición por el ADC. Las pruebas se realizaron en un entorno de prototipado rápido, utilizando conexiones accesibles y puntos de medición que permitan observar las señales principales del \textit{driver} y confirmar su compatibilidad con la lógica a \SI{3.3}{\volt} del microcontrolador.
+\begin{figure}[H]
+\centering
+
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/3D_PCB5_VNH.png}
+\vspace{0.3em}
+{\footnotesize\textit{(a) Diseño de la \ac{PCB} del \textit{driver} VNH7070BAS en EasyEDA}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/VNH.jpeg}
+\vspace{0.3em}
+{\footnotesize\textit{(b) Implementación física del \textit{driver} VNH7070BAS en una placa de pruebas}}
+\end{minipage}
+
+\caption{Implementación de prueba del \textit{driver} VNH7070BAS}
+\label{fig:vnh_pcb_poc}
+\caption*{\footnotesize\textit{Nota: Elaboración propia; componentes cortesía del profesor Enrique Vidal.}}
+\end{figure}
+Además, para efectos de estimación de costos del prototipo, se considerará que las \ac{PCB}s fabricadas para estas pruebas tuvieron un costo referencial de S/.\,\SI{20}{} por unidad. En total, se mandaron a fabricar dos \ac{PCB}s en el mercado peruano (una para el sensor TMAG5170 y otra para el \textit{driver} VNH7070BAS), cuyos costos se resumen en la Tabla~\ref{tab:costo_pcbs_pruebas}.
+
+\begin{table}[H]
+\centering
+\caption{Costo referencial de \ac{PCB}s fabricadas para pruebas}
+\label{tab:costo_pcbs_pruebas}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{Ítem} & Proveedor & Cant. & Precio S/. \\
+\hline
+\ac{PCB} adaptadora TMAG5170 & Mercado peruano & 1 & 20 \\
+\hline
+\ac{PCB} de pruebas VNH7070BAS & Mercado peruano & 1 & 20 \\
+\hline
+\multicolumn{3}{|c|}{Costo Total} & 40 \\
+\hline
+\end{tabular}
+\end{table}
+
 \section{Prueba de sensado utilizando el \ac{HW} implementado}
-\section{Prueba de envío y transmisición de datos entre \ac{HW} y \ac{SW}}
+\section{Prueba de envío y transmisisión de datos entre \ac{HW} y \ac{SW}}
 \section{Pruebas con la interfaz}
 \section{Pruebas con el algoritmo de estimación \textit{offline}}
 \section{Pruebas con el algoritmo de estimación \textit{online}}

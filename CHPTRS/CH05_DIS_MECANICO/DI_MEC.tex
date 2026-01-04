@@ -85,5 +85,42 @@ En este capítulo se presentarán todas las piezas mecánicas que utilizarán du
         \label{fig:SoporteIman}
     \end{figure}
 \section{Diseño de estructura de fijación del sensor TMAG5170}
-\section{Diseño del chasis y partes de sujeción de todas las piezas electrónicas}
+
+La carcasa del banco de pruebas se diseñó para proteger la electrónica y facilitar la interacción del usuario durante la operación de la máquina. En particular, se incorporaron perforaciones en el panel frontal para el montaje de los botones de encendido, apagado y parada de emergencia. Las dimensiones de dichos elementos fueron medidas previamente en físico, de modo que el diseño de los alojamientos asegure un ajuste adecuado y permita su posterior validación mediante pruebas de ensamblaje.
+\begin{figure}[H]
+        \centering
+        \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+            % Fila 1: imagen
+            \begin{subfigure}[t]{0.5\linewidth}
+                \centering
+                \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/carcasa.JPG}
+            \end{subfigure}
+        \end{tabularx}
+        \caption{Agujeros de la carcasa donde estarán los botones de Apagado, Encendido y de emergencia}
+        \label{fig:SoporteIman}
+    \end{figure}
+Con el fin de acelerar la iteración del diseño y reducir costos, la validación inicial de la carcasa se plantea mediante manufactura aditiva, lo cual permite realizar ajustes rápidos en función del montaje real de los componentes y el cableado asociado, antes de una fabricación definitiva.
+
+\subsection{Selección del material de carcasa}
+En el caso de la carcasa, se tiene como opciones de material PETG y ABS, cuyas características principales se encuentran en la Tabla~\ref{tab:4.Caracteristicas materiales}. Ambos materiales son buenas opciones porque permiten tener ligereza, confort y rigidez. El material ABS permitiría un acabado más profesional ya que es comúnmente utilizado en diversos dispositivos. Sin embargo, tiene un mayor costo y una mayor dificultad de impresión debido a la expulsión de gases. Por ello, en este trabajo se optó por desarrollar la carcasa con el material PETG. Además, en el capítulo de costos se presenta la estimación asociada a estos materiales, y en el Anexo~\ref{an:Anexo_H_CostosDeImpresion3D} se incluye el costo de impresión por gramo considerado para la fabricación mediante manufactura aditiva.
+
+\begin{table}[H]
+\centering
+\caption{Características de los materiales PETG y ABS}
+\label{tab:4.Caracteristicas materiales}
+\begin{tblr}{
+  cells = {c},
+  hlines,
+  vlines,
+  vline{3} = {-}{black},
+  hline{-} = {1,3-4}{black},
+}
+Características            & Unidades & PETG & ABS  \\
+Densidad                   & g/cm3    & 1.23 & 1.01 \\
+Módulo de elasticidad      & GPa      & 2.0  & 2.0  \\
+Resistencia a tracción     & MPa      & 50   & 40   \\
+Facilidad de impresión     & -        & Alta & Baja \\
+Temperatura de deformación & \textdegree C & 80   & 105
+\end{tblr}
+\end{table}
 \section{Listado de planos mecánicos}
