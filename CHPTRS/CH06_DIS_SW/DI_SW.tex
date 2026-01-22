@@ -1,10 +1,26 @@
 \chapter{Diseño del \ac{SW} del sistema}
 \ihead[]{Capítulo 6: Diseño \ac{SW} del sistema}
-\label{ch:CH06_Diseno-software}
+\label{ch:CH06}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+En este capítulo se describe el diseño del \ac{SW} del sistema, incluyendo la interfaz de usuario y la lógica de control empleada para ejecutar las pruebas y extraer los datos de sensado. En particular, se presenta el flujo de inicialización, el envío de parámetros de operación y el proceso de adquisición de variables, con el objetivo de asegurar una comunicación ordenada entre el microcontrolador y la interfaz, y garantizar la consistencia de los datos utilizados en los algoritmos de estimación.
+
 \section{Diseño de la interfaz}
-\section{Inicialización del sistema y funcionamiento de envió de parámetros}
+En esta sección se describe la interfaz utilizada para controlar el proceso de pruebas y visualizar los datos adquiridos. La interfaz permite iniciar la captura de variables y recibir los datos enviados por el microcontrolador para su posterior procesamiento.
+
+\section{Inicialización del sistema y funcionamiento de envío de parámetros}
+Al iniciar el sistema, el microcontrolador configura los periféricos necesarios para el sensado y establece la comunicación con la interfaz. Una vez recibidos los parámetros de operación, se ejecuta la rutina de adquisición con un periodo de muestreo definido, almacenando las variables medidas durante un intervalo de tiempo acotado. Al finalizar la captura, los datos se transmiten hacia la interfaz para su almacenamiento y ejecución de los algoritmos de estimación. La lógica general de control utilizada para el sensado de variables se resume en la Figura~\ref{fig:flujo_sensado}.
+
+% ---------------------------------------------------------
+% INSERTAR FIGURA: diagrama de flujo de la lógica de sensado
+% ---------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{CHPTRS/CH06_DIS_SW/Fig/Diagrama en blanco (1).pdf}
+  \caption{Diagrama de flujo de la lógica de control utilizada para el sensado de variables.}
+  \label{fig:flujo_sensado}
+\end{figure}
+
 \section{Protocolo de comunicación con el HW}
 \section{Desarrollo del algoritmo de mínimos cuadrados para la estimación}
 \section{Diagrmas de flujo de la lógica e control del sistema}
