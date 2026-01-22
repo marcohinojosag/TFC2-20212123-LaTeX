@@ -1,10 +1,21 @@
 \chapter{Diseño mecánico del sistema}
 \ihead[]{Capítulo 5: Diseño mecánico del sistema}
-\label{ch:CH04-Diseno-Mecanico}
+\label{ch:CH05}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-En este capítulo se presentarán todas las piezas mecánicas que utilizarán durante la implementación del banco de pruebas, que van desde el diseño del chasis donde se realizarán las conexiones debidas y las piezas de fijación para todos los componentes electrónicos, haciendo énfasis en la pieza que se encargará de sostener la \ac{PCB} que servirá para el sensado de la velocidad angular del motor durante la toma de datos.
+En este capítulo se presentan las piezas mecánicas que se utilizarán durante la implementación del banco de pruebas. Estas comprenden el diseño del chasis, sobre el cual se realizarán las conexiones y el montaje de los componentes, así como las piezas de fijación para los elementos electrónicos. Además, se hace énfasis en la pieza destinada a sostener la \ac{PCB} que permitirá el sensado de la velocidad angular del motor durante la toma de datos. En la Figura~\ref{fig:cad_general_sistema} se muestra el modelo CAD general del conjunto, a partir del cual se detallará cada componente en las siguientes secciones.
+
+% ---------------------------------------------------------
+% INSERTAR FIGURA: CAD general del sistema
+% ---------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD.JPG}
+  \caption{Modelo CAD general del sistema mecánico del banco de pruebas.}
+  \label{fig:cad_general_sistema}
+\end{figure}
+
 \section{Diseño de mordaza para motores con diámetros distintos}
-    Como se discutió en la sección \ref{sec:solucion_optima} del Capítulo \ref{ch:CH03-Diseno-Conceptual}, se estará optando por un acople sencillo inspirado en los acoples que utilizan los motores de Pololu para transmitir torque a ruedas o poleas; estos se muestran en la Figura \ref{fig:Buje}. 
+    Como se discutió en la sección \ref{sec:solucion_optima} del Capítulo \ref{ch:CH03}, se estará optando por un acople sencillo inspirado en los acoples que utilizan los motores de Pololu para transmitir torque a ruedas o poleas; estos se muestran en la Figura \ref{fig:Buje}. 
     \begin{figure}[H]
         \centering
         \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
@@ -17,7 +28,7 @@ En este capítulo se presentarán todas las piezas mecánicas que utilizarán du
         \caption{Bujes de fijación para motores de la marca pololu}
         \label{fig:Buje}
     \end{figure}
-    Como esta solución se busca escalar a motores que cuenten con distintas geometrías, se espera contar con diseñar estos acoples de acuerdo al diámetro necesario de cada motor y ajustarlo con su respectivo prisionero. Para ello se deberá fabricar acoples similares variando el diámetro que se utilizará. En particular, para este trabajo de tesis se estarán utilizando motores de \SI{4}{mm} y \SI{6}{mm}. En la Figura \ref{fig:Disco} se presenta 
+    Como esta solución se busca escalar a motores que cuenten con distintas geometrías, se espera contar con diseñar estos acoples de acuerdo al diámetro necesario de cada motor y ajustarlo con su respectivo prisionero. Para ello se deberá fabricar acoples similares variando el diámetro que se utilizará. En particular, para este trabajo de tesis se estarán utilizando motores de \SI{4}{mm} y \SI{6}{mm}.
     \begin{figure}[H]
         \begin{tabularx}{\linewidth}{*{2}{>{\centering\arraybackslash}X}}
             % FILA-1, COL-1.
@@ -45,7 +56,7 @@ En este capítulo se presentarán todas las piezas mecánicas que utilizarán du
         \caption{Vista general de las\ac{PCB}s de control y la de \textit{encoder}}
         \label{fig:acopleIman}
     \end{figure}
-    Como se puede ver de la Figura \ref{fig:acopleIman} se ha dejado 2 agujeros centrados en la mitad del cilindro mayor, esto con la finalidad de diseñar un soporte que vaya fijo al acople y que sostenga un imán que se sitúe justo en el medio del acople, concentricamente con el eje del motor. En la Figura \ref{fig:SoporteIman} se muestra la pieza diseñada que se fijará al acople del motor, todo con la finalidad que el imán quede expuesto y cerca al sensor de efecto \textit{hall} definido en el Capítuloo \ref{ch:CH04-Diseno-Electronico}, el cual se fijará a una altura y distancia determinada del imán. 
+    Como se puede ver de la Figura \ref{fig:acopleIman} se ha dejado 2 agujeros centrados en la mitad del cilindro mayor, esto con la finalidad de diseñar un soporte que vaya fijo al acople y que sostenga un imán que se sitúe justo en el medio del acople, concéntricamente con el eje del motor. En la Figura \ref{fig:SoporteIman} se muestra la pieza diseñada que se fijará al acople del motor, todo con la finalidad que el imán quede expuesto y cerca al sensor de efecto \textit{hall} definido en el Capítulo \ref{ch:CH04}, el cual se fijará a una altura y distancia determinada del imán. 
     \begin{figure}[H]
         \centering
         \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
@@ -58,7 +69,7 @@ En este capítulo se presentarán todas las piezas mecánicas que utilizarán du
         \caption{Bujes de fijación para motores de la marca pololu}
         \label{fig:SoporteIman}
     \end{figure}
-    Para poder ajustar el acople y el soporte del imán se utilizará un macho con la rosca definida para tornillos M3 (elementos definidos por el diseñador), esta medida de tornillos serán estandarizados para todos los demás acoples que se fabriquen según el motor que se quiera evaluar. Por otra parte, el porqué se ha optado por realizar estos acoples con geometrías simples se debe a que durante la estimación de parámetros, se desea obtener la inercia del motor y para ello se deberá considerar toda masa que se le añada al eje del motor para su posterior consideración dentro del algoritmo y que eso no influya en el modelado del motor. Por otra parte, en la Figura \ref{fig:SoporteIman} se muestra el diámetro interno donde se introducirá un imán de neodimio el cual se ha presenta a continuación en la Figura \ref{fig:imanNeodimio}. Nótese que ambas dimensiones son iguales. Para la parte de prototipado y validación de la pieza por diseñar se presentarán en el Capítulo \ref{ch:CH07_Implementacion} donde cada pieza a diseñar se realizará utilizando impresión 3D
+    Para poder ajustar el acople y el soporte del imán se utilizará un macho con la rosca definida para tornillos M3 (elementos definidos por el diseñador), esta medida de tornillos serán estandarizados para todos los demás acoples que se fabriquen según el motor que se quiera evaluar. Por otra parte, el porqué se ha optado por realizar estos acoples con geometrías simples se debe a que durante la estimación de parámetros, se desea obtener la inercia del motor y para ello se deberá considerar toda masa que se le añada al eje del motor para su posterior consideración dentro del algoritmo y que eso no influya en el modelado del motor. Por otra parte, en la Figura \ref{fig:SoporteIman} se muestra el diámetro interno donde se introducirá un imán de neodimio el cual se ha presenta a continuación en la Figura \ref{fig:medidaiman}. Nótese que ambas dimensiones son iguales. Para la parte de prototipado y validación de la pieza por diseñar se presentarán en el Capítulo \ref{ch:CH07} donde cada pieza a diseñar se realizará utilizando impresión 3D
     \begin{figure}[H]
         \centering
         \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
@@ -68,23 +79,23 @@ En este capítulo se presentarán todas las piezas mecánicas que utilizarán du
                 \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/ImanNeodimio.jpg}
             \end{subfigure}
         \end{tabularx}
-        \caption{Bujes de fijación para motores de la marca pololu}
-        \label{fig:SoporteIman}
+        \caption{Medida de los imanes seleccionados}
+        \label{fig:medidaiman}
     \end{figure}
-    Como se mencionaba, las pruebas de validación se realizarán utilizando piezas impresas, sin embargo, para la solución final se espera poder fabricar estas piezas utilizando un material no magnético o que pueda influir en el campo magnético del imán de neodimio (ver Anexo \ref{an:Anexo_I_FuncionamientoSensorHall}). Entre los materiales que pueden ser utilizados para su fabricación está el Aluminio.
-    \begin{figure}[H]
-        \centering
-        \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
-            % Fila 1: imagen
-            \begin{subfigure}[t]{0.5\linewidth}
-                \centering
-                \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/ImanNeodimio.jpg}
-            \end{subfigure}
-        \end{tabularx}
-        \caption{Bujes de fijación para motores de la marca pololu}
-        \label{fig:SoporteIman}
-    \end{figure}
-\section{Diseño de estructura de fijación del sensor TMAG5170}
+    Como se mencionaba, las pruebas de validación se realizarán utilizando piezas impresas, sin embargo, para la solución final se espera poder fabricar estas piezas utilizando un material no magnético o que pueda influir en el campo magnético del imán de neodimio. Entre los materiales que pueden ser utilizados para su fabricación está el Aluminio.
+%     \begin{figure}[H]
+%         \centering
+%         \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
+%             % Fila 1: imagen
+%             \begin{subfigure}[t]{0.5\linewidth}
+%                 \centering
+%                 \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/ImanNeodimio.jpg}
+%             \end{subfigure}
+%         \end{tabularx}
+%         \caption{Bujes de fijación para motores de la marca pololu}
+%         \label{fig:SoporteIman}
+%     \end{figure}
+% \section{Diseño de estructura de fijación del sensor TMAG5170}
 
 La carcasa del banco de pruebas se diseñó para proteger la electrónica y facilitar la interacción del usuario durante la operación de la máquina. En particular, se incorporaron perforaciones en el panel frontal para el montaje de los botones de encendido, apagado y parada de emergencia. Las dimensiones de dichos elementos fueron medidas previamente en físico, de modo que el diseño de los alojamientos asegure un ajuste adecuado y permita su posterior validación mediante pruebas de ensamblaje.
 \begin{figure}[H]

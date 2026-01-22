@@ -1,16 +1,98 @@
 \chapter{Costos de implementación}
-\ihead[]{Capítulo 7: Costos de implementación}
-\label{ch:CH08-Costos}
+\ihead[]{Capítulo 8: Costos de implementación}
+\label{ch:CH08}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Costo de componentes}
 %\section{Costo de diseño y fabricación}
 %\section{Costo total}
 
-\section{Costos}
 En esta sección se presenta la estimación de los costos necesarios para obtener un prototipo funcional del banco de pruebas. El diseño se basa, en su mayoría, en componentes disponibles en el mercado local del Perú. Para aquellos elementos que no se encuentran localmente, se emplean como referencia los precios publicados por una tienda en línea. Cabe resaltar que en esta estimación no se consideran costos de ensamblaje de componentes.
 
-\subsection{Costo de materiales eléctricos}
-En la Tabla~\ref{tab:4.Costo componentes} se muestra la estimación de costos de los componentes electrónicos empleados en el diseño del sistema, con un total de S/.\,XXXX. Esta estimación no incluye, por el momento, los costos asociados a la fabricación de la \ac{PCB}. Revisar el Anexo \ref{an:Anexo_Z_Costos} para mayor detalle de los componentes que no se han encontrado en el mercado local.
+\section{Costo de materiales eléctricos}
+En la Tabla~\ref{tab:costos_electronicos} se muestra la estimación de costos de los componentes electrónicos empleados en el diseño del sistema, con un total de S/.\,96.96. Esta estimación no incluye, por el momento, los costos asociados a la fabricación de la \ac{PCB}. Tambien se ha procurado considerar componentes que se puedan encontrar en el mercado local peruano. Revisar el Anexo \ref{an:Anexo_Z} para mayor detalle de los componentes que no se han encontrado en el mercado local.
+
+\begin{longtblr}[theme=pucp,
+      label   = {tab:costos_electronicos},
+      caption = {Lista de costos de los componentes electrónicos},
+    ]{
+      colspec = {X[l,m] X[c,m] X[l,m] X[r,m] X[r,m] X[r,m]},
+      colsep=3pt,
+      row{1}={halign=c},
+      rowhead=1, rowfoot=0,
+      hlines, vlines,
+    }
+    Componente
+      & Cantidad
+      & Proveedor
+      & Precio unitario (S/.)
+      & Precio total (S/.)
+      & Precio total (US\$) \\
+
+    Pulsador \SI{6}{mm}$\times$\SI{6}{mm} (2 pines)
+      & 2 & Hi-fi Electrónica & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
+    Condensador SMD 1206 (\SI{2.2}{nF})
+      & 1 & Stacktronics & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
+    Condensador SMD 1206 (\SI{10}{nF})
+      & 1 & Stacktronics & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
+    Condensador SMD 1206 (\SI{100}{nF})
+      & 5 & Stacktronics & S/ 0.50 & S/ 2.50 & \$ 0.74 \\
+    Condensador SMD 1206 (\SI{1}{\micro\farad})
+      & 2 & Stacktronics & S/ 0.50 & S/ 1.00 & \$ 0.30 \\
+    Condensador electrolítico SMD (\SI{1}{\micro\farad})
+      & 1 & Stacktronics & S/ 1.00 & S/ 1.00 & \$ 0.30 \\
+    Condensador electrolítico SMD (\SI{330}{\micro\farad})
+      & 1 & Stacktronics & S/ 0.80 & S/ 0.80 & \$ 0.24 \\
+    Condensador electrolítico SMD (\SI{470}{\micro\farad})
+      & 1 & Stacktronics & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
+    Diodo Schottky SS36
+      & 2 & Hi-fi Electrónica & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
+    SM4T28CAY
+      & 1 & Mouser & S/ 3.27 & S/ 3.27 & \$ 0.97 \\
+    Fusible
+      & 1 & Hi-fi Electrónica & S/ 1.00 & S/ 1.00 & \$ 0.30 \\
+    Porta fusible
+      & 1 & Hi-fi Electrónica & S/ 0.80 & S/ 0.80 & \$ 0.24 \\
+    Conector JST (2 pines)
+      & 3 & Hi-fi Electrónica & S/ 0.60 & S/ 1.80 & \$ 0.53 \\
+    Header macho de 40 pines
+      & 1 & Hi-fi Electrónica & S/ 3.90 & S/ 3.90 & \$ 1.16 \\
+    Bobina \SI{47}{\micro H} SMD (\SI{12.3}{mm}$\times$\SI{12.3}{mm})
+      & 1 & Stacktronics & S/ 2.80 & S/ 2.80 & \$ 0.83 \\
+    LED SMD 1206 (rojo)
+      & 2 & Stacktronics & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
+    Bornera
+      & 1 & Hi-fi Electrónica & S/ 0.70 & S/ 0.70 & \$ 0.21 \\
+    Transistor NPN \SI{25}{V} \SI{300}{mA} (SOT-23)
+      & 2 & Stacktronics & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+    Resistencia SMD 1206 (\SI{47}{k\ohm})
+      & 2 & Stacktronics & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+    Resistencia SMD 1206 (\SI{10}{k\ohm})
+      & 9 & Stacktronics & S/ 0.20 & S/ 1.80 & \$ 0.53 \\
+    Resistencia SMD 1206 (\SI{1}{k\ohm})
+      & 3 & Stacktronics & S/ 0.20 & S/ 0.60 & \$ 0.18 \\
+    Resistencia SMD 1206 (\SI{100}{\ohm})
+      & 2 & Stacktronics & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+    Resistencia SMD 1206 (\SI{470}{\ohm})
+      & 2 & Stacktronics & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+    Resistencia SMD 1206 (\SI{4.7}{k\ohm})
+      & 1 & Stacktronics & S/ 0.20 & S/ 0.20 & \$ 0.06 \\
+    Resistencia SMD 1206 (\SI{5.1}{k\ohm})
+      & 2 & Stacktronics & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+    VNH7070BASTR
+      & 1 & Mouser & S/ 0.20 & S/ 0.20 & \$ 0.06 \\
+    LM2594M-3.3
+      & 1 & Mouser & S/ 18.22 & S/ 18.22 & \$ 5.41 \\
+    ESP32-WROOM-32D-N4
+      & 1 & Stacktronics & S/ 17.00 & S/ 17.00 & \$ 5.04 \\
+    Módulo ENC28J60
+      & 1 & Stacktronics & S/ 22.00 & S/ 22.00 & \$ 6.53 \\
+    USB-TYPE-C-018
+      & 1 & Hi-fi Electrónica & S/ 0.70 & S/ 0.70 & \$ 0.21 \\
+    TMAG5170A1QDGKT
+      & 1 & Mouser & S/ 11.37 & S/ 11.37 & \$ 3.37 \\
+
+    \SetCell[c=4]{r} \textbf{Total} & S/ 96.96 & \$ 28.77\\
+\end{longtblr}
 
 
 % \begin{table}[H]
@@ -48,13 +130,13 @@ En la Tabla~\ref{tab:4.Costo componentes} se muestra la estimación de costos de
 % \caption*{\textit{Nota: Proveedor A = Electromanía, B = Hi-Fi electrónica, C = SAISAC, D = PCB Perú}}
 % \end{table}
 %A=ELECTROMANiA, B= Hi-Fi electrónica, C= SAISAC, D= PCB Perú
-\subsection{Costo de componentes y materiales mecánicos}
-En esta sección se detallan las estimaciones de costos de fabricación de la carcasa y demás componentes. En la Tabla~\ref{tab:4.Costo carcasa} se presentan los costos de fabricación de la parte inferior y superior de la carcasa. Para el caso de la impresión 3D, se realizó una cotización previa en FABCORE, la cual se incluye en el Anexo~\ref{an:Anexo_H_CostosDeImpresion3D}. 
+\section{Costo de componentes y materiales mecánicos}
+En esta sección se detallan las estimaciones de costos de fabricación de la carcasa y demás componentes. En la Tabla~\ref{tab:4.Costo carcasa} se presentan los costos de fabricación de la parte inferior y superior de la carcasa. Para el caso de la impresión 3D, se realizó una cotización previa en FABCORE, la cual se incluye en el Anexo~\ref{an:Anexo_H}. 
 
 
 
 
-\subsection{Costo total}
+\section{Costo total}
 El costo total se resume en la siguiente Tabla~\ref{tab:4.Costo materiales} con un costo de materiales de S/.\,XXX,  
 
 \begin{table}[H]

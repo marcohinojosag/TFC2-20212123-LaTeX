@@ -393,129 +393,129 @@ A continuación, se presentarán los métodos planteados por \cite{libro_aleman}
     Métodos paramétricos, que permiten obtener modelos paramétricos. Estos métodos requieren la elección de una posible estructura del modelo, de un criterio de ajuste de parámetros y, por último, de la estimación de los parámetros que mejor ajustan el modelo a los datos experimentales.
 
     
-    \subsection{Modelos paramétricos para la identificación de sistemas lineales}
+    % \subsection{Modelos paramétricos para la identificación de sistemas lineales}
     
-    Según la información de \cite{yo cito}, se tienen los siguientes modelos de caja negra basados en polinomios en el operador de retardo \(q^{-1}\).
+    % Según la información de \cite{yo cito}, se tienen los siguientes modelos de caja negra basados en polinomios en el operador de retardo \(q^{-1}\).
     
-    \subsubsection*{Modelo ARX}
-    Estructura:
-    \[
-    A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; e[k],
-    \]
-    donde \(A(q^{-1})=1+a_1 q^{-1}+\cdots+a_{n_a}q^{-n_a}\), \(B(q^{-1})=b_0+b_1 q^{-1}+\cdots+b_{n_b}q^{-n_b}\), \(n_k\) es el retardo puro y \(e[k]\) es ruido blanco de predicción. La estimación típica se realiza por mínimos cuadrados o PEM, resultando consistente cuando \(e[k]\) es blanco e independiente de \(u[k]\). Es una estructura simple y con buenos predictores, aunque puede sesgarse si el ruido es coloreado. Véase el esquema en la Figura \ref{fig:YO_ARX}.
+    % \subsubsection*{Modelo ARX}
+    % Estructura:
+    % \[
+    % A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; e[k],
+    % \]
+    % donde \(A(q^{-1})=1+a_1 q^{-1}+\cdots+a_{n_a}q^{-n_a}\), \(B(q^{-1})=b_0+b_1 q^{-1}+\cdots+b_{n_b}q^{-n_b}\), \(n_k\) es el retardo puro y \(e[k]\) es ruido blanco de predicción. La estimación típica se realiza por mínimos cuadrados o PEM, resultando consistente cuando \(e[k]\) es blanco e independiente de \(u[k]\). Es una estructura simple y con buenos predictores, aunque puede sesgarse si el ruido es coloreado. Véase el esquema en la Figura \ref{fig:YO_ARX}.
     
-    \subsubsection*{Modelo ARMAX}
-    Extiende ARX incorporando un modelo explícito del ruido:
-    \[
-    A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; C(q^{-1})\,e[k],
-    \]
-    con \(C(q^{-1})=1+c_1 q^{-1}+\cdots+c_{n_c}q^{-n_c}\). Al modelar el color del ruido, mejora el desempeño frente a perturbaciones correlacionadas, a costa de una estimación no lineal en los parámetros que suele resolverse con PEM o máxima verosimilitud, usando ARX como inicialización y verificando que los residuos sean aproximadamente blancos. Véase la Figura \ref{fig:YO_ARMAX}.
+    % \subsubsection*{Modelo ARMAX}
+    % Extiende ARX incorporando un modelo explícito del ruido:
+    % \[
+    % A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; C(q^{-1})\,e[k],
+    % \]
+    % con \(C(q^{-1})=1+c_1 q^{-1}+\cdots+c_{n_c}q^{-n_c}\). Al modelar el color del ruido, mejora el desempeño frente a perturbaciones correlacionadas, a costa de una estimación no lineal en los parámetros que suele resolverse con PEM o máxima verosimilitud, usando ARX como inicialización y verificando que los residuos sean aproximadamente blancos. Véase la Figura \ref{fig:YO_ARMAX}.
     
-    \subsubsection*{Modelo entrada–salida (OE)}
-    El modelo entrada–salida representa la planta sin realimentar la salida en el predictor:
-    \[
-    y[k] \;=\; \frac{B(q^{-1})}{F(q^{-1})}\,q^{-n_k}\,u[k] \;+\; e[k],
-    \]
-    donde \(F(q^{-1})=1+f_1 q^{-1}+\cdots+f_{n_f}q^{-n_f}\). Es adecuado cuando el ruido actúa principalmente en la medición de salida y es independiente de la entrada; evita introducir \(A(q^{-1})\) multiplicando a \(y[k]\), lo que reduce sesgos por ruido coloreado respecto a ARX. Véase la Figura \ref{fig:YO_OE}.
+    % \subsubsection*{Modelo entrada–salida (OE)}
+    % El modelo entrada–salida representa la planta sin realimentar la salida en el predictor:
+    % \[
+    % y[k] \;=\; \frac{B(q^{-1})}{F(q^{-1})}\,q^{-n_k}\,u[k] \;+\; e[k],
+    % \]
+    % donde \(F(q^{-1})=1+f_1 q^{-1}+\cdots+f_{n_f}q^{-n_f}\). Es adecuado cuando el ruido actúa principalmente en la medición de salida y es independiente de la entrada; evita introducir \(A(q^{-1})\) multiplicando a \(y[k]\), lo que reduce sesgos por ruido coloreado respecto a ARX. Véase la Figura \ref{fig:YO_OE}.
     
-    \subsubsection*{Notas comunes}
-    La selección de órdenes \((n_a,n_b,n_c,n_f)\) y del retardo \(n_k\) se apoya en criterios de validación (AIC, BIC, análisis de residuos y capacidad predictiva) y en conocimiento previo del proceso. Para todos los casos, la estimación requiere señales de entrada con excitación suficiente y muestreo acorde con la dinámica del sistema.
+    % \subsubsection*{Notas comunes}
+    % La selección de órdenes \((n_a,n_b,n_c,n_f)\) y del retardo \(n_k\) se apoya en criterios de validación (AIC, BIC, análisis de residuos y capacidad predictiva) y en conocimiento previo del proceso. Para todos los casos, la estimación requiere señales de entrada con excitación suficiente y muestreo acorde con la dinámica del sistema.
 
-    \subsection{Modelos ARX/ARMAX y algoritmo de Steiglitz--McBride (resumen)}
+    % \subsection{Modelos ARX/ARMAX y algoritmo de Steiglitz--McBride (resumen)}
     
-    Según \cite{yo cito}, para identificar sistemas lineales a partir de datos entrada–salida se emplean modelos polinomiales en el operador de retardo \(q^{-1}\) y criterios de minimización del error de predicción.
+    % Según \cite{yo cito}, para identificar sistemas lineales a partir de datos entrada–salida se emplean modelos polinomiales en el operador de retardo \(q^{-1}\) y criterios de minimización del error de predicción.
     
-    \paragraph{Modelo ARX.}
-    \[
-    A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; e[k],
-    \]
-    con \(A(q^{-1})=1+a_1 q^{-1}+\cdots+a_{n_a}q^{-n_a}\) y \(B(q^{-1})=b_0+b_1 q^{-1}+\cdots+b_{n_b}q^{-n_b}\). Esta estructura posee regresión lineal: la salida estimada se escribe \(y_e[k]=\varphi^\top[k]\theta\), donde \(\varphi[k]\) apila salidas y entradas pasadas, y \(\theta\) contiene \(\{a_i\}\) y \(\{b_j\}\). La estimación por mínimos cuadrados es consistente cuando \(e[k]\) es blanco e independiente de \(u[k]\). Véase la Figura \ref{fig:YO_ARX}.
+    % \paragraph{Modelo ARX.}
+    % \[
+    % A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; e[k],
+    % \]
+    % con \(A(q^{-1})=1+a_1 q^{-1}+\cdots+a_{n_a}q^{-n_a}\) y \(B(q^{-1})=b_0+b_1 q^{-1}+\cdots+b_{n_b}q^{-n_b}\). Esta estructura posee regresión lineal: la salida estimada se escribe \(y_e[k]=\varphi^\top[k]\theta\), donde \(\varphi[k]\) apila salidas y entradas pasadas, y \(\theta\) contiene \(\{a_i\}\) y \(\{b_j\}\). La estimación por mínimos cuadrados es consistente cuando \(e[k]\) es blanco e independiente de \(u[k]\). Véase la Figura \ref{fig:YO_ARX}.
     
-    \paragraph{Modelo ARMAX.}
-    \[
-    A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; C(q^{-1})\,e[k],
-    \]
-    donde \(C(q^{-1})=1+c_1 q^{-1}+\cdots+c_{n_c}q^{-n_c}\). Al modelar el color del ruido vía \(C(q^{-1})\), reduce sesgos frente a perturbaciones correlacionadas, a costa de una estimación no lineal (típicamente PEM o máxima verosimilitud), usando ARX como inicialización. Véase la Figura \ref{fig:YO_ARMAX}.
+    % \paragraph{Modelo ARMAX.}
+    % \[
+    % A(q^{-1})\,y[k] \;=\; q^{-n_k}\,B(q^{-1})\,u[k] \;+\; C(q^{-1})\,e[k],
+    % \]
+    % donde \(C(q^{-1})=1+c_1 q^{-1}+\cdots+c_{n_c}q^{-n_c}\). Al modelar el color del ruido vía \(C(q^{-1})\), reduce sesgos frente a perturbaciones correlacionadas, a costa de una estimación no lineal (típicamente PEM o máxima verosimilitud), usando ARX como inicialización. Véase la Figura \ref{fig:YO_ARMAX}.
     
-    \paragraph{Criterio de ajuste.}
-    El error de predicción \(\varepsilon[k,\theta]=y[k]-y_e[k,\theta]\) se minimiza en media cuadrática sobre un conjunto de datos. La identificación puede ser fuera de línea (post–proceso de un bloque de datos) o en línea (recursiva); aquí se adopta el enfoque fuera de línea \cite{yo cito}.
+    % \paragraph{Criterio de ajuste.}
+    % El error de predicción \(\varepsilon[k,\theta]=y[k]-y_e[k,\theta]\) se minimiza en media cuadrática sobre un conjunto de datos. La identificación puede ser fuera de línea (post–proceso de un bloque de datos) o en línea (recursiva); aquí se adopta el enfoque fuera de línea \cite{yo cito}.
     
-    \subsubsection*{Algoritmo de Steiglitz--McBride (SM) para ARX}
+    % \subsubsection*{Algoritmo de Steiglitz--McBride (SM) para ARX}
     
-    El problema directo de minimizar
-    \[
-    \min_{\{a_i,b_j\}}\;\sum_{k}\Bigg[y[k]-\frac{B(q^{-1})}{A(q^{-1})}\,q^{-n_k}u[k]\Bigg]^2
-    \]
-    es no lineal en los parámetros. SM lo transforma en una secuencia de problemas lineales mediante prefiltrado iterativo con el denominador estimado. La idea práctica es:
+    % El problema directo de minimizar
+    % \[
+    % \min_{\{a_i,b_j\}}\;\sum_{k}\Bigg[y[k]-\frac{B(q^{-1})}{A(q^{-1})}\,q^{-n_k}u[k]\Bigg]^2
+    % \]
+    % es no lineal en los parámetros. SM lo transforma en una secuencia de problemas lineales mediante prefiltrado iterativo con el denominador estimado. La idea práctica es:
     
-    \begin{enumerate}
-    \item Inicializar \((A^{(0)},B^{(0)})\) (por ejemplo, con ARX por mínimos cuadrados).
-    \item En la iteración \(t\), construir señales prefiltradas con el denominador anterior:
-    \[
-    \tilde y^{(t)}[k]=\frac{y[k]}{A^{(t-1)}(q^{-1})},\qquad
-    \tilde u^{(t)}[k]=\frac{u[k]}{A^{(t-1)}(q^{-1})}.
-    \]
-    \item Resolver por mínimos cuadrados el modelo lineal en parámetros
-    \[
-    \tilde y^{(t)}[k]\;\approx\; q^{-n_k}\,B^{(t)}(q^{-1})\,\tilde u^{(t)}[k]
-    \;-\;\sum_{i=1}^{n_a} a_i^{(t)}\,\tilde y^{(t)}[k-i],
-    \]
-    obteniendo los nuevos coeficientes \(\{a_i^{(t)},b_j^{(t)}\}\).
-    \item Repetir hasta convergencia o hasta un número prefijado de iteraciones. 
-    \end{enumerate}
+    % \begin{enumerate}
+    % \item Inicializar \((A^{(0)},B^{(0)})\) (por ejemplo, con ARX por mínimos cuadrados).
+    % \item En la iteración \(t\), construir señales prefiltradas con el denominador anterior:
+    % \[
+    % \tilde y^{(t)}[k]=\frac{y[k]}{A^{(t-1)}(q^{-1})},\qquad
+    % \tilde u^{(t)}[k]=\frac{u[k]}{A^{(t-1)}(q^{-1})}.
+    % \]
+    % \item Resolver por mínimos cuadrados el modelo lineal en parámetros
+    % \[
+    % \tilde y^{(t)}[k]\;\approx\; q^{-n_k}\,B^{(t)}(q^{-1})\,\tilde u^{(t)}[k]
+    % \;-\;\sum_{i=1}^{n_a} a_i^{(t)}\,\tilde y^{(t)}[k-i],
+    % \]
+    % obteniendo los nuevos coeficientes \(\{a_i^{(t)},b_j^{(t)}\}\).
+    % \item Repetir hasta convergencia o hasta un número prefijado de iteraciones. 
+    % \end{enumerate}
     
-    Bajo entrada persistentemente excitante y ruido de medición blanco, el procedimiento converge a estimaciones insesgadas cuando el orden del modelo es suficiente. En la práctica, se verifica la blancura de residuos y la estabilidad del \(A(q^{-1})\); si es necesario, se proyectan los polos dentro del círculo unitario. El flujo de SM puede representarse como en la Figura \ref{fig:YO_SMCB}, donde el primer bloque realiza el prefiltrado \(1/A^{(t-1)}(q^{-1})\) y el segundo resuelve mínimos cuadrados con las señales filtradas \cite{yo cito}.
+    % Bajo entrada persistentemente excitante y ruido de medición blanco, el procedimiento converge a estimaciones insesgadas cuando el orden del modelo es suficiente. En la práctica, se verifica la blancura de residuos y la estabilidad del \(A(q^{-1})\); si es necesario, se proyectan los polos dentro del círculo unitario. El flujo de SM puede representarse como en la Figura \ref{fig:YO_SMCB}, donde el primer bloque realiza el prefiltrado \(1/A^{(t-1)}(q^{-1})\) y el segundo resuelve mínimos cuadrados con las señales filtradas \cite{yo cito}.
     
-    \paragraph{Relación con ARMAX y modelos entrada–salida.}
-    SM se formula de forma natural para ARX por su regresión lineal tras el prefiltrado. Para entornos con ruido coloreado, ARMAX modela explícitamente la dinámica del ruido con \(C(q^{-1})\); en ese caso, suele emplearse estimación no lineal (PEM) usando la solución ARX/SM como punto de partida. Cuando el ruido afecta principalmente la salida de medida y se desea evitar realimentar \(y[k]\) en el predictor, puede usarse la estructura entrada–salida \(y[k]=\tfrac{B(q^{-1})}{F(q^{-1})}q^{-n_k}u[k]+e[k]\), estimada típicamente por PEM con inicialización ARX \cite{yo cito}.
+    % \paragraph{Relación con ARMAX y modelos entrada–salida.}
+    % SM se formula de forma natural para ARX por su regresión lineal tras el prefiltrado. Para entornos con ruido coloreado, ARMAX modela explícitamente la dinámica del ruido con \(C(q^{-1})\); en ese caso, suele emplearse estimación no lineal (PEM) usando la solución ARX/SM como punto de partida. Cuando el ruido afecta principalmente la salida de medida y se desea evitar realimentar \(y[k]\) en el predictor, puede usarse la estructura entrada–salida \(y[k]=\tfrac{B(q^{-1})}{F(q^{-1})}q^{-n_k}u[k]+e[k]\), estimada típicamente por PEM con inicialización ARX \cite{yo cito}.
     
-    \section{Mínimos Cuadrados (MC): idea, relación con regresión lineal y ecuaciones básicas}
+    % \section{Mínimos Cuadrados (MC): idea, relación con regresión lineal y ecuaciones básicas}
     
-    \textbf{Idea general.} Dados pares de datos $\{(\varphi_k,y_k)\}_{k=1}^N$ y un modelo lineal en parámetros
-    \[
-    y_k \approx \varphi_k^\top \theta,
-    \]
-    MC busca el vector de parámetros $\theta\in\mathbb{R}^p$ que minimiza la suma de cuadrados del error:
-    \[
-    J(\theta)=\sum_{k=1}^N \big(y_k-\varphi_k^\top \theta\big)^2.
-    \]
-    Esto es equivalente a la \textit{regresión lineal} clásica cuando $\varphi_k$ contiene las variables explicativas y $\theta$ son los coeficientes.
+    % \textbf{Idea general.} Dados pares de datos $\{(\varphi_k,y_k)\}_{k=1}^N$ y un modelo lineal en parámetros
+    % \[
+    % y_k \approx \varphi_k^\top \theta,
+    % \]
+    % MC busca el vector de parámetros $\theta\in\mathbb{R}^p$ que minimiza la suma de cuadrados del error:
+    % \[
+    % J(\theta)=\sum_{k=1}^N \big(y_k-\varphi_k^\top \theta\big)^2.
+    % \]
+    % Esto es equivalente a la \textit{regresión lineal} clásica cuando $\varphi_k$ contiene las variables explicativas y $\theta$ son los coeficientes.
     
-    \subsection*{Forma matricial y ecuaciones normales}
-    Defina la matriz de regresores $\Phi\in\mathbb{R}^{N\times p}$ y el vector de salidas $y\in\mathbb{R}^{N}$:
-    \[
-    \Phi=\begin{bmatrix}\varphi_1^\top\\ \varphi_2^\top\\ \vdots\\ \varphi_N^\top\end{bmatrix},\qquad
-    y=\begin{bmatrix}y_1\\ y_2\\ \vdots\\ y_N\end{bmatrix}.
-    \]
-    El criterio es $J(\theta)=\|y-\Phi\theta\|_2^2$. Si $\Phi$ tiene rango columna completo ($\operatorname{rank}(\Phi)=p$), la solución de \textbf{mínimos cuadrados ordinarios (MCO)} es
-    \[
-    \widehat{\theta}_{\text{MCO}}=(\Phi^\top \Phi)^{-1}\Phi^\top y.
-    \]
-    Las \textit{ecuaciones normales} asociadas son
-    \[
-    \Phi^\top \Phi\,\widehat{\theta}=\Phi^\top y.
-    \]
+    % \subsection*{Forma matricial y ecuaciones normales}
+    % Defina la matriz de regresores $\Phi\in\mathbb{R}^{N\times p}$ y el vector de salidas $y\in\mathbb{R}^{N}$:
+    % \[
+    % \Phi=\begin{bmatrix}\varphi_1^\top\\ \varphi_2^\top\\ \vdots\\ \varphi_N^\top\end{bmatrix},\qquad
+    % y=\begin{bmatrix}y_1\\ y_2\\ \vdots\\ y_N\end{bmatrix}.
+    % \]
+    % El criterio es $J(\theta)=\|y-\Phi\theta\|_2^2$. Si $\Phi$ tiene rango columna completo ($\operatorname{rank}(\Phi)=p$), la solución de \textbf{mínimos cuadrados ordinarios (MCO)} es
+    % \[
+    % \widehat{\theta}_{\text{MCO}}=(\Phi^\top \Phi)^{-1}\Phi^\top y.
+    % \]
+    % Las \textit{ecuaciones normales} asociadas son
+    % \[
+    % \Phi^\top \Phi\,\widehat{\theta}=\Phi^\top y.
+    % \]
     
-    \subsection*{Versión ponderada (WLS)}
-    Si cada muestra tiene varianza diferente o se desea privilegiar ciertas mediciones, use una matriz de pesos $W=\operatorname{diag}(w_1,\dots,w_N)\succ 0$:
-    \[
-    J(\theta)=\|W^{1/2}(y-\Phi\theta)\|_2^2,\qquad
-    \widehat{\theta}_{\text{WLS}}=(\Phi^\top W \Phi)^{-1}\Phi^\top W y.
-    \]
+    % \subsection*{Versión ponderada (WLS)}
+    % Si cada muestra tiene varianza diferente o se desea privilegiar ciertas mediciones, use una matriz de pesos $W=\operatorname{diag}(w_1,\dots,w_N)\succ 0$:
+    % \[
+    % J(\theta)=\|W^{1/2}(y-\Phi\theta)\|_2^2,\qquad
+    % \widehat{\theta}_{\text{WLS}}=(\Phi^\top W \Phi)^{-1}\Phi^\top W y.
+    % \]
     
-    \subsection*{Mínimos cuadrados recursivos (RLS)}
-    Para actualizar en línea con nuevas muestras $(\varphi_k,y_k)$:
-    \[
-    \begin{aligned}
-    K_k&=P_{k-1}\varphi_k\big(1+\varphi_k^\top P_{k-1}\varphi_k\big)^{-1},\\
-    \widehat{\theta}_k&=\widehat{\theta}_{k-1}+K_k\big(y_k-\varphi_k^\top \widehat{\theta}_{k-1}\big),\\
-    P_k&=(I-K_k\varphi_k^\top)P_{k-1},
-    \end{aligned}
-    \]
-    con condiciones iniciales $\widehat{\theta}_0$ y $P_0\succ 0$. Un factor de \textit{olvido} $\lambda\in(0,1]$ se incorpora reemplazando $1$ por $\lambda$ en el denominador de $K_k$.
+    % \subsection*{Mínimos cuadrados recursivos (RLS)}
+    % Para actualizar en línea con nuevas muestras $(\varphi_k,y_k)$:
+    % \[
+    % \begin{aligned}
+    % K_k&=P_{k-1}\varphi_k\big(1+\varphi_k^\top P_{k-1}\varphi_k\big)^{-1},\\
+    % \widehat{\theta}_k&=\widehat{\theta}_{k-1}+K_k\big(y_k-\varphi_k^\top \widehat{\theta}_{k-1}\big),\\
+    % P_k&=(I-K_k\varphi_k^\top)P_{k-1},
+    % \end{aligned}
+    % \]
+    % con condiciones iniciales $\widehat{\theta}_0$ y $P_0\succ 0$. Un factor de \textit{olvido} $\lambda\in(0,1]$ se incorpora reemplazando $1$ por $\lambda$ en el denominador de $K_k$.
     
-    \subsection*{Relación con regresión lineal}
-    La regresión lineal clásica asume $y=\Phi\theta+\varepsilon$ con $\varepsilon\sim\mathcal{N}(0,\sigma^2 I)$. Bajo esas hipótesis, MCO es insesgado y de varianza mínima entre estimadores lineales insesgados (teorema de Gauss–Markov). La matriz de covarianza de $\widehat{\theta}$ (si $\sigma^2$ es conocida) es
-    \[
-    \operatorname{Cov}(\widehat{\theta})=\sigma^2(\Phi^\top\Phi)^{-1}.
-    \]
+    % \subsection*{Relación con regresión lineal}
+    % La regresión lineal clásica asume $y=\Phi\theta+\varepsilon$ con $\varepsilon\sim\mathcal{N}(0,\sigma^2 I)$. Bajo esas hipótesis, MCO es insesgado y de varianza mínima entre estimadores lineales insesgados (teorema de Gauss–Markov). La matriz de covarianza de $\widehat{\theta}$ (si $\sigma^2$ es conocida) es
+    % \[
+    % \operatorname{Cov}(\widehat{\theta})=\sigma^2(\Phi^\top\Phi)^{-1}.
+    % \]
