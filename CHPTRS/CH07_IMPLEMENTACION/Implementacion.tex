@@ -3,15 +3,17 @@
 \label{ch:CH07}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En este capítulo se recopilan las pruebas realizadas con un prototipo, con el objetivo de validar el funcionamiento del diseño electrónico y mecánico, así como del \ac{SW}, para lograr una implementación correcta de la solución general planteada en los Capítulos~\ref{ch:CH04}, \ref{ch:CH05} y \ref{ch:CH06}. En primer lugar, se presentan las pruebas y configuraciones de los componentes que conforman el \ac{HW}, empleando elementos de prototipado rápido, como piezas fabricadas mediante impresión 3D y placas perforadas para el montaje electrónico. En cuanto al \ac{SW} de la solución, se muestran fragmentos representativos del código, con énfasis en la lógica de recepción y envío de datos.
+\subsection{Desarrollo de la tarjeta}
+Con el objetivo de acelerar la validación experimental del sistema, en esta etapa se emplea una placa de pruebas en lugar de la \ac{PCB} diseñada en el Capítulo~\ref{ch:CH04}. Esta decisión permite prototipar e iterar rápidamente sobre los valores de los componentes dimensionados en dicho capítulo, facilitando ajustes durante las primeras pruebas de funcionamiento. Aun cuando la implementación física se realiza sobre una placa de pruebas, se mantienen los mismos pines y conexiones definidos en el Capítulo~\ref{ch:CH04}, de modo que la migración posterior a la \ac{PCB} no implique cambios en la asignación de señales.
 
-Asimismo, en las siguientes secciones se detalla el funcionamiento de la placa de pruebas diseñada para la implementación del prototipo, la cual se muestra en la Figura~\ref{fig:pcb_pruebas_prototipo}.
+Asimismo, esta configuración permite validar la comunicación del microcontrolador con la interfaz de operación del sistema, así como verificar el desempeño de los bloques principales de sensado y actuación. En particular, tal como se observa en la Figura~\ref{fig:pcb_pruebas_prototipo}, se implementan los componentes más relevantes para la etapa de pruebas: el sensor de efecto Hall y el \textit{driver} para el control de los motores que serán sensados. En las siguientes secciones se detalla el funcionamiento de la placa de pruebas diseñada para la implementación del prototipo.
 
 % ---------------------------------------------------------
 % INSERTAR FIGURA: placa de pruebas del prototipo
 % ---------------------------------------------------------
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.50\linewidth, angle=90]{CHPTRS/CH07_IMPLEMENTACION/Fig/HW_TOTAL.jpeg}
+  \includegraphics[width=0.90\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/hw_total_partes.pdf}
   \caption{Placa de pruebas diseñada para la implementación del prototipo.}
   \label{fig:pcb_pruebas_prototipo}
 \end{figure}
@@ -23,31 +25,31 @@ Asimismo, en las siguientes secciones se detalla el funcionamiento de la placa d
 En esta sección se presentan las pruebas realizadas para la configuración del sensor de efecto Hall TMAG5170A1. Se muestran los componentes utilizados durante el montaje de prueba, los registros que deben editarse para su configuración y, finalmente, los resultados obtenidos en las pruebas realizadas con este sensor.
 
 \subsection{Configuración mínima del TMAG5170A1 para detección de giro en el plano \(XY\)}
-Para las pruebas del sensor se empleó una \ac{PCB} adaptadora, mostrada en la Figura~\ref{fig:tmag_pcb_poc}, cuya finalidad es facilitar la integración del integrado en una placa de pruebas y permitir su conexión adecuada al microcontrolador. La implementación del montaje se muestra en la Figura~\ref{fig:tmag_pcb_poc}. Asimismo, se procuró validar cada componente y su circuito asociado de manera incremental, siguiendo los diseños presentados previamente en el Capítulo~\ref{ch:CH04}. La implementación del montaje se muestra en la Figura~\ref{fig:tmag_pcb_poc}. Para estas pruebas se procuró validar cada componente junto con su circuito asociado, previamente diseñado en el Capítulo~\ref{ch:CH04}.
+Para las pruebas del sensor se empleó una \ac{PCB} de pruebas, mostrada en la Figura~\ref{fig:tmag_pcb_poc}, cuya finalidad es facilitar la integración del integrado en una placa de pruebas y permitir su conexión adecuada al microcontrolador. La implementación del montaje se muestra en la Figura~\ref{fig:tmag_pcb_poc}. Asimismo, se procuró validar cada componente y su circuito asociado de manera incremental, siguiendo los diseños presentados previamente en el Capítulo~\ref{ch:CH04}. La implementación del montaje se muestra en la Figura~\ref{fig:tmag_pcb_poc}. Para estas pruebas se procuró validar cada componente junto con su circuito asociado, previamente diseñado en el Capítulo~\ref{ch:CH04}.
  % ---- Figura: izquierda EasyEDA / derecha implementación ----
-    \begin{figure}[H]
-    \centering
-    
-    \begin{minipage}[t]{0.48\textwidth}
-    \vspace{0pt}
+    % Requiere: \usepackage{subcaption}
+
+\begin{figure}[H]
+  \centering
+
+  \begin{subfigure}[t]{0.48\textwidth}
     \centering
     \includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/3D_PCB_TMAG.png}
-    \vspace{0.3em}
-    {\footnotesize(a) Diseño de la \ac{PCB} adaptadora en EasyEDA}
+    \caption{Diseño de la \ac{PCB} en EasyEDA.}
     \label{fig:diseñoPCBadapctacion}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.48\textwidth}
-    \vspace{0pt}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.48\textwidth}
     \centering
     \includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/TMAG5170.jpeg}
-    \vspace{0.3em}
-    {\footnotesize(b) Implementación de la \ac{PCB} adaptadora para pruebas}
-    \end{minipage}
-    \caption{\ac{PCB} adaptadora para pruebas y configuración del sensor TMAG5170}
-    \label{fig:tmag_pcb_poc}
-    \caption*{\footnotesize\textit{Componentes cortesía del profesor Enrique Vidal.}}
-    \end{figure}
+    \caption{Implementación de la \ac{PCB} para pruebas.}
+    \label{fig:implementacionsensor}
+  \end{subfigure}
+
+  \caption{\ac{PCB} para pruebas y configuración del sensor TMAG5170.}
+  \label{fig:tmag_pcb_poc}
+  \caption*{\footnotesize\textit{Nota: Componentes cortesía del profesor Enrique Vidal.}}
+\end{figure}
 
 
 En este montaje se utiliza un regulador de \(3.3\,\text{V}\), el cual alimenta al sensor con el mismo nivel de tensión lógica del microcontrolador ESP32. Para las pruebas se utilizó un módulo de desarrollo de este microcontrolador, el cual será empleado también en la solución final.
@@ -64,40 +66,39 @@ En la Tabla~\ref{tabla_registros_tmag} se resumen los registros editados y los v
   label   = {tabla_registros_tmag},
   caption = {Registros configurados del TMAG5170A1 para sensado y estimación de ángulo en \(XY\).},
 ]{
-  colspec = {X[l,m] X[l,m] X[c,m]},
-  colsep=3pt,
-  row{1}={halign=c},
+  width=\linewidth,
+  colspec = {Q[l,m,wd=0.30\linewidth] X[l,m] Q[c,m,wd=0.18\linewidth]},
+  colsep=2pt,
+  rowsep=1pt,
+  rows={font=\footnotesize},
+  row{1}={font=\footnotesize\bfseries,halign=c},
   rowhead=1, rowfoot=0,
   hlines, vlines,
 }
 Registro &
 Descripción &
 Valor escrito (hex) \\
-REG\_TEST\_CONFIG (0x0F) &
-Registro de prueba utilizado para deshabilitar CRC en la comunicación \ac{SPI} durante la etapa de pruebas. &
-0x000407 \\
-REG\_DEVICE\_CONFIG (0x00) &
-Registro de configuración general del dispositivo. En esta prueba se habilita un modo de medición activo. &
-0x0020 \\
-REG\_SENSOR\_CONFIG (0x01) &
-Registro de configuración del sensor. Habilita los ejes \(X\), \(Y\) y \(Z\), y establece el rango de medición del campo magnético. &
-0x41EA \\
-REG\_SYSTEM\_CONFIG (0x02) &
-Registro de configuración del sistema. Para la prueba mínima se mantiene en su configuración base. &
-0x0000 \\
+
+\texttt{REG\_TEST\_CONFIG} \texttt{(0x0F)} &
+Registro de prueba; se deshabilita CRC en la comunicación \ac{SPI} durante la etapa de pruebas. &
+\texttt{0x000407} \\
+
+\texttt{REG\_DEVICE\_CONFIG} \texttt{(0x00)} &
+Configuración general del dispositivo; en esta prueba se habilita el modo de medición activo. &
+\texttt{0x0020} \\
+
+\texttt{REG\_SENSOR\_CONFIG} \texttt{(0x01)} &
+Configuración del sensor; habilita los ejes \(X\), \(Y\) y \(Z\) y define el rango de medición del campo magnético. &
+\texttt{0x41EA} \\
+
+\texttt{REG\_SYSTEM\_CONFIG} \texttt{(0x02)} &
+Configuración del sistema; para esta prueba mínima se mantiene el valor base. &
+\texttt{0x0000} \\
+
 \end{longtblr}
 
-Una vez aplicada la configuración, se realizó la lectura de los registros de resultado de \(X\), \(Y\) y \(Z\). Con estas mediciones se calculó el ángulo en el plano \(XY\) mediante \(\theta=\mathrm{atan2}(Y,X)\) y se ajustó su rango a \([0, 360]\,\text{grados}\). Para evitar discontinuidades al cruzar \(0/360^\circ\), se aplicó un ajuste de la variación angular para mantener la diferencia entre muestras dentro de \([-180,180])\) grados. Finalmente, la velocidad angular se obteiene como \(\omega=\Delta\theta/\Delta t\) y se convirtió a \(\text{rad}/\text{s}\).
-    
-A continuación se presentan los datos obtenidos con el sensor de efecto Hall. En la Figura~\ref{fig:iman} se muestran los imanes utilizados para estas pruebas, los cuales deben colocarse de manera perpendicular al integrado para que este detecte el giro de sus polos magnéticos.
 
-% INSERTAR FIGURA: imanes utilizados
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.60\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/iman_medida.jpeg}
-  \caption{Imanes utilizados para las pruebas con el sensor de efecto Hall.}
-  \label{fig:iman}
-\end{figure}
+Una vez aplicada la configuración, se realizó la lectura de los registros de resultado de \(X\), \(Y\) y \(Z\). Con estas mediciones se calculó el ángulo en el plano \(XY\) mediante \(\theta=\mathrm{atan2}(Y,X)\) y se ajustó su rango a \([0, 360]\,\text{grados}\). Para evitar discontinuidades al cruzar \(0/360^\circ\), se aplicó un ajuste de la variación angular para mantener la diferencia entre muestras dentro de \([-180,180]\) grados. Finalmente, la velocidad angular se obtiene como \(\omega=\Delta\theta/\Delta t\) y se convirtió a \(\text{rad}/\text{s}\).
 
 El sensor traduce la variación del campo magnético en una estimación de la posición angular en el eje solidario del motor. A partir de esta señal, se calcula la velocidad angular mediante la derivada temporal de la posición angular, como se muestra en la Figura~\ref{fig:graph_ang}.
 
@@ -114,103 +115,34 @@ Para esta toma de datos no se utilizó ningún soporte mecánico, por lo que la 
 \section{Pruebas con el driver de motor}
 \label{sec:pruebas_driver}
 
-Para las pruebas con el driver VNH7070BAS se empleó una etapa de potencia basada en el puente H seleccionado en el Capítulo~\ref{ch:CH04}, con el objetivo de validar su funcionamiento antes de integrarlo al prototipo final. En esta etapa se verificó la correcta excitación del motor \ac{DC} mediante señales de control provenientes de la ESP32 (habilitación, sentido de giro y \ac{PWM}), así como la lectura de la salida de sensado CS para su posterior adquisición por el ADC. Las pruebas se realizaron en un entorno de prototipado rápido, utilizando conexiones accesibles y puntos de medición que permitan observar las señales principales del driver y confirmar su compatibilidad con la lógica a \SI{3.3}{\volt} del microcontrolador.
+Para las pruebas con el driver VNH7070BAS se empleó una etapa de potencia basada en el puente H seleccionado en el Capítulo~\ref{ch:CH04}, con el objetivo de validar su funcionamiento antes de integrarlo al prototipo final. En esta etapa se verificó la correcta excitación del motor \ac{DC} mediante señales de control provenientes de la ESP32 (habilitación, sentido de giro y \ac{PWM}), así como la lectura de la salida de sensado CS para su posterior adquisición por el ADC. Las pruebas se realizaron en un entorno de prototipado rápido, utilizando conexiones accesibles y puntos de medición que permiten observar las señales principales del driver y confirmar su compatibilidad con la lógica a \SI{3.3}{\volt} del microcontrolador.
 
-\begin{figure}[H]
-\centering
-
-\begin{minipage}[t]{0.48\textwidth}
-\vspace{0pt}
-\centering
-\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/3D_PCB5_VNH.png}
-\vspace{0.3em}
-{\footnotesize (a) Diseño de la \ac{PCB} del driver VNH7070BAS en EasyEDA}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\textwidth}
-\vspace{0pt}
-\centering
-\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/VNH.jpeg}
-\vspace{0.3em}
-{\footnotesize (b) Implementación física del driver VNH7070BAS en una placa de pruebas}
-\end{minipage}
-
-\caption{Implementación de prueba del driver VNH7070BAS}
-\label{fig:vnh_pcb_poc}
-\caption*{\footnotesize Nota: Elaboración propia; componentes cortesía del profesor Enrique Vidal.}
-\end{figure}
-
-Una vez obtenida la placa adaptadora, se comenzó a realizar la conexión con los pines asignados para el control del driver del motor, con el objetivo de obtener los parámetros de voltaje y corriente que llegan al motor. Para la medición del voltaje del motor se emplea un divisor de tensión conectado a la entrada del voltaje nominal. Esto se debe a que el microcontrolador seleccionado cuenta con un ADC que opera en el rango de \SIrange{0}{3.3}{\volt}. A continuación se presenta el diseño del divisor resistivo utilizado.
-
-\begin{align*}
-V_{\max} &= \SI{12}{\volt} \\
-V_{\mathrm{ADC}} &= V_{\max}\,\frac{R_{\mathrm{ADC}}}{R_{\mathrm{ADC}} + R_{\mathrm{div}}} < \SI{3.3}{\volt}
-\label{eq:divisor_adc_cond}
-\end{align*}
-
-Para el diseño se asume inicialmente \(R_{\mathrm{ADC}}=\SI{1}{\kilo\ohm}\). Despejando \(R_{\mathrm{div}}\) de la condición de la Ecuación~\eqref{eq:divisor_adc_cond}, se obtiene:
-
-\begin{align*}
-R_{\mathrm{div}} &> R_{\mathrm{ADC}}\left(\frac{V_{\max}}{V_{\mathrm{ADC,max}}}-1\right) \\
-R_{\mathrm{div}} &> \SI{1}{\kilo\ohm}\left(\frac{12}{3.3}-1\right) = \SI{2.64}{\kilo\ohm}
-\end{align*}
-
-Por motivos de seguridad se seleccionan valores mayores, con el fin de reducir el riesgo de aproximarse al límite de \SI{3.3}{\volt}. En esta implementación se utilizaron \(R_{\mathrm{ADC}}=\SI{1}{\kilo\ohm}\) y \(R_{\mathrm{div}}=\SI{3}{\kilo\ohm}\), con lo cual:
-
-\begin{align*}
-V_{\mathrm{ADC}} &= \SI{12}{\volt}\,\frac{\SI{1}{\kilo\ohm}}{\SI{1}{\kilo\ohm}+\SI{3}{\kilo\ohm}}
-= \SI{3}{\volt}
-\end{align*}
-
-Para definir la potencia requerida en las resistencias se considera el caso de voltaje máximo. La corriente por el divisor está dada por:
-
-\begin{align}
-I &= \frac{V_{\max}}{R_{\mathrm{ADC}}+R_{\mathrm{div}}}
-= \frac{\SI{12}{\volt}}{\SI{4}{\kilo\ohm}}
-= \SI{3}{\milli\ampere}
-\end{align}
-
-La potencia disipada en cada resistencia se calcula como \(P=I^2R\):
-
-\begin{align}
-P_{R_{\mathrm{ADC}}} &= I^2R_{\mathrm{ADC}} = (\SI{3}{\milli\ampere})^2\,\SI{1}{\kilo\ohm}
-= \SI{0.009}{\watt} \\
-P_{R_{\mathrm{div}}} &= I^2R_{\mathrm{div}} = (\SI{3}{\milli\ampere})^2\,\SI{3}{\kilo\ohm}
-= \SI{0.027}{\watt}
-\end{align}
-
-En ambos casos la potencia disipada es menor que \SI{0.25}{\watt}, por lo que resistencias de \SI{0.25}{\watt} son suficientes para esta etapa de medición.
-
-Como se mencionó en el Capítulo~\ref{ch:CH04}, el driver VNH7070BAS permite el sensado de corriente mediante una salida de corriente proporcional a la corriente suministrada al motor. Para ello, siguiendo las recomendaciones de diseño mostradas en la Figura~\ref{fig:diseño_CS}, se debe implementar una resistencia \(R_{\mathrm{sense}}\) para convertir dicha señal en un voltaje que pueda ser leído por el microcontrolador. Asimismo, la hoja de datos presenta una tabla con el valor típico del factor de escalamiento de corriente, la cual se utiliza para el cálculo y se muestra en la Figura~\ref{fig:tabla_k}. En esta implementación se emplea una resistencia \(R_{\mathrm{sense}}=\SI{1}{\kilo\ohm}\) y, adicionalmente, tal como indica el fabricante, se incorpora un filtro pasabajos RC con los valores mostrados en la Figura~\ref{fig:diseño_CS}.
-
-% ---------------------------------------------------------
-% Figura con dos subfiguras: diseño CS y tabla k
 % Requiere: \usepackage{subcaption}
-% ---------------------------------------------------------
+
 \begin{figure}[H]
-\centering
+  \centering
 
-\begin{subfigure}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/DISEÑO_CS.JPG}
-\caption{Recomendación de implementación del sensado CS.}
-\label{fig:diseño_CS}
-\end{subfigure}
-\hfill
-\begin{subfigure}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/K0.JPG}
-\caption{Tabla del factor de escalamiento típico de corriente.}
-\label{fig:tabla_k}
-\end{subfigure}
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/3D_PCB5_VNH.png}
+    \caption{Diseño de la \ac{PCB} del driver VNH7070BAS en EasyEDA.}
+    \label{fig:vnh_pcb_diseno}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/VNH.jpeg}
+    \caption{Implementación física del \textit{driver} VNH7070BAS en una placa de pruebas.}
+    \label{fig:vnh_pcb_impl}
+  \end{subfigure}
 
-\caption{Recomendaciones de la hoja de datos para el sensado de corriente con el VNH7070BAS.}
-\label{fig:cs_datasheet}
+  \caption{Implementación de prueba del \textit{driver} VNH7070BAS.}
+  \label{fig:vnh_pcb_poc}
+  \caption*{\footnotesize\textit{Nota: Componentes cortesía del profesor Enrique Vidal.}}
 \end{figure}
 
-% ---------------------------------------------------------
-% Figura: implementación con filtro RC (según fabricante)
-% ---------------------------------------------------------
+
+Una vez obtenida la \ac{PCB} de pruebas, se comenzó a realizar la conexión con los pines asignados para el control del driver del motor, con el objetivo de obtener los parámetros de voltaje y corriente que llegan al motor. Para la medición del voltaje del motor, se emplea un divisor de tensión conectado a la entrada del voltaje nominal. Esto se debe a que el microcontrolador seleccionado cuenta con un ADC que opera en el rango de \SIrange{0}{3.3}{\volt}. 
 De manera similar a las pruebas del sensor Hall, se presentan los resultados del sensado de las variables medidas. En la Figura~\ref{fig:graph_voltaje} se muestra el registro de la tensión de la fuente de alimentación del motor, correspondiente a \SI{12}{\volt} nominal.
 
 % ---------------------------------------------------------
@@ -218,38 +150,38 @@ De manera similar a las pruebas del sensor Hall, se presentan los resultados del
 % ---------------------------------------------------------
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.40\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/voltaje_graph.jpg}
+\includegraphics[width=0.50\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/voltaje_graph.jpg}
 \caption{Señal de voltaje de alimentación del motor obtenida durante las pruebas.}
 \label{fig:graph_voltaje}
 \end{figure}
 
-En cuanto a la corriente, se presentan dos registros. En la Figura~\ref{fig:graph_currente} se muestra la toma de datos durante \SI{1.5}{\second}, en la cual se observa un pico de corriente al inicio debido a la inercia asociada al arranque del motor. Por otro lado, en la Figura~\ref{fig:graph_current_force} se presenta un lapso de tiempo más prolongado, en el cual se forzó el eje del motor con el propósito de verificar la coherencia de la medición; bajo esta condición se espera un incremento de corriente para vencer la fuerza que restringe el giro del eje. En ambos casos también se aprecia el ruido presente en la señal de corriente, la cual es adquirida por el microcontrolador como una medición de voltaje.
+En cuanto a la corriente, se presentan dos registros. Para estas pruebas, se diseñó el circuito de adecuación de señal de voltaje que permite medir la corriente de los motores evaluados; sin embargo, esta medición se realiza a partir de una ganancia de escalamiento $K$ que relaciona la corriente real del motor con la señal de sensado, la cual corresponde a un valor típico indicado en la hoja de datos \autocite{ST_VNH7070BAS}, tal como se describe en la sección \ref{sec:diseno_filtros_sensado} del Anexo \ref{an:Anexo_u}. Debido a que $K$ es un valor típico y puede variar según el motor sensado y sus parámetros eléctricos (por ejemplo, resistencia e inductancia), es necesario emplear una pinza amperométrica para validar experimentalmente que la corriente medida por el sistema corresponde a la corriente real del motor. En la Figura~\ref{fig:graph_current_start} se muestra la toma de datos durante \SI{1.5}{\second}, en la cual se observa un pico de corriente al inicio debido a la inercia asociada al arranque del motor. Por otro lado, en la Figura~\ref{fig:graph_current_forced} se presenta un lapso de tiempo más prolongado, en el cual se forzó el eje del motor con el propósito de verificar la coherencia de la medición; bajo esta condición se espera un incremento de corriente para vencer la fuerza que restringe el giro del eje. En ambos casos, también se aprecia el ruido presente en la señal de corriente, la cual es adquirida por el microcontrolador como una medición de voltaje.
+
 
 % ---------------------------------------------------------
 % Figura con dos subfiguras: corriente normal y corriente forzada
 % ---------------------------------------------------------
+%---------------------------------------------------------
+% Figura: corriente durante arranque (1.5 s)
+%---------------------------------------------------------
 \begin{figure}[H]
 \centering
-
-\begin{subfigure}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph.jpg}
+\includegraphics[width=0.80\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph.jpg}
 \caption{Corriente durante el arranque del motor (\SI{1.5}{\second}).}
-\label{fig:graph_currente}
-\end{subfigure}
-\hfill
-\begin{subfigure}[t]{0.48\textwidth}
-\centering
-\includegraphics[width=\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph_force.jpg}
-\caption{Corriente con eje forzado durante un intervalo prolongado.}
-\label{fig:graph_current_force}
-\end{subfigure}
-
-\caption{Registros del sensado de corriente durante las pruebas con el driver.}
-\label{fig:graph_corriente}
+\label{fig:graph_current_start}
 \end{figure}
 
-Para todas estas pruebas, tanto de voltaje como de corriente y velocidad angular, se trabajó con un periodo entre muestras de \SI{500}{\micro\second}. Este muestreo busca capturar adecuadamente el arranque del motor en pruebas de corta duración, debido a que la dinámica de estas variables es rápida y converge en un intervalo reducido, tal como se observa en las figuras presentadas. Por este motivo, se optó por una ventana de adquisición de aproximadamente \SI{1.5}{\second}, donde la información es almacenada en la memoria RAM del microcontrolador para luego ser enviada hacia la interfaz, en la cual se ejecutará el algoritmo de estimación. Para mayor detalle sobre la lógica de funcionamiento del sistema, esta se describe en el Capítulo~\ref{ch:CH06}, correspondiente al desarrollo de la lógica de control y \ac{SW}.
+%---------------------------------------------------------
+% Figura: corriente con eje forzado
+%---------------------------------------------------------
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph_force.jpg}
+\caption{Corriente con eje forzado durante un intervalo prolongado.}
+\label{fig:graph_current_forced}
+\end{figure}
+
+Para todas estas pruebas, tanto de voltaje como de corriente y velocidad angular, se trabajó con un periodo entre muestras de \SI{500}{\micro\second}, lo que equivale a una frecuencia de muestreo de \SI{2}{\kilo\hertz}. Este muestreo busca capturar adecuadamente el arranque del motor en pruebas de corta duración, debido a que la dinámica de estas variables es rápida y converge en un intervalo reducido, tal como se observa en las figuras presentadas. Por este motivo, se optó por una ventana de adquisición de aproximadamente \SI{1.5}{\second}, donde la información es almacenada en la memoria RAM del microcontrolador para luego ser enviada hacia la interfaz, en la cual se ejecutará el algoritmo de estimación. Para mayor detalle sobre la lógica de funcionamiento del sistema, esta se describe en el Capítulo~\ref{ch:CH06}, correspondiente al desarrollo de la lógica de control y \ac{SW}.
 
 \section{Costos de componentes electrónicos para pruebas}
 \label{sec:costos_componentes_pruebas}
@@ -264,7 +196,7 @@ Además, para efectos de estimación de costos del prototipo, se considera que l
 \hline
 \multicolumn{1}{|c|}{Ítem} & Proveedor & Cant. & Precio S/. \\
 \hline
-\ac{PCB} adaptadora TMAG5170 & Mercado peruano & 1 & 20 \\
+\ac{PCB} de pruebas TMAG5170 & Mercado peruano & 1 & 20 \\
 \hline
 \ac{PCB} de pruebas VNH7070BAS & Mercado peruano & 1 & 20 \\
 \hline
