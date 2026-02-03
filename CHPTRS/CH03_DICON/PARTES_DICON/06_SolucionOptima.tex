@@ -1,15 +1,31 @@
 \section{Solución óptima}
 \label{sec:solucion_optima}
-Después del análisis técnico-económico de cada una de las soluciones, se determinó como ganadora a la solución número 3. Por lo tanto, tomando este concepto de referencia, se procederá a detallar mejor cada parte que conforma el sistema \ac{HW}.
+
+De acuerdo con el diagrama de funciones presentado en la sección \ref{sec:CH03_FUNCIONES}, se elabora la matriz morfológica con las posibles opciones asociadas a cada función. A partir de esta matriz, se establecen conexiones entre funciones con el fin de estructurar tres alternativas de solución. Para ello, en el Anexo \ref{an:Anexo_G} se organiza la matriz por los dominios definidos en la sección \ref{sec:CH03_FUNCIONES}, lo que permite plantear de manera ordenada los conceptos de solución. En esa misma línea, el Anexo \ref{an:Anexo_W} reúne los tres conceptos obtenidos mediante la combinación de componentes de la matriz morfológica, incluyendo la descripción de sus elementos y dibujos del sistema en vista exterior e interior. Finalmente, la evaluación técnico-económica se realiza considerando dichos conceptos y, conforme a la metodología VDI 2221 \autocite{imagen_v}, los puntajes y pesos asignados a cada criterio se detallan en el Anexo \ref{an:Anexo_V}.
+
+En la Figura~\ref{fig:solucion_ganadora} se presentan las vistas interna y externa del concepto seleccionado, correspondientes a la Figura~\ref{fig:solucion_ganadora_interna} y la Figura~\ref{fig:solucion_ganadora_externa}, respectivamente. Tras el análisis técnico-económico de las alternativas, documentado en el Anexo~\ref{an:Anexo_V}, se determinó como ganadora al concepto de solución 3. En las secciones siguientes se describe en mayor detalle cada subsistema que conforma el sistema \ac{HW} tomando como referencia el concepto elegido.
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG02_CoS/13_CoS_Solucion3porDentro.JPG}
+        \caption{Vista interna de la solución óptima}
+        \label{fig:solucion_ganadora_interna}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG02_CoS/09_CoS_Solucion3porFuera.JPG}
+        \caption{Vista externa de la solución óptima}
+        \label{fig:solucion_ganadora_externa}
+    \end{subfigure}
+
+    \caption{Vistas interna y externa de la solución óptima seleccionada.}
+    \label{fig:solucion_ganadora}
+\end{figure}
     
-    Se comenzará definiendo la construcción del chasis, el cual deberá cumplir con las medidas limitadas indicadas en la sección \ref{sec:.lista de req}. Este chasis tendrá dimensiones que no excedan los 125x176 mm. Con base en estas dimensiones, se diseñará el chasis tomando en cuenta el tamaño de los componentes que irán por dentro y las \ac{PCB}s que se diseñen para el sistema. Cabe resaltar que la solución ganadora utiliza una fuente conmutada \textit{switching}. Estas fuentes, como tal, ya vienen con una carcasa que ocupa demasiado espacio si se mantiene dentro del sistema. Por lo tanto, se optará por usar únicamente la \ac{PCB} de esta fuente junto con los respectivos disipadores de calor, ya que la carcasa de la fuente \textit{switching} sirve principalmente para la disipación. En la siguiente Figura \ref{fig:switching} se muestra una fuente \textit{switching} de $12V$ que puede suministrar hasta $10A$.
-    \begin{figure}[H]
-       \centering
-       \includegraphics[width=0.7\textwidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_07_FuenteSwitching.jpg}
-       \caption{\ac{PCB} de una fuente \textit{switching}}
-       \label{fig:switching}
-    \end{figure}
-    Por otra parte, en cuanto al lugar donde se apoyará el motor, se mejorará la forma de ajuste, reemplazándolo por soportes diseñados específicamente para cada motor a analizar. En la Figura \ref{fig:dunker} se muestra un motor modelo Dunkermotor GR 42x40 \textcite{dunkermotoren}, al cual se le fabricaron dichos soportes para su análisis. Ahora bien, los agujeros, de la Figura  en la parte inferior estarán estandarizados, de forma que permitan la sujeción en la estructura ranurada donde se apoyará el motor. Si el motor resulta ser muy grande, se dejará un agujero en el chasis para evitar interferencias al momento de fijarlo.
+Se comenzará definiendo la construcción del chasis, el cual deberá cumplir con las medidas limitadas indicadas en la sección \ref{sec:.lista de req}. Este chasis tendrá dimensiones que no excedan los 125x176 mm. Con base en estas dimensiones, se diseñará el chasis tomando en cuenta el tamaño de los componentes que irán por dentro y las \ac{PCB}s que se diseñen para el sistema. Cabe resaltar que la solución ganadora utiliza una fuente conmutada \textit{switching}. Estas fuentes, como tal, ya vienen con una carcasa que ocupa demasiado espacio si se mantiene dentro del sistema. Por lo tanto, se optará por usar únicamente la \ac{PCB} de esta fuente junto con los respectivos disipadores de calor, ya que la carcasa de la fuente \textit{switching} sirve principalmente para la disipación. 
+Por otra parte, en cuanto al lugar donde se apoyará el motor, se mejorará la forma de ajuste, reemplazándolo por soportes diseñados específicamente para cada motor a analizar. En la Figura \ref{fig:dunker} se muestra un motor modelo Dunkermotor GR 42x40 \textcite{dunkermotoren}, al cual se le fabricaron dichos soportes para su análisis. Ahora bien, los agujeros, de la Figura  en la parte inferior estarán estandarizados, de forma que permitan la sujeción en la estructura ranurada donde se apoyará el motor. Si el motor resulta ser muy grande, se dejará un agujero en el chasis para evitar interferencias al momento de fijarlo.
     
 
 \begin{figure}[H]
@@ -33,7 +49,7 @@ Después del análisis técnico-económico de cada una de las soluciones, se det
      Además, si el motor es muy pequeño, se optará por diseñar acoples como los que se muestran en la Figura \ref{fig:acople_pequeno}.
      \begin{figure}[H]
        \centering
-       \includegraphics[width=0.5\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG03_SolucionOptima/03_SO_SoporteDeMotorPequeno.jpg}
+       \includegraphics[width=0.3\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG03_SolucionOptima/03_SO_SoporteDeMotorPequeno.jpg}
        \caption{Acople para motores de diámetros reducidos, basados en los soportes de \textcite{pololu}}
        \label{fig:acople_pequeno}
     \end{figure}
@@ -45,14 +61,14 @@ Después del análisis técnico-económico de cada una de las soluciones, se det
 
     \begin{figure}[H]
     \centering
-    \begin{subfigure}[H]{0.45\textwidth}
+    \begin{subfigure}[H]{0.30\textwidth}
         \centering
         \includegraphics[width=\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG03_SolucionOptima/04a_SO_MotorPololu1.jpg}
        \caption{Elementos para el ajuste de la unión}
        \label{fig:dunker}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[H]{0.45\textwidth}
+    \begin{subfigure}[H]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG03_SolucionOptima/04b_SO_MotorPololu2.jpg}
        \caption{Motor de la empresa Pololu utilizando el acople universal}
@@ -79,14 +95,14 @@ Después del análisis técnico-económico de cada una de las soluciones, se det
 
     \begin{figure}[H]
     \centering
-    \begin{subfigure}[H]{0.38\textwidth}
+    \begin{subfigure}[H]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG03_SolucionOptima/06a_SO_EncoderMagnetico.pdf}
        \caption{Bosquejo de la tarjeta de sensado, tomando como referencia la Figura \ref{fig:IMAGENES_XTRAS}}
        \label{fig:dunker}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[H]{0.38\textwidth}
+    \begin{subfigure}[H]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{CHPTRS/CH03_DICON/Fig/CH03_FIG03_SolucionOptima/06b_SO_SoporteDeEncoder.pdf}
        \caption{Bosquejo de soporte de la placa de censado de velocidad}
