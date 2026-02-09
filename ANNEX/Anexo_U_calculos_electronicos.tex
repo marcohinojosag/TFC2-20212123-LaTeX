@@ -54,7 +54,7 @@ I_C = I_{\text{2}} + I_{\text{1}}.
 \label{eq:ic_total}
 \end{equation}
 
-Dado que la bobina del relé demanda aproximadamente \(I_1 \approx 70~\mathrm{mA}\) y que el indicador LED se diseña con una corriente baja, se asume una corriente de diseño que incluya un margen adicional a la suma de estas corrientes, definida en la Ecuación~\ref{eq:ic_diseno}:
+Dado que la bobina del relé demanda aproximadamente \(I_1 = 70~\mathrm{mA}\) y que el indicador LED se diseña con una corriente baja, se asume una corriente de diseño que incluya un margen adicional a la suma de estas corrientes, definida en la Ecuación~\ref{eq:ic_diseno}:
 
 \begin{equation}
 I_{C} = 100~\mathrm{mA}.
@@ -66,7 +66,7 @@ I_{C} = 100~\mathrm{mA}.
 \subsection{Dimensionamiento de la resistencia del LED \(R_{\text{LED}}\)}
 \label{subsec:r_led}
 
-Se considera un LED alimentado desde \(5~\mathrm{V}\) y conmutado a través del transistor 2N3904 operando en saturación. Para el cálculo se requiere la caída colector--emisor en saturación \(V_{CE(sat)}\), la cual se toma de la hoja de datos del 2N3904. En la Figura~\ref{fig:2n3904_vcesat_led} se muestra la característica empleada; para la corriente de operación se adopta \(V_{CE(sat)} \approx 0.1~\mathrm{V}\) como valor típico y \(V_{CE(sat)} \le 0.2~\mathrm{V}\) como valor máximo. Con el fin de mantener consistencia en la notación, en esta sección la corriente previamente denotada como \(I_2\) se representará como \(I_{\text{LED}}\).
+Se considera un LED alimentado desde \(5~\mathrm{V}\) y conmutado a través del transistor 2N3904 operando en saturación. Para el cálculo se requiere la caída colector--emisor en saturación \(V_{CE(sat)}\), la cual se toma de la hoja de datos del 2N3904. En la Figura~\ref{fig:2n3904_vcesat_led} se muestra la característica empleada; para la corriente de operación se adopta \(V_{CE(sat)} = 0.1~\mathrm{V}\) como valor típico y \(V_{CE(sat)} \le 0.2~\mathrm{V}\) como valor máximo. Con el fin de mantener consistencia en la notación, en esta sección la corriente previamente denotada como \(I_2\) se representará como \(I_{\text{LED}}\).
 
 \begin{figure}[H]
     \centering
@@ -91,18 +91,18 @@ R_{\text{LED}}=\frac{5~\mathrm{V}-V_{F,\text{LED}}-V_{CE(sat)}}{I_{\text{LED}}}.
 \end{align}
 
 Para asegurar visibilidad sin incrementar significativamente el consumo, se adopta una corriente de diseño
-\(I_{\text{LED}}\in[2~\mathrm{mA},\,5~\mathrm{mA}]\) y, para un LED típico, \(V_{F,\text{LED}}\in[1.8~\mathrm{V},\,2.2~\mathrm{V}]\).
+\(I_{\text{LED}}\in[2,\,5]~\mathrm{mA}\) y, para un LED típico, \(V_{F,\text{LED}}\in[1.8,\,2.2]~\mathrm{V}\).
 De acuerdo con \eqref{eq:rled}, el rango de resistencias se obtiene evaluando los casos extremos:
 
 \begin{align}
 R_{\text{LED,min}}
-&\approx \frac{5~\mathrm{V}-1.8~\mathrm{V}-0.1~\mathrm{V}}{5~\mathrm{mA}}
-\approx 620~\Omega,
+&= \frac{5~\mathrm{V}-1.8~\mathrm{V}-0.1~\mathrm{V}}{5~\mathrm{mA}}
+= 620~\Omega,
 \label{eq:rled_min}
 \\
 R_{\text{LED,max}}
-&\approx \frac{5~\mathrm{V}-2.2~\mathrm{V}-0.2~\mathrm{V}}{2~\mathrm{mA}}
-\approx 1300~\Omega.
+&= \frac{5~\mathrm{V}-2.2~\mathrm{V}-0.2~\mathrm{V}}{2~\mathrm{mA}}
+= 1300~\Omega.
 \label{eq:rled_max}
 \end{align}
 
@@ -155,14 +155,14 @@ La base del 2N3904 se polariza desde el lado aislado a 5~V a través del fototra
     \item La caída colector-emisor del fototransistor del PC817 en saturación, \(V_{CE(sat),\text{PC817}}\), tomada de la Figura~\ref{fig:pc817_vcesat}.
     \item La caída base-emisor del 2N3904 en saturación, \(V_{BE(sat)}\), tomada de la Figura~\ref{fig:2n3904_vcesat}.
 \end{itemize}
-
+\vspace{-1.25em}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.78\linewidth]{ANNEX/Fig/AU/Vec_SAT.pdf}
     \caption{Tensión colector-emisor del fototransistor del PC817, \(V_{CE(sat),\text{PC817}}\), en función de la corriente.}
     \label{fig:pc817_vcesat}
 \end{figure}
-
+\vspace{-1.25em}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.78\linewidth]{ANNEX/Fig/AU/Vbe_SAT.drawio.pdf}
@@ -170,7 +170,7 @@ La base del 2N3904 se polariza desde el lado aislado a 5~V a través del fototra
     \label{fig:2n3904_vcesat}
 \end{figure}
 
-Aplicando la Ley de Voltajes de Kirchhoff en el lazo de excitación de base (referido a 5~V) se obtiene la Ecuación~\ref{eq:kvl_rb}:
+Aplicando la Ley de Voltajes de Kirchhoff en el lazo de excitación de base (referido a 5~V) se obtiene
 
 \begin{equation}
 5~\mathrm{V}-V_{CE(sat),\text{PC817}} - I_B R_B - V_{BE(sat)} = 0.
@@ -184,11 +184,11 @@ R_B=\frac{5~\mathrm{V}-V_{CE(sat),\text{PC817}}-V_{BE(sat)}}{I_B}.
 \label{eq:rb}
 \end{equation}
 
-Adoptando rangos típicos de diseño \(V_{CE(sat),\text{PC817}}\in[0.1~\mathrm{V},0.2~\mathrm{V}]\) y \(V_{BE(sat)}\in[0.85~\mathrm{V},0.95~\mathrm{V}]\), junto con el rango de \(I_B\) de la Ecuación~\ref{eq:ib_rango}, al sustituir en la Ecuación~\ref{eq:rb} se obtiene:
+Adoptando rangos típicos de diseño \(V_{CE(sat),\text{PC817}}\in[0.1,\,0.2]~\mathrm{V}\) y \(V_{BE(sat)}\in[0.85,\,0.95]~\mathrm{V}\), junto con el rango de \(I_B\) de la Ecuación~\ref{eq:ib_rango}, al sustituir en la Ecuación~\ref{eq:rb} se obtiene:
 
 \begin{align}
-R_{B,\min} &\approx \frac{5~\mathrm{V}-0.2~\mathrm{V}-0.95~\mathrm{V}}{3.3~\mathrm{mA}} \approx 1166.67~\Omega, \\
-R_{B,\max} &\approx \frac{5~\mathrm{V}-0.1~\mathrm{V}-0.85~\mathrm{V}}{3.33~\mathrm{mA}} \approx 1227.27~\Omega.
+R_{B,\min} &= \frac{5~\mathrm{V}-0.2~\mathrm{V}-0.95~\mathrm{V}}{3.3~\mathrm{mA}} = 1166.67~\Omega, \\
+R_{B,\max} &= \frac{5~\mathrm{V}-0.1~\mathrm{V}-0.85~\mathrm{V}}{3.33~\mathrm{mA}} = 1227.27~\Omega.
 \label{eq:rb_rango}
 \end{align}
 
@@ -210,7 +210,7 @@ Seleccionando \(R_2=R_3=10~\mathrm{k}\Omega\), el consumo adicional en estado al
 \begin{equation}
 I_{R2}=\frac{3.3~\mathrm{V}}{10~\mathrm{k}\Omega}=0.33~\mathrm{mA},
 \qquad
-I_{R3}\approx\frac{5~\mathrm{V}}{10~\mathrm{k}\Omega}=0.5~\mathrm{mA}.
+I_{R3}=\frac{5~\mathrm{V}}{10~\mathrm{k}\Omega}=0.5~\mathrm{mA}.
 \label{eq:pull_down_corr}
 \end{equation}
 
@@ -241,11 +241,11 @@ R_1=\frac{3.3~\mathrm{V}-V_{F,\text{PC817}}}{I_F}.
 \label{eq:r1}
 \end{equation}
 
-A partir de la Figura~\ref{fig:pc817_vf} se considera \(V_{F,\text{PC817}}\in[1.2~\mathrm{V},1.4~\mathrm{V}]\). Para una activación robusta del canal se adopta \(I_F\in[8~\mathrm{mA},10~\mathrm{mA}]\). Sustituyendo estos rangos en la Ecuación~\ref{eq:r1}, se obtiene:
+A partir de la Figura~\ref{fig:pc817_vf} se considera \(V_{F,\text{PC817}}\in[1.2,\,1.4]~\mathrm{V}\). Para una activación robusta del canal se adopta \(I_F\in[8,10]~\mathrm{mA}\). Sustituyendo estos rangos en la Ecuación~\ref{eq:r1}, se obtiene:
 
 \begin{align}
-R_{1,\min} &\approx \frac{3.3~\mathrm{V}-1.4~\mathrm{V}}{10~\mathrm{mA}} \approx 190~\Omega, \\
-R_{1,\max} &\approx \frac{3.3~\mathrm{V}-1.2~\mathrm{V}}{8~\mathrm{mA}} \approx 262.5~\Omega.
+R_{1,\min} &= \frac{3.3~\mathrm{V}-1.4~\mathrm{V}}{10~\mathrm{mA}} = 190~\Omega, \\
+R_{1,\max} &= \frac{3.3~\mathrm{V}-1.2~\mathrm{V}}{8~\mathrm{mA}} = 262.5~\Omega.
 \label{eq:r1_rango}
 \end{align}
 
@@ -297,7 +297,7 @@ R_{\mathrm{div}} > R_{\mathrm{ADC}}\left(\frac{V_{\max}}{V_{\mathrm{ADC,max}}}-1
 Sustituyendo \(V_{\max}=12~\mathrm{V}\), \(V_{\mathrm{ADC,max}}=3.3~\mathrm{V}\) y \(R_{\mathrm{ADC}}=1~\mathrm{k}\Omega\) en la Ecuación~\ref{eq:rdiv_cond}:
 
 \begin{equation}
-R_{\mathrm{div}} > 1~\mathrm{k}\Omega\left(\frac{12}{3.3}-1\right) = 2.64~\mathrm{k}\Omega.
+R_{\mathrm{div}} > \left(\frac{12}{3.3}-1\right) = 2.64~\mathrm{k}\Omega.
 \label{eq:rdiv_num}
 \end{equation}
 
@@ -348,12 +348,12 @@ f_c&=\frac{1}{2\pi RC}.
 \label{eq:fc_rc_pwm}
 \end{align}
 
-Para garantizar que la componente fundamental de la señal \ac{PWM} de \(10~\mathrm{kHz}\) se transmita correctamente y, a su vez, atenuar componentes por encima de dicha banda, se selecciona un filtro con \(f_c \gtrsim 15~\mathrm{kHz}\). De la Ecuación~\ref{eq:fc_rc_pwm} se obtiene el producto \(RC\) requerido:
+Para garantizar que la componente fundamental de la señal \ac{PWM} de \(10~\mathrm{kHz}\) se transmita correctamente y, a su vez, atenuar componentes por encima de dicha banda, se selecciona un filtro con \(f_c \geq 15~\mathrm{kHz}\). De la Ecuación~\ref{eq:fc_rc_pwm} se obtiene el producto \(RC\) requerido:
 
 \begin{align}
 RC&=\frac{1}{2\pi f_c}
-\approx \frac{1}{2\pi(15\times 10^3)}
-\approx 10.6~\mu\mathrm{s}.
+= \frac{1}{2\pi(15\times 10^3)}
+= 10.6~\mu\mathrm{s}.
 \label{eq:rc_pwm_obj}
 \end{align}
 
@@ -362,7 +362,7 @@ Con base en \ref{eq:rc_pwm_obj}, se selecciona una combinación de valores comer
 \begin{align}
 R&=1~\mathrm{k}\Omega, \qquad C=10~\mathrm{nF}
 \Rightarrow
-f_c=\frac{1}{2\pi(1~\mathrm{k}\Omega)(10~\mathrm{nF})}\approx 15.9~\mathrm{kHz}.
+f_c=\frac{1}{2\pi(1~\mathrm{k}\Omega)(10~\mathrm{nF})}= 15.9~\mathrm{kHz}.
 \label{eq:rc_pwm_sel}
 \end{align}
 
@@ -418,7 +418,7 @@ R_{\mathrm{sense}}
 \label{eq:Rsense_num}
 \end{align}
 
-En esta implementación se selecciona \(R_{\mathrm{sense}}=560~\Omega\) para incorporar márgenes ante variaciones del factor \(K\) y picos de corriente.
+En esta implementación se selecciona \(R_{\mathrm{sense}}=500~\Omega\) para incorporar márgenes ante variaciones del factor \(K\) y picos de corriente.
 
 Adicionalmente, se incorpora un filtro pasabajos RC previo al ADC con el fin de reducir picos de alta frecuencia en la señal de sensado. La frecuencia de corte del filtro se determina mediante la Ecuación~\ref{eq:fc_rc_adc}:
 
@@ -427,13 +427,13 @@ f_c&=\frac{1}{2\pi R_{\mathrm{f}}C_{\mathrm{f}}}.
 \label{eq:fc_rc_adc}
 \end{align}
 
-Para mantener un ancho de banda suficiente para la dinámica de corriente y, a la vez, atenuar componentes por encima de \(15~\mathrm{kHz}\), se selecciona \(f_c \approx 15~\mathrm{kHz}\). Por tanto,
+Para mantener un ancho de banda suficiente para la dinámica de corriente y, a la vez, atenuar componentes por encima de \(15~\mathrm{kHz}\), se selecciona \(f_c = 15~\mathrm{kHz}\). Por tanto,
 
 \begin{align}
 R_{\mathrm{f}}C_{\mathrm{f}}
 &=\frac{1}{2\pi f_c}
-\approx \frac{1}{2\pi(15\times 10^3)}
-\approx 10.6~\mu\mathrm{s}.
+= \frac{1}{2\pi(15\times 10^3)}
+= 10.6~\mu\mathrm{s}.
 \label{eq:rc_adc_obj}
 \end{align}
 
@@ -442,7 +442,7 @@ Con base en \ref{eq:rc_adc_obj}, se selecciona una combinación de valores comer
 \begin{align}
 R_{\mathrm{f}}&=1~\mathrm{k}\Omega, \qquad C_{\mathrm{f}}=10~\mathrm{nF}
 \Rightarrow
-f_c=\frac{1}{2\pi(1~\mathrm{k}\Omega)(10~\mathrm{nF})}\approx 15.9~\mathrm{kHz}.
+f_c=\frac{1}{2\pi(1~\mathrm{k}\Omega)(10~\mathrm{nF})}= 15.9~\mathrm{kHz}.
 \label{eq:rc_adc_sel}
 \end{align}
 
