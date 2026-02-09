@@ -19,7 +19,7 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
         \begin{minipage}[t]{0.38\textwidth}
         \centering
         \vfill
-        
+        \vspace{5em}
         \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_03a_ChipTMAG.jpg}
         \caption{Sensor de efecto \textit{hall} TMAG5170}
         \label{fig:tmag5170}
@@ -61,7 +61,8 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
     \subsection{Selección de \textit{driver} de motor}
     \label{subsec:sel_driver}
     
-    Para el control de los motores \ac{DC} del banco de pruebas, se evaluaron tres alternativas disponibles en el mercado local: dos módulos de desarrollo de uso común (L298N y BTS7960) y un integrado automotriz de mayor desempeño (VNH7070BAS). La \autoref{tab:hbridge_comp} resume la comparación en función de la topología, compatibilidad de niveles lógicos, capacidad de \ac{PWM}, sensado de corriente, protecciones e integración en \ac{PCB}.
+    Para el control de los motores \ac{DC} del banco de pruebas, se evaluaron tres alternativas disponibles en el mercado local: dos módulos de desarrollo de uso común (L298N y BTS7960) y un integrado orientado a aplicaciones automotrices de mayor desempeño (VNH7070BAS), alineado con prácticas y estándares típicos del sector. La \autoref{tab:hbridge_comp} resume la comparación en función de la topología, compatibilidad de niveles lógicos, capacidad de \ac{PWM}, sensado de corriente, protecciones e integración en \ac{PCB}.
+
     
     \begin{longtblr}[theme=pucp,
       label   = {tab:hbridge_comp},
@@ -141,7 +142,8 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
     \caption{Opciones de \textit{drivers} de potencia consideradas}
     \label{fig:drivers_opciones}
     \end{figure}
-    En base a la comparativa presentada, se seleccionó el \textit{driver} VNH7070BAS por sus ventajas para el control de motores \ac{DC} y por su integración directa con el microcontrolador definido en la Sección~\ref{sec_sel_micro}. En particular, sus umbrales lógicos (($V_{IH}\approx \SI{2.1}{\volt}$) y ($V_{IL}\le \SI{0.9}{\volt}$)) permiten el control desde lógica a \SI{3.3}{\volt} sin adaptación de nivel. Adicionalmente, incorpora la salida de sensado CS, que entrega una corriente escalada proporcional a la corriente del motor, lo cual resulta conveniente para la etapa de medición y se detalla en la Sección~\ref{sec_sen_corr}.
+    En base a la comparativa presentada, se seleccionó el \textit{driver} VNH7070BAS por sus ventajas para el control de motores \ac{DC} y por su integración directa con el microcontrolador definido en la Sección~\ref{sec_sel_micro}. En particular, sus umbrales lógicos ($V_{IH}\approx \SI{2.1}{\volt}$) y ($V_{IL}\le \SI{0.9}{\volt}$)) permiten el control desde lógica a \SI{3.3}{\volt} sin adaptación de nivel. Adicionalmente, incorpora la salida de sensado CS, que entrega una corriente escalada proporcional a la corriente del motor, lo cual resulta conveniente para la etapa de medición y se detalla en la Sección~\ref{sec_sen_corr}.
+
 
    \subsection{Selección de sensor de corriente}
     \label{sec_sen_corr}
@@ -160,7 +162,7 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
     \[
     I_{\text{motor}} = \frac{K}{R_{\text{sense}}}\,V_{\text{ADC}} \;\pm\; \Delta I,
     \]
-    donde \(\Delta I\) representa un término de corrección (sumado o restado) que se ajustará experimentalmente mediante la comparación con una medición de referencia obtenida con una pinza amperométrica, tal como se detalla en el Capítulo~\ref{ch:CH07}.
+    donde \(\Delta I\) representa un término de corrección (sumado o restado) que se ajustará experimentalmente mediante la comparación con una medición de referencia obtenida con una pinza amperimétrica, tal como se detalla en el Capítulo~\ref{ch:CH07}.
     \subsection{Selección de microcontrolador}
     \label{sec_sel_micro}
         Para iniciar el diseño, se definirá el microcontrolador a utilizar. Como se presentó en la matriz morfológica \ref{fig:Annex_E_MatrizMorfologica-05-control} del Anexo \ref{an:Anexo_G}, se consideraron dos opciones: un microcontrolador y una \ac{SBC}. Por criterios de costo expuestos en la sección \ref{sec:solucion_optima}, y dado que durante la experiencia de registro de datos se desarrollará una interfaz de escritorio para controlar el \ac{HW} desde la \ac{PC} del usuario, se descartó la opción de utilizar una \ac{SBC}. En consecuencia, se evalúan tres opciones de microcontroladores comerciales: placas de desarrollo basadas en la familia ATmega (Arduino), el microcontrolador ESP32 y la placa de desarrollo STM32F103C8T6 de la familia de microcontroladores STM32. A continuación, en la Tabla \ref{tab:mcus} se presentan estas tres alternativas para el desarrollo de la PCB de control del \ac{HW} y sus principales características.
@@ -338,7 +340,7 @@ Cabe resaltar que el total corresponde al circuito electrónico y no incluye la 
             \caption{Pinout del microcontrolador ESP32}
             \label{fig:PinesESP32}
         \end{figure}
-        Para esta aplicación se empleará un único bus SPI compartido entre la ESP32, el sensor TMAG7051 y el módulo Ethernet ENC28J60. Se asignan GPIO18 como SCK, GPIO23 como MOSI y GPIO19 como MISO; y líneas de selección independientes: GPIO5 como CS del TMAG7051 y GPIO22 como CS del ENC28J60. Opcionalmente, el pin INT del ENC28J60 puede conectarse al GPIO27 para notificación de eventos. Todos los módulos operan a 3.3,V y comparten una tierra común. Estas conexiones se muestran en la Figura \ref{fig:DiagramaConexiones}, correspondiente al esquema de la \ac{PCB} de control.
+        Para esta aplicación se empleará un único bus SPI compartido entre la ESP32, el sensor TMAG7051 y el módulo Ethernet ENC28J60. Se asignan GPIO18 como SCK, GPIO23 como MOSI y GPIO19 como MISO; y líneas de selección independientes: GPIO5 como CS del TMAG7051 y GPIO22 como CS del ENC28J60. Opcionalmente, el pin INT del ENC28J60 puede conectarse al GPIO27 para notificación de eventos. Todos los módulos operan a 3.3V y comparten una tierra común. Estas conexiones se muestran en la Figura \ref{fig:DiagramaConexiones}, correspondiente al esquema de la \ac{PCB} de control.
         \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/DIS_ELEC_04_CircuitoDeConexiones.jpg}
@@ -352,7 +354,7 @@ Cabe resaltar que el total corresponde al circuito electrónico y no incluye la 
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/DIS_ELEC_03_CircuitoDeDriverPuenteH.jpg}
+        \includegraphics[width=1\textwidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/SCH_DRIVER.JPG}
         \caption{Diagrama esquemático de conexiones con el driver VNH7070BAS}
         \label{fig:DiagramaConexiones}
     \end{figure}
@@ -649,4 +651,22 @@ Finalmente, en la Tabla \ref{tab:pines_pcb} se presenta la distribución de pine
 % \end{figure}
 
 \section{Diagramas electrónicos}
-    En esta sección se presenta el diagrama de conexiones entre la \ac{PCB} de control y la \ac{PCB} del sensor de efecto \textit{hall}. A continuación, se incluyen los diagramas esquemáticos correspondientes a ambos módulos, los cuales permiten identificar la interconexión de señales, alimentación y comunicaciones necesarias para su integración en el sistema. Asimismo, en el Anexo~\ref{an:Anexo_T} se presentan los diagramas esquemáticos completos, los \textit{layers} de la \ac{PCB} de dos capas y la vista previa en CAD de cómo se verían las \ac{PCB}s diseñadas.
+    En esta sección se presenta el diagrama de interconexión entre la \ac{PCB} de control y la \ac{PCB} del sensor de efecto \textit{Hall}. Para complementar la documentación del diseño, en el Anexo~\ref{an:Anexo_T} se incluyen los esquemáticos completos de ambas tarjetas, cuya vista previa se muestra en la Figura~\ref{fig:sch_pcbs}. Adicionalmente, en dicho anexo se presentan con mayor detalle los \textit{layers} de dos capas de cada \ac{PCB}, así como el modelo \ac{CAD} correspondiente.
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[t]{0.49\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/ESQUEMATICO_CONTROL.pdf}
+            \caption{Esquemático de la \ac{PCB} de control.}
+            \label{fig:sch_pcb_control}
+        \end{subfigure}\hfill
+        \begin{subfigure}[t]{0.49\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/ESQUEMATICO_SENSOR.pdf}
+            \caption{Esquemático de la \ac{PCB} del sensor de efecto \textit{Hall}.}
+            \label{fig:sch_pcb_hall}
+        \end{subfigure}
+        \caption{Vista previa de los esquemáticos completos incluidos en el Anexo~\ref{an:Anexo_T}.}
+        \label{fig:sch_pcbs}
+    \end{figure}
