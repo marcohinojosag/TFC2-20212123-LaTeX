@@ -112,37 +112,58 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
       & Dos CI para un puente H completo (uno por rama) \\
     \end{longtblr}
     
-    \begin{figure}[H]
-    \centering
-    
-    \begin{subfigure}[t]{0.32\textwidth}
-    \vspace{0pt}
-    \centering
-    \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_06_DriverVNH.jpg}
-    \caption{VNH7070BAS}
-    \caption*{\footnotesize\textit{Nota: Figura tomada de \cite{ST_VNH7070BAS}}}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.32\textwidth}
-    \vspace{0pt}
-    \centering
-    \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Componentes/L298N.jpeg}
-    \caption{L298N}
-    \caption*{\footnotesize\textit{Nota: Figura tomada de \cite{ST_L298}}}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.32\textwidth}
-    \vspace{0pt}
-    \centering
-    \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_04B_DriverBTS7960.jpg}
-    \caption{BTS7960}
-    \caption*{\footnotesize\textit{Nota: Figura tomada de \cite{Infineon_BTS7960}}}
-    \end{subfigure}
-    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[!ht]
+    \begin{tabularx}{\linewidth}{*{3}{>{\centering\arraybackslash}X}}
+        % FILA-1 (IMÁGENES)
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering
+            \includegraphics[width=.9\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/VNH7070.jpg}
+        \end{subfigure}
+        &
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering
+            \includegraphics[width=.9\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Componentes/L298N.jpeg}
+        \end{subfigure}
+        &
+        \begin{subfigure}[t]{0.32\textwidth}
+            \centering
+            \includegraphics[width=.9\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_04B_DriverBTS7960.jpg}
+        \end{subfigure}
+        \\ % FILA-2 (CAPTIONS + LABELS)
+        \begin{subfigure}[t]{\linewidth}
+            \caption{VNH7070BAS}
+            \label{fig:driver_vnh7070}
+        \end{subfigure}
+        &
+        \begin{subfigure}[t]{\linewidth}
+            \caption{L298N}
+            \label{fig:driver_l298n}
+        \end{subfigure}
+        &
+        \begin{subfigure}[t]{\linewidth}
+            \caption{BTS7960}
+            \label{fig:driver_bts7960}
+        \end{subfigure}
+        \\ % FILA-3 (NOTAS)
+        \begin{subfigure}[t]{\linewidth}
+            \caption*{\footnotesize\textit{Nota: Figura tomada de \cite{ST_VNH7070BAS}}}
+        \end{subfigure}
+        &
+        \begin{subfigure}[t]{\linewidth}
+            \caption*{\footnotesize\textit{Nota: Figura tomada de \cite{ST_L298}}}
+        \end{subfigure}
+        &
+        \begin{subfigure}[t]{\linewidth}
+            \caption*{\footnotesize\textit{Nota: Figura tomada de \cite{Infineon_BTS7960}}}
+        \end{subfigure}
+    \end{tabularx}
     \caption{Opciones de \textit{drivers} de potencia consideradas}
     \label{fig:drivers_opciones}
-    \end{figure}
-    En base a la comparativa presentada, se seleccionó el \textit{driver} VNH7070BAS por sus ventajas para el control de motores \ac{DC} y por su integración directa con el microcontrolador definido en la Sección~\ref{sec_sel_micro}. En particular, sus umbrales lógicos ($V_{IH}\approx \SI{2.1}{\volt}$) y ($V_{IL}\le \SI{0.9}{\volt}$)) permiten el control desde lógica a \SI{3.3}{\volt} sin adaptación de nivel. Adicionalmente, incorpora la salida de sensado CS, que entrega una corriente escalada proporcional a la corriente del motor, lo cual resulta conveniente para la etapa de medición y se detalla en la Sección~\ref{sec_sen_corr}.
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    En base a la comparativa presentada, se seleccionó el \textit{driver} VNH7070BAS por sus ventajas para el control de motores \ac{DC} y por su integración directa con el microcontrolador definido en la Sección~\ref{sec_sel_micro}. En particular, sus umbrales lógicos ($V_{IH}\geq \SI{2.1}{\volt}$) y ($V_{IL}\le \SI{0.9}{\volt}$)) permiten el control desde lógica a \SI{3.3}{\volt} sin adaptación de nivel. Adicionalmente, incorpora la salida de sensado CS, que entrega una corriente escalada proporcional a la corriente del motor, lo cual resulta conveniente para la etapa de medición y se detalla en la Sección~\ref{sec_sen_corr}.
 
 
    \subsection{Selección de sensor de corriente}
@@ -186,8 +207,8 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
           & Xtensa LX6, 2 núcleos hasta 240\,MHz
           & Arm Cortex-M3 32 bit hasta 72\,MHz \\
         Memoria
-          & Flash 32\,KB, SRAM 2\,KB, EEPROM 1\,KB
-          & SRAM 520\,KB, 4\,MB SPI flash en el módulo
+          & Memoria Flash 32\,KB, SRAM 2\,KB, EEPROM 1\,KB
+          & SRAM 520\,KB, 4\,MB SPI en memoria Flash 
           & Flash 64\,KB (algunas placas 128\,KB); SRAM 20\,KB \\
         ADC / DAC
           & ADC 10 bit (6 canales), sin DAC
@@ -213,10 +234,10 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
           & Arduino IDE
           & ESP-IDF (oficial) / Arduino Core
           & STM32CubeIDE (opcional Arduino Core STM32) \\
-        Precio (moneda local S/)
-          & S/ 25
-          & S/ 30
-          & S/ 25 \\
+        Precio (moneda local S/.)
+          & S/. 25
+          & S/. 30
+          & S/. 25 \\
         \end{longtblr}
         % \begin{figure}[H]
         %     \centering
@@ -256,17 +277,17 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
         \label{fig:mcus_imgs}
         \end{figure}
 
-        Se utilizará el microcontrolador ESP32-32D montado en una placa propia y programable mediante USB-C gracias a un convertidor USB–TTL CH340 configurado a 3.3\,V. El \textit{chip} CH340 ofrece interfaz USB que se enumera como puerto serie virtual y habilita carga de \textit{firmware}. El diseño de este  microcontrolador ESP32 aporta doble núcleo (hasta 240\,MHz), SRAM integrada, ADC de 12 bits, temporizadores y periféricos PWM para el control del puente H, además de SPI para los periféricos de adquisición (sensor magnético y módulo Ethernet). En cuanto al \ac{SW}, la plataforma admite FreeRTOS y capacidades de tiempo real, disponibles pero no necesariamente empleadas en este proyecto. La combinación USB-C con CH340 para programación y comunicación serie, junto con las interfaces SPI, PWM y ADC del ESP32, satisface los requisitos del banco de pruebas para el sensado y la transmisión de datos hacia la \ac{PC}.
+        Se utilizará el microcontrolador ESP32-32D montado en una placa propia y programable mediante USB-C gracias a un convertidor USB–TTL CH340 configurado a 3.3\,V. El \textit{chip} CH340 ofrece interfaz USB que se enumera como puerto serie virtual y habilita carga de \textit{firmware}. El diseño de este  microcontrolador ESP32 aporta doble núcleo (hasta 240\,MHz), SRAM integrada, ADC de 12 bits, temporizadores y salidas de señales PWM, capaces de operar en rangos de hasta los 100~kHz dependiendo de la resolución configurada para el control del puente H, además de SPI para los periféricos de adquisición (sensor magnético y módulo Ethernet). En cuanto al \ac{SW}, la plataforma admite FreeRTOS y capacidades de tiempo real, disponibles pero no necesariamente empleadas en este proyecto. La combinación USB-C con CH340 para programación y comunicación serie, junto con las interfaces SPI, PWM y ADC del ESP32, satisface los requisitos del banco de pruebas para el sensado y la transmisión de datos hacia la \ac{PC}.
         \begin{figure}[H]
             \centering
             \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X}
                 % Fila 1: imagen
                 \begin{subfigure}[t]{\linewidth}
                     \centering
-                    \includegraphics[width=0.4\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_02a_ChipCH340.jpg}
+                    \includegraphics[width=0.3\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Componentes/DIS_ELEC_02a_ChipCH340.jpg}
                 \end{subfigure}
             \end{tabularx}
-            \caption{Integrado CH340 cargar el programa y de poder comunicarse con el micrcontrolador elegido}
+            \caption{Integrado CH340 cargar el programa y de poder comunicarse con el microcontrolador elegido}
             \label{fig:black_box}
         \end{figure}
         
@@ -281,35 +302,48 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
         \label{fig:smps}
     \end{figure}
     
-    En particular, se empleará la MEAN WELL serie S-60 mostrada en la Figura~\ref{fig:smps}, con entrada universal \SI{85}{\volt}–\SI{264}{\volt}~\ac{AC} y protecciones contra cortocircuito, sobrecarga y sobretensión, por lo que no es necesario diseñar desde cero la etapa \ac{AC}/\ac{DC}. El modelo seleccionado es el S-60-12, de salida nominal \SI{12}{\volt} y \SI{5}{\ampere}, el cual se ajusta a los requerimientos de tensión del sistema y proporciona margen de diseño.
+    En particular, se empleará una fuente de alimentación de \SI{12}{\volt} y \SI{2}{\ampere}, suficiente para el manejo del sistema de control según el consumo máximo estimado. Dado que se requiere únicamente una salida regulada en \SI{12}{\volt}, no es necesario diseñar desde cero la etapa \ac{AC}/\ac{DC}, ya que se utilizará una fuente comercial que garantice las condiciones de tensión y corriente requeridas.
     
-    A continuación, en la Tabla~\ref{tab:4.Consumo_potencia} se presentan los valores de potencia que consumen los principales componentes eléctricos con el objetivo de verificar la suficiencia de la fuente seleccionada.
-    
+    A continuación, en la Tabla~\ref{tab:4.Consumo_potencia} se presentan los valores máximos de potencia que consumen los principales componentes eléctricos, con el objetivo de verificar que la fuente seleccionada pueda suministrar una potencia igual o mayor a la calculada a partir de las condiciones más exigentes de operación.
+
     \begin{table}[H]
-\centering
-\caption{Consumo de potencia del circuito electrónico}
-\label{tab:4.Consumo_potencia}
+    \centering
+    \caption{Consumo de potencia del circuito electrónico}
+    \label{tab:4.Consumo_potencia}
+    
+    \vspace{0.5em}
+    
+    \begin{tabular}{
+    |>{\raggedright\arraybackslash}m{5cm}
+    |>{\centering\arraybackslash}m{2.5cm}
+    |>{\centering\arraybackslash}m{2cm}
+    |>{\centering\arraybackslash}m{2.5cm}|}
+    \hline
+    Componente & Corriente de uso (mA) & Voltaje (V) & Potencia (mW) \\
+    \hline
+    Módulo ESP32 (típico / pico) & 80 / 368 & 3.3 & 264 / 1214 \\
+    \hline
+    Sensor de efecto Hall TMAG5170 (activo) & 3.4 & 5.5 & 18.7 \\
+    \hline
+    Driver VNH7070BAS (reposo, sin carga) & 3.5 / 6 & 12 & 42 / 72 \\
+    \hline
+    LED 12 V @ 20 mA (3 unidades) & 60 & 12 & 720 \\
+    \hline
+    Otros circuitos auxiliares (Potencia asumida $\leq$ 5 W) & 417 & 12 & 5000 \\
+    \hline
+    \multicolumn{3}{|c|}{Total (típico / máximo)} & 6045 / 7025 \\
+    \hline
+    \end{tabular}
+    \end{table}
 
-\vspace{0.5em}
+Considerando el peor caso, la potencia máxima estimada es de $7.025$~W. La fuente seleccionada de 12~V y 2~A puede entregar hasta $24$~W, por lo que el factor de seguridad asociado es:
 
-\begin{tabular}{|p{5.6cm}|c|c|c|}
-\hline
-Componente & Corriente de uso (mA) & Voltaje (V) & Potencia (mW) \\
-\hline
-Módulo ESP32 (típico / pico) & 80 / 368 & 3.3 & 264 / 1214 \\
-\hline
-Sensor de efecto Hall TMAG5170 (activo) & 3.4 & 5.5 & 18.7 \\
-\hline
-Driver VNH7070BAS (reposo, sin carga) & 3.5 / 6 & 12 & 42 / 72 \\
-\hline
-LED 12 V @ 20 mA (3 unidades) & 60 & 12 & 720 \\
-\hline
-Otros circuitos auxiliares (supuesto $\leq$ 5 W) & 417 & 12 & 5000 \\
-\hline
-\multicolumn{3}{|c|}{Total (típico / máximo)} & 6045 / 7025 \\
-\hline
-\end{tabular}
-\end{table}
+\begin{equation*}
+FS = \frac{24~\text{W}}{6.785~\text{W}} = 3.537
+\end{equation*}
+
+Lo anterior indica que la fuente puede suministrar más de tres veces la potencia máxima estimada para el circuito electrónico.
+
 
 Cabe resaltar que el total corresponde al circuito electrónico y no incluye la potencia del motor DC, ya que este se energizará con una fuente externa con su tensión nominal. Los valores máximos consideran el pico de la ESP32 y el consumo máximo en reposo del VNH7070BAS.
 
@@ -317,7 +351,7 @@ Cabe resaltar que el total corresponde al circuito electrónico y no incluye la 
 \section{Diseño de \ac{PCB}}
     En esta sección se diseñan los circuitos necesarios para la implementación del banco de pruebas, los cuales se estructuran en coherencia con los dominios definidos en el Capítulo \ref{ch:CH03}. En particular, se aborda: (i) la etapa de regulación de voltaje para la alimentación distribuida de los módulos, (ii) la electrónica de control empleada durante la caracterización del motor, (iii) la interfaz de comunicación con el \ac{SW}, y (iv) el acondicionamiento y la adquisición de señales de los sensores necesarios para la extracción de datos del motor.
     \subsection{Diseño de circuitos de potencia}
-        Para energizar todo el sistema de control se requiere regular el voltaje que entrega la fuente \textit{switching}, la cual proporciona \SI{12}{\volt} \ac{DC}. Dado que el microcontrolador ESP32, el sensor y el módulo Ethernet operan a \SI{3.3}{\volt}, se empleará una fuente \ac{DC}-\ac{DC} de topología \textit{buck}. Como se muestra en la Figura \ref{fig:RegDeVoltaje}, se utiliza el regulador LM2594 junto con los componentes propios de una fuente \textit{buck}.
+        Para energizar todo el sistema de control se requiere regular el voltaje que entrega la fuente \textit{switching}, la cual proporciona \SI{12}{\volt} \ac{DC}. Dado que el microcontrolador ESP32, el sensor y el módulo Ethernet operan a \SI{3.3}{\volt}, se empleará una fuente \ac{DC}-\ac{DC} de topología \textit{buck}. Como se muestra en la Figura \ref{fig:RegDeVoltaje}, se utiliza el regulador LM2594 junto con los componentes propios de una fuente \textit{buck} para regular el voltaje a \SI{3.3}{\volt} (VCC).
         \begin{figure}[H]
            \centering
            \includegraphics[width=1\textwidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/DIS_ELEC_01_CircuitoDePotencia.jpg}
@@ -365,7 +399,7 @@ Cabe resaltar que el total corresponde al circuito electrónico y no incluye la 
     
     INA, INB, \ac{PWM} y SEL0 se conectan a GPIO de la ESP32 con resistencias \textit{pull-down} de \SI{10}{\kilo\ohm} para evitar estados flotantes al arranque. La señal \ac{PWM} opera típicamente entre 10–20\,kHz, por lo que queda a criterio de diseño elegir la frecuencia de esta señal. Para esta aplicación, se estará configurando la señal \ac{PWM} con una frecuencia de \SI{10}{\kilo\hertz}. El diseño de estos filtros y circuitos de sensado se encuentra en el Anexo \ref{an:Anexo_u}. 
     
-    Como se menciono en la sección \ref{sec_sen_corr}, el pin CS entrega una señal proporcional a la corriente del motor. Esta se convierte a tensión mediante \(R_{\text{sense}}\) de \SI{1}{\kilo\ohm} a GND y se filtra con un condensador (R8 y C5) para compatibilizarla con el ADC del ESP32. Al dimensionar \(R_{\text{CS}}\), se garantiza que la tensión no exceda \(V_{\text{ADC,max}}\) (\SI{3.3}{\volt}) para la corriente máxima y se respeta el límite del pin CS.
+    Como se menciono en la sección \ref{sec_sen_corr}, el pin CS entrega una señal proporcional a la corriente del motor. Esta se convierte a tensión mediante \(R_{\text{sense}}\) de \SI{500}{\ohm} a GND y se filtra con un condensador (R8 y C5) para compatibilizarla con el ADC del ESP32. Al dimensionar \(R_{\text{CS}}\), se garantiza que la tensión no exceda \(V_{\text{ADC,max}}\) (\SI{3.3}{\volt}) para la corriente máxima y se respeta el límite del pin CS.
     \section{Circuitos de los canales de relé para control de indicadores luminosos}
     \label{sec:canales_rele_leds}
     
@@ -446,36 +480,57 @@ Cabe resaltar que el total corresponde al circuito electrónico y no incluye la 
 Finalmente, en la Tabla \ref{tab:pines_pcb} se presenta la distribución de pines del microcontrolador, con el fin de visualizar qué pines se utilizarán y configurar cada uno según su función en el programa que se cargará en la ESP32.
 
 \begin{table}[H]
-    \centering
-    \caption{Pines utilizados en la PCB}
-    \begin{tabularx}{0.92\textwidth}{l l X}
-    \toprule
-    Pin & Configuración & Función \\
-    \midrule
-    GPIO4  & GPIO (entrada/INT)     & Interrupción (Kill switch) \\
-    GPIO5  & SPI (CS)               & CS SENSOR \\
-    GPIO12 & GPIO (salida)          & SEL0 \\
-    GPIO14 & ADC (entrada)          & ADC (medición de voltaje en la fuente de 12V) \\
-    GPIO15 & GPIO (salida)          & Control canal de relé (un pin por canal) \\
-    GPIO18 & SPI (SCK)              & SCK \\
-    GPIO19 & SPI (MISO)             & MISO \\
-    GPIO22 & SPI (CS)               & CS PUERTO ETHERNET \\
-    GPIO23 & SPI (MOSI)             & MOSI \\
-    GPIO25 & PWM (LEDC)             & PWM driver \\
-    GPIO26 & GPIO (salida)          & Control canal de relé (un pin por canal) \\
-    GPIO27 & GPIO (entrada)         & STATUS OUTPUT TRIGERED \\
-    IO32   & GPIO (salida)          & INA \\
-    IO33   & GPIO (salida)          & INB \\
-    GPIO34 & ADC (entrada)          & ADC (MEDIR CORRIENTE) \\
-    \midrule
-    TX     & UART (TX0)             & Subida de programa \\
-    RX     & UART (RX0)             & Subida de programa \\
-    D0     & BOOT                   & Subida de programa \\
-    EN     & EN                     & Subida de programa \\
-    \bottomrule
-    \end{tabularx}
-    \label{tab:pines_pcb}
+\centering
+\caption{Pines utilizados en la PCB}
+\label{tab:pines_pcb}
+
+\vspace{0.5em}
+
+\begin{tabular}{|c|c|m{6.5cm}|}
+\hline
+Pin & Configuración & Función \\
+\hline
+IO4  & GPIO (entrada) & Interrupción (Kill switch) \\
+\hline
+IO5  & SPI (CS) & CS SENSOR \\
+\hline
+IO12 & GPIO (salida) & SEL0 \\
+\hline
+IO14 & ADC de 12 bits (entrada) & Medición de voltaje en la fuente de 12V \\
+\hline
+IO15 & GPIO (salida) & Control canal de relé \\
+\hline
+IO18 & SPI (SCK) & SCK \\
+\hline
+IO19 & SPI (MISO) & MISO \\
+\hline
+IO22 & SPI (CS) & CS PUERTO ETHERNET \\
+\hline
+IO23 & SPI (MOSI) & MOSI \\
+\hline
+IO25 & PWM  & Señal PWM driver de 10 kHz \\
+\hline
+IO26 & GPIO (salida) & Control canal de relé \\
+\hline
+IO27 & GPIO (entrada) & STATUS OUTPUT TRIGGERED \\
+\hline
+IO32   & GPIO (salida) & INA \\
+\hline
+IO33   & GPIO (salida) & INB \\
+\hline
+IO34 & ADC de 12 bits (entrada) & Medición de voltaje en la resistencia conectada al pin de sensado de corriente CS \\
+\hline
+TX  & UART (TX0) & \multirow{4}{=}{Subida de programa} \\
+\cline{1-2}
+RX  & UART (RX0) &  \\
+\cline{1-2}
+D0  & BOOT       &  \\
+\cline{1-2}
+EN  & EN         &  \\
+\hline
+\end{tabular}
 \end{table}
+
 
 % \section{Diseño de protocolo de comunicación con la interfaz con módulo Ethernet}
 
@@ -530,48 +585,59 @@ Finalmente, en la Tabla \ref{tab:pines_pcb} se presenta la distribución de pine
     Se asumió un diseño de \ac{PCB} de dos capas con cobre de 1\,oz y condiciones térmicas de referencia de \SI{25}{\celsius} de temperatura ambiente con una elevación térmica de \SI{25}{\celsius}. Esta suposición es consistente con el entorno de operación previsto para la máquina, el cual no contempla exposición a fuentes externas de esfuerzo térmico.
 
 
-    \begin{table}[H]\centering
-    \caption{Ancho mínimo por corriente (IPC-2221, 1 oz, capa externa, \(\Delta T=25~^\circ\text{C}\)).}
-    \begin{tabular}{rcc}
-    \toprule
-    Corriente & Ancho mínimo [mil] & Ancho mínimo [mm]\\
-    \midrule
-    0.01 A  & 0.012  & 0.0003 \\
-    0.05 A  & 0.109  & 0.0028 \\
-    0.10 A  & 0.283  & 0.0072 \\
-    0.50 A  & 2.607  & 0.0662 \\
-    1.00 A  & 6.781  & 0.1723 \\
-    2.00 A  & 17.642 & 0.4481 \\
-    5.00 A  & 62.434 & 1.5858 \\
-    \bottomrule
-    \end{tabular}
-    \end{table}
-    
-    \subsection*{Anchos adoptados para esta PCB (1 oz)}
-        % Requiere: \usepackage{tabularx,booktabs,array}
     \begin{table}[H]
     \centering
-    \caption{Anchos seleccionados por red (consideran mínimo de fábrica y margen térmico).}
-    \setlength{\tabcolsep}{5pt}
-    \renewcommand{\arraystretch}{1.1}
-    \footnotesize
-    \begin{tabularx}{0.95\linewidth}{@{}>{\raggedright\arraybackslash}X
-                                        >{\raggedright\arraybackslash}l
-                                        >{\raggedright\arraybackslash}X@{}}
-    \toprule
-    \textbf{Red / función} & \textbf{Ancho adoptado} & \textbf{Justificación} \\
-    \midrule
-    Señales digitales (GPIO, SPI, PWM, ALERT) & 12 mil (0.30 mm) &  \(I \ll 10\) mA \\
-    3.3 V     & 24 mil (0.61 mm) & Cálculo 11.86 mil; se duplica por factor de seguridad \\
-    3.3 V (ESP32, ENC28J60, TMAG) & 12 mil (0.30 mm) & Corrientes \(\leq\) 0.5 A por ramal; cálculo 2.61 mil \\
-    GND                            & Plano            & Es la malla de tierra que cubre toda la \ac{PCB} \\
-    12 V entrada al \textit{driver}         & 80 mil (2.03 mm) & Cálculo 5 A = 62.4 mil, es un tramo corto y ancho \\
-    OUTA/OUTB a las borneras                  & 100 mil (2.54 mm) & admite picos de corriente por el arranque\\
-    Sense y señales analógicas                 & 12 mil (0.30 mm) & Separación de lazos de potencia \\
-    \bottomrule
-    \end{tabularx}
-    \label{tab:anchos_pcb}
+    \caption{Ancho mínimo por corriente (IPC-2221, 1 oz, capa externa, $\Delta T=25~^\circ$C)}
+    \label{tab:ancho_pista_ipc}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Corriente (A) & Ancho mínimo (mil) & Ancho mínimo (mm) \\
+    \hline
+    0.01 & 0.012  & 0.0003 \\
+    \hline
+    0.05 & 0.109  & 0.0028 \\
+    \hline
+    0.10 & 0.283  & 0.0072 \\
+    \hline
+    0.50 & 2.607  & 0.0662 \\
+    \hline
+    1.00 & 6.781  & 0.1723 \\
+    \hline
+    2.00 & 17.642 & 0.4481 \\
+    \hline
+    5.00 & 62.434 & 1.5858 \\
+    \hline
+    10.00 & 104.7 & 2.66 \\
+    \hline
+    \end{tabular}
     \end{table}
+
+    \begin{table}[H]
+    \centering
+    \caption{Anchos seleccionados por red (consideran mínimo de fábrica y margen térmico)}
+    \label{tab:anchos_pcb}
+
+    \begin{tabular}{|p{4.8cm}|c|p{5.5cm}|}
+    \hline
+    Red / función & Ancho adoptado & Justificación \\
+    \hline
+    Señales digitales (GPIO, SPI, PWM, ALERT) & 12 mil (0.30 mm) & $I \ll 10$ mA \\
+    \hline
+    3.3 V & 24 mil (0.61 mm) & Cálculo 11.86 mil; se duplica por factor de seguridad \\
+    \hline
+    3.3 V (ESP32, ENC28J60, TMAG) & 12 mil (0.30 mm) & Corrientes $\leq 0.5$ A por ramal; cálculo 2.61 mil \\
+    \hline
+    GND & Plano & Malla de tierra que cubre toda la \ac{PCB} \\
+    \hline
+    12 V entrada al \textit{driver} & 80 mil (2.03 mm) & Cálculo 5 A = 62.4 mil; tramo corto y ancho \\
+    \hline
+    OUTA/OUTB a las borneras & 100 mil (2.54 mm) & Admite picos de corriente por el arranque \\
+    \hline
+    Sense y señales analógicas & 12 mil (0.30 mm) & Separación de lazos de potencia \\
+    \hline
+    \end{tabular}
+    \end{table}
+
 
     
 % \section{\textit{Layers} de la PCB}
@@ -650,23 +716,21 @@ Finalmente, en la Tabla \ref{tab:pines_pcb} se presenta la distribución de pine
 % \label{fig:pcb_sens_layers}
 % \end{figure}
 
-\section{Diagramas electrónicos}
-    En esta sección se presenta el diagrama de interconexión entre la \ac{PCB} de control y la \ac{PCB} del sensor de efecto \textit{Hall}. Para complementar la documentación del diseño, en el Anexo~\ref{an:Anexo_T} se incluyen los esquemáticos completos de ambas tarjetas, cuya vista previa se muestra en la Figura~\ref{fig:sch_pcbs}. Adicionalmente, en dicho anexo se presentan con mayor detalle los \textit{layers} de dos capas de cada \ac{PCB}, así como el modelo \ac{CAD} correspondiente.
 
-    \begin{figure}[H]
-        \centering
-        \begin{subfigure}[t]{0.49\linewidth}
-            \centering
-            \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/ESQUEMATICO_CONTROL.pdf}
-            \caption{Esquemático de la \ac{PCB} de control.}
-            \label{fig:sch_pcb_control}
-        \end{subfigure}\hfill
-        \begin{subfigure}[t]{0.49\linewidth}
-            \centering
-            \includegraphics[width=\linewidth]{CHPTRS/CH04_DIS_ELECTRONICO/Fig_Esquematicos/ESQUEMATICO_SENSOR.pdf}
-            \caption{Esquemático de la \ac{PCB} del sensor de efecto \textit{Hall}.}
-            \label{fig:sch_pcb_hall}
-        \end{subfigure}
-        \caption{Vista previa de los esquemáticos completos incluidos en el Anexo~\ref{an:Anexo_T}.}
-        \label{fig:sch_pcbs}
-    \end{figure}
+\section{Diagramas electrónicos}
+    En esta sección se presenta el diagrama de interconexión entre la \ac{PCB} de control y la \ac{PCB} del sensor de efecto \textit{Hall}. Para complementar la documentación del diseño, en el Anexo~\ref{an:Anexo_T} se incluyen los diagramas esquemáticos completos de ambas tarjetas y el listado de estos se presenta en la Tabla~\ref{tab:diagramas_esquematicos}. Adicionalmente, en dicho anexo se presentan con mayor detalle los \textit{layers} de dos capas de cada \ac{PCB}, así como el modelo \ac{CAD} correspondiente.
+
+\begin{table}[H]
+\centering
+\caption{Listado de diagramas esquemáticos}
+\label{tab:diagramas_esquematicos}
+\begin{tabular}{|c|l|c|}
+\hline
+Tamaño & \multicolumn{1}{c|}{Nombre del digrama esquemático} & \multicolumn{1}{c|}{Código} \\
+\hline
+A3 & ESQUEMÁTICO DE CONTROL & DE-SCH01-A3 \\
+\hline
+A4 & ESQUEMÁTICO DE SENSOR TMAG5170 & DE-SCH02-A4 \\
+\hline
+\end{tabular}
+\end{table}

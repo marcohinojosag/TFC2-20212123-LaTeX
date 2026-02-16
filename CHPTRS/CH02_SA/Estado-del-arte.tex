@@ -38,30 +38,30 @@ De manera complementaria, en el Anexo~\ref{an:Anexo_C} se desarrolla el marco te
     A continuación se presenta en la Tabla \ref{tab:comparasion_sw} tabla comparativa entre los dos \ac{SW} presentados, se compararán el precio para adquirir estas herramientas, si cumplen con estimar los parámetros de motor y qué tanta documentación se le brinda al usuario. Toda información en dicha tabla ha sido consultada a las páginas oficiales de cada \ac{SW}.
     % Tabla adaptada con la plantilla "tabla_comparativa" (3 columnas)
     % NOTA: Ajusta {w1}+{w2}+{w3} <= 1 para evitar warnings.
-    \begin{longtblr}[theme=pucp,
-          label   = {tab:comparasion_sw},
-          caption = {Comparación entre los dos \ac{SW} mencionados},
-        ]{
-          colspec   = {X[c,m]X[c,m]X[c,m]},
-          column{1} = {wd=0.20\textwidth},
-          column{2} = {wd=0.40\textwidth},
-          column{3} = {wd=0.40\textwidth},
-          rowhead = 1,
-          rowfoot = 0,
-          hlines,
-          vlines,
-        }
-        Característica & \ac{ETAP} & MATLAB \textit{toolbox} \\
-        Precio de la licencia
-        & El \ac{SW} \ac{ETAP} tiene un precio modular, por lo que se deben comprar módulos separados para distintas características. \ac{ETAP} no publica precios directos; es necesario solicitar una cotización.
-        & MATLAB opera con licencias cuyo precio varía según el tipo (individual, académico, etc.). La licencia anual base de MATLAB (con acceso a todas las herramientas) es de \$2{,}150, y el \ac{MCB} se vende por separado (puede llegar a \$1{,}500). El plan estudiantil más económico indicado por \textcite{mathworks_motor_estimation} cuesta \$55. \\
-        Estimación de parámetros del motor
-        & \ac{ETAP} se especializa en análisis de sistemas eléctricos de potencia e incluye un apartado para estimar parámetros de motores \ac{DC} como resistencia, inductancia y par.
-        & MATLAB/\ac{MCB} ofrece herramientas completas para estimación de parámetros de motores, con entornos de simulación e interfaces de hardware para diseño de control y pruebas en tiempo real. \\
-        Soporte y documentación
-        & \ac{ETAP} ofrece soporte extenso: ayuda en vivo, capacitaciones, seminarios web y foro dedicado.
-        & MATLAB/\ac{MCB} cuenta con documentación completa, foros de usuarios, soporte técnico de MathWorks y abundantes tutoriales en línea. \\
-    \end{longtblr}
+    % \begin{longtblr}[theme=pucp,
+    %       label   = {tab:comparasion_sw},
+    %       caption = {Comparación entre los dos \ac{SW} mencionados},
+    %     ]{
+    %       colspec   = {X[c,m]X[c,m]X[c,m]},
+    %       column{1} = {wd=0.20\textwidth},
+    %       column{2} = {wd=0.40\textwidth},
+    %       column{3} = {wd=0.40\textwidth},
+    %       rowhead = 1,
+    %       rowfoot = 0,
+    %       hlines,
+    %       vlines,
+    %     }
+    %     Característica & \ac{ETAP} & MATLAB \textit{toolbox} \\
+    %     Precio de la licencia
+    %     & El \ac{SW} \ac{ETAP} tiene un precio modular, por lo que se deben comprar módulos separados para distintas características. \ac{ETAP} no publica precios directos; es necesario solicitar una cotización.
+    %     & MATLAB opera con licencias cuyo precio varía según el tipo (individual, académico, etc.). La licencia anual base de MATLAB (con acceso a todas las herramientas) es de \$2{,}150, y el \ac{MCB} se vende por separado (puede llegar a \$1{,}500). El plan estudiantil más económico indicado por \textcite{mathworks_motor_estimation} cuesta \$55. \\
+    %     Estimación de parámetros del motor
+    %     & \ac{ETAP} se especializa en análisis de sistemas eléctricos de potencia e incluye un apartado para estimar parámetros de motores \ac{DC} como resistencia, inductancia y par.
+    %     & MATLAB/\ac{MCB} ofrece herramientas completas para estimación de parámetros de motores, con entornos de simulación e interfaces de hardware para diseño de control y pruebas en tiempo real. \\
+    %     Soporte y documentación
+    %     & \ac{ETAP} ofrece soporte extenso: ayuda en vivo, capacitaciones, seminarios web y foro dedicado.
+    %     & MATLAB/\ac{MCB} cuenta con documentación completa, foros de usuarios, soporte técnico de MathWorks y abundantes tutoriales en línea. \\
+    % \end{longtblr}
 
 \section{Empresas de confianza}
     En esta sección, se analizarán dos empresas internacionales que ofrecen a sus clientes los parámetros técnicos de sus motores en hojas de especificaciones antes de la compra de sus productos.
@@ -82,28 +82,34 @@ De manera complementaria, en el Anexo~\ref{an:Anexo_C} se desarrolla el marco te
     \end{figure}
     \begin{table}[H]
         \centering
-        \caption{Parámetros brindados por la empresa MAXON al momento de elegir un motor\\(modelo DC-max 16)}
-        \begin{tblr}{
-              cell{1}{3} = {c},
-              cell{2}{3} = {c},
-              cell{3}{3} = {c},
-              cell{4}{3} = {c},
-              cell{5}{3} = {c},
-        }
-        \hline
-        Características              & Valor            &  \\
-        \hline
-        Resistencia terminal         & \SI{4.1}{\ohm}   &  \\
-        Inductancia terminal         & \SI{0.14}{\mH}   &  \\
-        Constante de par             & 7,19 mNm/A       &  \\
-        Constante de velocidad       & 1330 rpm/V       &  \\
-        Gradiente de velocidad/par   & 758 rpm/mNm      &  \\
-        Constante de tiempo mecánico & 8,87 ms          &  \\
-        Inercia del rotor            & 1,12 $gcm^2$     &
-        \end{tblr}
-        \caption*{\small\textit{Nota: Información adaptada de un motor cotizado en la página de \href{https://www.maxongroup.com/es-es}{Maxon}, revisada el día 25 de setiembre del 2024 \autocite{maxon_group}}}
+        \caption{Parámetros brindados por la empresa MAXON al momento de elegir un motor (modelo DC-max 16)}
         \label{tab:motor_maxon}
+        
+        \vspace{0.5em}
+        
+        \begin{tabular}{|p{6cm}|c|c|}
+        \hline
+        Característica & Valor & Unidad \\
+        \hline
+        Resistencia terminal & 4.1 & $\Omega$ \\
+        \hline
+        Inductancia terminal & 0.14 & mH \\
+        \hline
+        Constante de par & 7.19 & mNm/A \\
+        \hline
+        Constante de velocidad & 1330 & rpm/V \\
+        \hline
+        Gradiente de velocidad/par & 758 & rpm/mNm \\
+        \hline
+        Constante de tiempo mecánico & 8.87 & ms \\
+        \hline
+        Inercia del rotor & 1.12 & gcm$^2$ \\
+        \hline
+        \end{tabular}
+        
+        \caption*{\small\textit{Nota: Información adaptada de un motor cotizado en la página de \href{https://www.maxongroup.com/es-es}{Maxon}, revisada el día 25 de setiembre del 2024 \autocite{maxon_group}.}}
     \end{table}
+
 
 \subsection{Zhaowei}
     ZHAOWEI es una empresa que se especializa en el diseño, desarrollo y fabricación de motores \ac{DC} con escobillas, así como en sistemas de transmisión y soluciones personalizadas para la industria. Se enfoca principalmente en la venta de motores de alta precisión y componentes relacionados afines para el accionamiento y medición de parámetros de estos \autocite{zhaowei_dc_motor} Lo destacable de la empresa es que, al igual que fabricantes como \textcite{zhaowei_dc_motor}, proporcionan los parámetros técnicos detallados de sus motores antes de la compra, lo cual es importante para que los clientes puedan evaluar si el motor cumple con sus requisitos específicos. Algo a detallar es que al momento de ingresar a cotizar un motor, dichos parámetros se encuentran ligados a una tolerancia de casi el 20 \% para la mayoría de estos y en algunos casos no muestran los valores de algunos parámetros. En la Figura \ref{fig:CH03_MOTOR_ZHAOWE} se muestran los principales parámetros de uno de los modelos de motor \ac{DC} de la página principal de esta empresa y en la Tabla \ref{tab:motor_zhaowei} se muestran los valores de los parámetros del motor cotizado.
@@ -123,28 +129,31 @@ De manera complementaria, en el Anexo~\ref{an:Anexo_C} se desarrolla el marco te
     \begin{table}[H]
         \centering
         \caption{Parámetros brindados por la empresa ZHAOWEI del motor cotizado en su página web}
-        \begin{tblr}{
-          cell{1}{3} = {c},
-          cell{2}{3} = {c},
-          cell{3}{3} = {c},
-          cell{4}{3} = {c},
-          cell{5}{3} = {c},
-        }
-        \hline
-        Características                    & Valor            &  \\
-        \hline
-        Resistencia terminal de fase       & \SI{4.5}{\ohm}   &  \\
-        Inductancia terminal de fase       & \text{N.A.}      &  \\
-        Constante de par                   & 13,1 mNm/A       &  \\
-        Constante de velocidad             & 684 rpm/V        &  \\
-        Gradiente de velocidad/par         & 243,5 rpm/mNm    &  \\
-        Constante de tiempo mecánico       & -- ms            &  \\
-        Inercia del rotor                  & 4 $gcm^2$        &
-        \end{tblr}
-        \caption*{\small\textit{Nota: Información adaptada de un motor cotizado en la página de \href{https://es.zwgearbox.com/}{Zhaowei}, revisada el día 25 de setiembre del 2024 \autocite{zhaowei_dc_motor}}}
         \label{tab:motor_zhaowei}
+        
+        \vspace{0.5em}
+        
+        \begin{tabular}{|p{6cm}|c|c|}
+        \hline
+        Característica & Valor & Unidad \\
+        \hline
+        Resistencia terminal de fase & 4.5 & $\Omega$ \\
+        \hline
+        Inductancia terminal de fase & N.A. & mH \\
+        \hline
+        Constante de par & 13.1 & mNm/A \\
+        \hline
+        Constante de velocidad & 684 & rpm/V \\
+        \hline
+        Gradiente de velocidad/par & 243.5 & rpm/mNm \\
+        \hline
+        Constante de tiempo mecánico & N.A. & ms \\
+        \hline
+        Inercia del rotor & 4 & gcm$^2$ \\
+        \hline
+        \end{tabular}
+        \caption*{\small\textit{Nota: Información adaptada de un motor cotizado en la página de \href{https://es.zwgearbox.com/}{Zhaowei}, revisada el día 25 de setiembre del 2024 \autocite{zhaowei_dc_motor}.}}
     \end{table}
-
 
 Para la validación de los resultados del estimador diseñado, se utilizará un motor proveniente de alguna de las dos empresas mencionadas, dado que estas empresas proporcionan una hoja técnica con los valores de los parámetros del motor. Además, se planea aplicar métodos empíricos y utilizar algún \ac{SW} para comparar cuál de estas tres metodologías ofrece resultados más cercanos a la respuesta real y determinar cuál de ellas es la mejor opción para hallar los parámetros.
  

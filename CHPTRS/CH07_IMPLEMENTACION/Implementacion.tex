@@ -103,9 +103,9 @@ Una vez aplicada la configuración, se realizó la lectura de los registros de r
 El sensor traduce la variación del campo magnético en una estimación de la posición angular en el eje solidario del motor. A partir de esta señal, se calcula la velocidad angular mediante la derivada temporal de la posición angular, como se muestra en la Figura~\ref{fig:graph_ang}.
 
 % INSERTAR FIGURA: gráfica de ángulo y velocidad angular
-\begin{figure}[H]
+\begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.95\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/Ang_graph.jpg}
+  \includegraphics[width=0.95\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/ang_graph.pdf}
   \caption{Señales de posición angular y velocidad angular obtenidas a partir del TMAG5170A1.}
   \label{fig:graph_ang}
 \end{figure}
@@ -148,9 +148,9 @@ De manera similar a las pruebas del sensor Hall, se presentan los resultados del
 % ---------------------------------------------------------
 % Figura: sensado de voltaje
 % ---------------------------------------------------------
-\begin{figure}[H]
+\begin{figure}[ht!]
 \centering
-\includegraphics[width=0.50\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/voltaje_graph.jpg}
+\includegraphics[width=0.70\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/voltaje_graph.pdf}
 \caption{Señal de voltaje de alimentación del motor obtenida durante las pruebas.}
 \label{fig:graph_voltaje}
 \end{figure}
@@ -164,9 +164,9 @@ En cuanto a la corriente, se presentan dos registros. Para estas pruebas, se dis
 %---------------------------------------------------------
 % Figura: corriente durante arranque (1.5 s)
 %---------------------------------------------------------
-\begin{figure}[H]
+\begin{figure}[ht!]
 \centering
-\includegraphics[width=0.80\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph.jpg}
+\includegraphics[width=0.80\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph.pdf}
 \caption{Corriente durante el arranque del motor (\SI{1.5}{\second}).}
 \label{fig:graph_current_start}
 \end{figure}
@@ -174,40 +174,19 @@ En cuanto a la corriente, se presentan dos registros. Para estas pruebas, se dis
 %---------------------------------------------------------
 % Figura: corriente con eje forzado
 %---------------------------------------------------------
-\begin{figure}[H]
+\begin{figure}[ht!]
 \centering
-\includegraphics[width=0.80\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph_force.jpg}
+\includegraphics[width=0.80\linewidth]{CHPTRS/CH07_IMPLEMENTACION/Fig/corriente_graph_force.pdf}
 \caption{Corriente con eje forzado durante un intervalo prolongado.}
 \label{fig:graph_current_forced}
 \end{figure}
 
 Para todas estas pruebas, tanto de voltaje como de corriente y velocidad angular, se trabajó con un periodo entre muestras de \SI{500}{\micro\second}, lo que equivale a una frecuencia de muestreo de \SI{2}{\kilo\hertz}. Este muestreo busca capturar adecuadamente el arranque del motor en pruebas de corta duración, debido a que la dinámica de estas variables es rápida y converge en un intervalo reducido, tal como se observa en las figuras presentadas. Por este motivo, se optó por una ventana de adquisición de aproximadamente \SI{1.5}{\second}, donde la información es almacenada en la memoria RAM del microcontrolador para luego ser enviada hacia la interfaz, en la cual se ejecutará el algoritmo de estimación. Para mayor detalle sobre la lógica de funcionamiento del sistema, esta se describe en el Capítulo~\ref{ch:CH06}, correspondiente al desarrollo de la lógica de control y \ac{SW}.
 
-\section{Costos de componentes electrónicos para pruebas}
-\label{sec:costos_componentes_pruebas}
-
-Además, para efectos de estimación de costos del prototipo, se considera que las \ac{PCB}s fabricadas para estas pruebas tuvieron un costo referencial de S/.\,20 por unidad. En total, se mandaron a fabricar dos \ac{PCB}s en el mercado peruano (una para el sensor TMAG5170 y otra para el driver VNH7070BAS), cuyos costos se resumen en la Tabla~\ref{tab:costo_pcbs_pruebas}.
-
-\begin{table}[H]
-\centering
-\caption{Costo referencial de \ac{PCB}s fabricadas para pruebas}
-\label{tab:costo_pcbs_pruebas}
-\begin{tabular}{|l|c|c|c|}
-\hline
-\multicolumn{1}{|c|}{Ítem} & Proveedor & Cant. & Precio S/. \\
-\hline
-\ac{PCB} de pruebas TMAG5170 & Mercado peruano & 1 & 20 \\
-\hline
-\ac{PCB} de pruebas VNH7070BAS & Mercado peruano & 1 & 20 \\
-\hline
-\multicolumn{3}{|c|}{Costo total} & 40 \\
-\hline
-\end{tabular}
-\end{table}
 
 
 \section{Prueba de sensado utilizando el \ac{HW} implementado}
-\section{Prueba de envío y transmisisión de datos entre \ac{HW} y \ac{SW}}
+
 \section{Pruebas con la interfaz}
-\section{Pruebas con el algoritmo de estimación \textit{offline}}
-\section{Pruebas con el algoritmo de estimación \textit{online}}
+
+\section{Pruebas con el algoritmo de estimación }
