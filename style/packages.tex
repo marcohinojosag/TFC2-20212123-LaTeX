@@ -288,46 +288,5 @@
 \definecolor{codeid}{HTML}{24292E}
 
 
-\usepackage{rotating} 
-\usepackage{geometry}
 
-% --- Letra más pequeña en tablas (activar si se aprueba) ---
-% \usepackage{etoolbox}
-% \AtBeginEnvironment{table}{\small}
-% \AtBeginEnvironment{longtable}{\small}
-% \AtBeginEnvironment{tblr}{\small}
-% \AtBeginEnvironment{longtblr}{\small}
-
-
-
-% Requiere tabularray (ya lo usas)
-\usepackage{tabularray}
-
-\ExplSyntaxOn
-\tl_new:N \g_cost_rows_tl
-\fp_new:N \g_cost_soles_fp
-\fp_new:N \g_cost_usd_fp
-
-\cs_new_protected:Npn \cost_reset:
-  {
-    \tl_gclear:N \g_cost_rows_tl
-    \fp_gzero:N \g_cost_soles_fp
-    \fp_gzero:N \g_cost_usd_fp
-  }
-
-% #1 Componente, #2 Cant, #3 Proveedor, #4 Unit S/, #5 Total S/, #6 Total US$
-\NewDocumentCommand{\CostRow}{m m m m m m}
-  {
-    % Construye las filas (lo que se imprime)
-    \tl_gput_right:Nn \g_cost_rows_tl
-      { #1 & #2 & #3 & S/\ #4 & S/\ #5 & \$\ #6 \\ }
-
-    % Acumula (solo números)
-    \fp_gadd:Nn \g_cost_soles_fp {#5}
-    \fp_gadd:Nn \g_cost_usd_fp   {#6}
-  }
-
-\NewDocumentCommand{\CostRows}{}{ \tl_use:N \g_cost_rows_tl }
-\NewDocumentCommand{\CostTotalSoles}{}{ \fp_eval:n { round(\g_cost_soles_fp,2) } }
-\NewDocumentCommand{\CostTotalUSD}{}{ \fp_eval:n { round(\g_cost_usd_fp,2) } }
 \ExplSyntaxOff
