@@ -163,7 +163,7 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    En base a la comparativa presentada, se seleccionó el \textit{driver} VNH7070BAS por sus ventajas para el control de motores \ac{DC} y por su integración directa con el microcontrolador definido en la Sección~\ref{sec_sel_micro}. En particular, sus umbrales lógicos ($V_{IH}\geq \SI{2.1}{\volt}$) y ($V_{IL}\le \SI{0.9}{\volt}$)) permiten el control desde lógica a \SI{3.3}{\volt} sin adaptación de nivel. Adicionalmente, incorpora la salida de sensado CS, que entrega una corriente escalada proporcional a la corriente del motor, lo cual resulta conveniente para la etapa de medición y se detalla en la Sección~\ref{sec_sen_corr}.
+    En base a la comparativa presentada, se seleccionó el \textit{driver} VNH7070BAS por sus ventajas para el control de motores \ac{DC} y por su integración directa con el microcontrolador definido en la Sección~\ref{subsec:sel_micro}. En particular, sus umbrales lógicos ($V_{IH}\geq \SI{2.1}{\volt}$) y ($V_{IL}\le \SI{0.9}{\volt}$)) permiten el control desde lógica a \SI{3.3}{\volt} sin adaptación de nivel. Adicionalmente, incorpora la salida de sensado CS, que entrega una corriente escalada proporcional a la corriente del motor, lo cual resulta conveniente para la etapa de medición y se detalla en la Sección~\ref{sec_sen_corr}.
 
 
    \subsection{Selección de sensor de corriente}
@@ -185,7 +185,7 @@ En este capítulo se desarrollará el diseño electrónico de los subsistemas de
     \]
     donde \(\Delta I\) representa un término de corrección (sumado o restado) que se ajustará experimentalmente mediante la comparación con una medición de referencia obtenida con una pinza amperimétrica, tal como se detalla en el Capítulo~\ref{ch:CH07}.
     \subsection{Selección de microcontrolador}
-    \label{sec_sel_micro}
+    \label{subsec:sel_micro}
         Para iniciar el diseño, se definirá el microcontrolador a utilizar. Como se presentó en la matriz morfológica \ref{fig:Annex_E_MatrizMorfologica-05-control} del Anexo \ref{an:Anexo_G}, se consideraron dos opciones: un microcontrolador y una \ac{SBC}. Por criterios de costo expuestos en la sección \ref{sec:solucion_optima}, y dado que durante la experiencia de registro de datos se desarrollará una interfaz de escritorio para controlar el \ac{HW} desde la \ac{PC} del usuario, se descartó la opción de utilizar una \ac{SBC}. En consecuencia, se evalúan tres opciones de microcontroladores comerciales: placas de desarrollo basadas en la familia ATmega (Arduino), el microcontrolador ESP32 y la placa de desarrollo STM32F103C8T6 de la familia de microcontroladores STM32. A continuación, en la Tabla \ref{tab:mcus} se presentan estas tres alternativas para el desarrollo de la PCB de control del \ac{HW} y sus principales características.
         
         \begin{longtblr}[theme=pucp,

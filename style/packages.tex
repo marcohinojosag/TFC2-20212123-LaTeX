@@ -112,7 +112,10 @@
 \usepackage[table,xcdraw,dvipsnames]{xcolor}%para definir colores
 \usepackage{hyperref}    % enable hyperrefs
 \PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
 \pdfstringdefDisableCommands{%
+  \let\HyPsd@CatcodeWarning\@gobble
+  \let\@ac\relax
   \def\\{}%
   \def\texttt#1{<#1>}%
 }
@@ -140,7 +143,6 @@
 
 
 \usepackage{xcolor}
-
 
 \usepackage[printonlyused]{acronym} %for acronyms
 \renewcaptionname{spanish}{\listtablename}{\'Indice de tablas}

@@ -3,24 +3,23 @@
 \label{ch:CH08}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 En este capítulo se presenta la estimación económica necesaria para obtener un prototipo funcional del banco de pruebas. El análisis contempla el costo de materiales, los procesos de fabricación y ensamble, los recursos utilizados durante las pruebas de validación, así como los costos asociados al diseño y actividades complementarias. El sistema se basa principalmente en componentes disponibles en el mercado local peruano; sin embargo, para algunos componentes se consideran referencias de proveedores internacionales. En tales casos, se toman como base los precios publicados en plataformas de venta en línea.
-
-Las listas detalladas de cotizaciones de componentes electrónicos, mecánicos, materias primas y procesos de manufactura se presentan en los anexos correspondientes: el Anexo~\ref{an:Anexo_H} para manufactura aditiva, el Anexo~\ref{an:Anexo_D} para costos asociados al uso de software, y los Anexos~\ref{an:Anexo_R} y~\ref{an:Anexo_Z} para componentes mecánicos y electrónicos, respectivamente. En el presente capítulo se presentaran únicamente los resúmenes consolidados de dichos costos. 
-
+\noindent
+Las listas detalladas de cotizaciones de componentes electrónicos, mecánicos, materias primas y procesos de manufactura se presentan en los anexos correspondientes: el Anexo~\ref{an:Anexo_H} para manufactura aditiva, el Anexo~\ref{an:Anexo_D} para costos asociados al uso de \ac{SW}, y los Anexos~\ref{an:Anexo_R} y~\ref{an:Anexo_Z} para componentes mecánicos y electrónicos, respectivamente. En el presente capítulo se presentaran únicamente los resúmenes consolidados de dichos costos. 
+\noindent
 Asimismo, para efectos de conversión se considera un tipo de cambio de referencia de 1~USD = S/.\,3.35, correspondiente al valor del dólar registrado el día 15 de febrero de 2026.
 
 
-\section{Costo de materiales}
+\section{Costo de materias primas}
 
 Esta sección resume el costo de la materia prima necesaria para la implementación del prototipo. Se consideran tanto componentes mecánicos como electrónicos en su estado original, sin incluir procesos de fabricación ni ensamble.
+\subsection{Costos de materiales mecánicos}
 
-\subsection{Componentes mecánicos}
-
-En la Tabla~\ref{tab:costos_mecanicos_resumen} se presenta el resumen de los materiales mecánicos utilizados en la construcción del banco de pruebas.
+En la Tabla~\ref{tab:costos_materias_mecanicos} se presenta el resumen de los materiales mecánicos empleados.
 
 \begin{table}[H]
 \centering
 \caption{Detalle de costos de componentes mecánicos}
-\label{tab:anexo_costos_mecanicos}
+\label{tab:costos_materias_mecanicos}
 
 \vspace{0.5em}
 
@@ -53,309 +52,151 @@ Tuercas M5 & 2 & 0.40 & 0.12 \\
 \end{tabular}
 \end{table}
 
-\subsection{Componentes electrónicos – mercado local}
-
-La Tabla~\ref{tab:costos_elec_local_resumen} resume los componentes electrónicos adquiridos en el mercado local.
+\subsection{Costos de componentes electrónicos}
+En la Tabla~\ref{tab:costos_electronicos_resumen} se muestra el costo total de los componentes electrónicos utilizados.
 
 \begin{table}[H]
 \centering
-\caption{Resumen de componentes electrónicos adquiridos localmente}
-\label{tab:costos_elec_local_resumen}
-\begin{tabular}{|l|c|}
+\caption{Resumen general de componentes electrónicos}
+\label{tab:costos_electronicos_resumen}
+\begin{tabular}{|p{8cm}|c|c|}
 \hline
-Descripción & Costo (S/.) \\
+Concepto & Costo (S/.) & Costo (US\$) \\
 \hline
-Pasivos (resistencias, capacitores) & XXX \\
-Conectores y borneras & XXX \\
-Relés y protección & XXX \\
-Otros componentes menores & XXX \\
+Componentes electrónicos totales & 96.96 & 28.77 \\
 \hline
-\textbf{Total componentes electrónicos locales} & \textbf{XXX} \\
+\textbf{Total} & \textbf{96.96} & \textbf{28.77} \\
 \hline
 \end{tabular}
 \end{table}
 
-\subsection{Componentes electrónicos importados}
-
-Algunos dispositivos no se encuentran disponibles en el mercado local, por lo que se consideran precios de importación. En la Tabla~\ref{tab:costos_elec_importados_resumen} se presenta el resumen correspondiente, incluyendo costos asociados a importación.
+En la Tabla~\ref{tab:comparacion_electronicos_local_importado} se presenta la comparación entre un escenario con componentes adquiridos localmente y otro considerando importaciones.
 
 \begin{table}[H]
 \centering
-\caption{Resumen de componentes electrónicos importados}
-\label{tab:costos_elec_importados_resumen}
-\begin{tabular}{|l|c|c|}
+\caption{Comparación de componentes electrónicos: escenario local vs importado}
+\label{tab:comparacion_electronicos_local_importado}
+\begin{tabular}{|p{6cm}|c|c|}
 \hline
-Descripción & Costo componentes (S/.) & Costo importación (S/.) \\
+Escenario & Costo (S/.) & Costo (US\$) \\
 \hline
-Driver de potencia & XXX & XXX \\
-Sensor magnético & XXX & XXX \\
-Regulador DC-DC & XXX & XXX \\
-Otros dispositivos importados & XXX & XXX \\
+Adquisición local & XXX & XXX \\
 \hline
-\textbf{Total electrónicos importados} & \multicolumn{2}{c|}{\textbf{XXX}} \\
+Importación incluida & XXX & XXX \\
 \hline
 \end{tabular}
 \end{table}
 
-\section{Costo de fabricación y ensamble}
+\section{Costos de fabricación y ensamble}
+\subsection{Costos de fabricación de piezas mecánicas}
 
-En esta sección se presentan los costos asociados a los procesos de manufactura y ensamble requeridos para obtener el prototipo funcional.
+En la Tabla~\ref{tab:costos_fabricacion_mecanica_resumen} se muestran los procesos requeridos para la fabricación de las piezas mecánicas.
 
-\subsection{Fabricación mecánica}
-
-Incluye procesos como corte láser, doblado y mecanizado de piezas estructurales.
+% (Aquí colocarás la tabla que me pasarás)
+\subsection{Costos de fabricación de \ac{PCB}}
+En la Tabla~\ref{tab:pcb_local} se muestra el costo estimado para fabricación local de la \ac{PCB}.
 
 \begin{table}[H]
 \centering
-\caption{Costo de fabricación mecánica}
-\label{tab:costos_fabricacion_mecanica}
-\begin{tabular}{|l|c|}
+\caption{Fabricación local de \ac{PCB}}
+\label{tab:pcb_local}
+\begin{tabular}{|p{7cm}|c|c|}
 \hline
-Proceso & Costo (S/.) \\
+Concepto & Costo (S/.) & Costo (US\$) \\
 \hline
-Corte láser & XXX \\
-Doblado & XXX \\
-Mecanizado adicional & XXX \\
+Material virgen & XXX & XXX \\
+Proceso manual & XXX & XXX \\
+Insumos adicionales & XXX & XXX \\
 \hline
-\textbf{Total fabricación mecánica} & \textbf{XXX} \\
+\textbf{Total fabricación local} & \textbf{XXX} & \textbf{XXX} \\
+\hline
+\end{tabular}
+\end{table}
+En la Tabla~\ref{tab:pcb_internacional} se presenta el costo de fabricación internacional considerando importación.
+
+\begin{table}[H]
+\centering
+\caption{Fabricación internacional de \ac{PCB} con importación}
+\label{tab:pcb_internacional}
+\begin{tabular}{|p{7cm}|c|c|}
+\hline
+Concepto & Costo (S/.) & Costo (US\$) \\
+\hline
+Fabricación (2 unidades) & XXX & XXX \\
+Envío internacional & XXX & XXX \\
+Costos de importación & XXX & XXX \\
+\hline
+\textbf{Total fabricación internacional} & \textbf{XXX} & \textbf{XXX} \\
 \hline
 \end{tabular}
 \end{table}
 
-\subsection{Fabricación de PCB}
+\section{Costos de diseño y otros}
+\subsection{Costo de diseño}
+
+En la Tabla~\ref{tab:costo_diseno_ingenieril} se presenta la estimación de los costos asociados al diseño del sistema.
 
 \begin{table}[H]
 \centering
-\caption{Costo de fabricación de PCB (fabricación internacional)}
-\label{tab:costos_pcb_internacional}
-\begin{tabular}{|l|c|}
+\caption{Estimación de costos de diseño ingenieril}
+\label{tab:costo_diseno_ingenieril}
+\begin{tabular}{|p{5cm}|c|c|c|}
 \hline
-Concepto & Costo (S/.) \\
+Rubro & Unidad & Valor & Costo (S/.) \\
 \hline
-Fabricación PCB (2 unidades) & XXX \\
-Envío internacional & XXX \\
+Honorarios por hora & S/. / hora & 40.00 & -- \\
+Cantidad de horas semanales & horas/semana & 8 & -- \\
+Cantidad de semanas & semanas & 15 & -- \\
 \hline
-\textbf{Total fabricación PCB} & \textbf{XXX} \\
+\textbf{Costo total de diseño} &  &  & \textbf{4,800.00} \\
 \hline
 \end{tabular}
 \end{table}
 
-\subsection{Fabricación local alternativa}
+\subsection{Costo por utilización de \ac{SW}}
 
-Se considera como alternativa la fabricación local de la PCB, la cual implica un menor costo inicial pero presenta limitaciones en acabado, alineación de capas y calidad del ruteo, además de requerir mayor trabajo manual durante el proceso de soldado.
+Para la creación de la interfaz gráfica y la ejecución del algoritmo de estimación se utiliza el \ac{SW} MATLAB. La licencia del programa base implica un costo anual, al cual se adiciona el costo individual de cada \textit{toolbox} requerido para el desarrollo del proyecto.
+
+El análisis detallado de estos costos, se discutirá en el Capítulo~\ref{ch:CH09} como parte del trabajo futuro del proyecto.
+
+\section{Costo total de la solución}
+\subsection{Costo total considerando importaciones}
 
 \begin{table}[H]
 \centering
-\caption{Alternativa de fabricación local de PCB}
-\label{tab:costos_pcb_local}
-\begin{tabular}{|l|c|}
+\caption{Costo total del sistema considerando importaciones}
+\label{tab:costo_total_importado}
+\begin{tabular}{|p{7cm}|c|c|}
 \hline
-Concepto & Costo (S/.) \\
+Concepto & Costo (S/.) & Costo (US\$) \\
 \hline
-Material virgen & XXX \\
-Proceso manual & XXX \\
-Insumos adicionales & XXX \\
+Materias primas & XXX & XXX \\
+Fabricación y ensamble & XXX & XXX \\
+Diseño y otros & 4,800.00 & 1,432.84 \\
 \hline
-\textbf{Total fabricación local} & \textbf{XXX} \\
+\textbf{Costo total} & \textbf{XXX} & \textbf{XXX} \\
 \hline
 \end{tabular}
 \end{table}
 
-\section{Costo de pruebas}
-
-Durante la etapa de validación se utilizaron componentes adicionales para ensayos preliminares y pruebas funcionales. Estos costos no forman parte directa del prototipo final, pero representan inversión en la fase de desarrollo.
-
-\subsection{Componentes mecánicos de prueba}
+\subsection{Costo total en escenario local}
 
 \begin{table}[H]
 \centering
-\caption{Materiales mecánicos utilizados en pruebas}
-\label{tab:costos_pruebas_mecanicos}
-\begin{tabular}{|l|c|}
+\caption{Costo total del sistema restringido al mercado local}
+\label{tab:costo_total_local}
+\begin{tabular}{|p{7cm}|c|c|}
 \hline
-Descripción & Costo (S/.) \\
+Concepto & Costo (S/.) & Costo (US\$) \\
 \hline
-Soportes prototipo & XXX \\
-Material impresión 3D & XXX \\
-Elementos de ajuste & XXX \\
+Materias primas & XXX & XXX \\
+Fabricación local & XXX & XXX \\
+Diseño y otros & 4,800.00 & 1,432.84 \\
 \hline
-\textbf{Total pruebas mecánicas} & \textbf{XXX} \\
-\hline
-\end{tabular}
-\end{table}
-
-\subsection{Componentes electrónicos de prueba}
-
-\begin{table}[H]
-\centering
-\caption{Componentes electrónicos utilizados en pruebas}
-\label{tab:costos_pruebas_electronicos}
-\begin{tabular}{|l|c|}
-\hline
-Descripción & Costo (S/.) \\
-\hline
-Placas de prueba & XXX \\
-Sensores adicionales & XXX \\
-Componentes de reemplazo & XXX \\
-\hline
-\textbf{Total pruebas electrónicas} & \textbf{XXX} \\
-\hline
-\end{tabular}
-\end{table}
-
-\section{Costo de diseño y adicionales}
-
-El desarrollo del banco de pruebas implicó actividades de diseño mecánico, diseño electrónico, programación, iteraciones de prueba, adquisición de materiales y coordinación logística. 
-
-Para efectos de estimación, se considera un costo global optimista asociado a estas actividades.
-
-\begin{table}[H]
-\centering
-\caption{Costo asociado a diseño y actividades complementarias}
-\label{tab:costos_diseno}
-\begin{tabular}{|l|c|}
-\hline
-Concepto & Costo estimado (S/.) \\
-\hline
-Diseño mecánico y CAD & XXX \\
-Diseño electrónico y PCB & XXX \\
-Programación y pruebas & XXX \\
-Logística y adquisiciones & XXX \\
-\hline
-\textbf{Costo total estimado} & \textbf{100} \\
+\textbf{Costo total} & \textbf{XXX} & \textbf{XXX} \\
 \hline
 \end{tabular}
 \end{table}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Costo de materiales eléctricos}
-En la Tabla~\ref{tab:costos_electronicos} se muestra la estimación de costos de los componentes electrónicos empleados en el diseño del sistema, con un total de S/.\,96.96. Esta estimación no incluye, por el momento, los costos asociados a la fabricación de la \ac{PCB}. Tambien se ha procurado considerar componentes que se puedan encontrar en el mercado local peruano. Revisar el Anexo \ref{an:Anexo_Z} para mayor detalle de los componentes que no se han encontrado en el mercado local.
-
-\begin{longtblr}[theme=pucp,
-  label   = {tab:costos_electronicos},
-  caption = {Lista de costos de los componentes electrónicos},
-]{
-  width=\linewidth,
-  colspec = {
-    X[3.2,l,m]   % Componente
-    X[0.7,c,m]   % Cant.
-    X[0.9,c,m]   % Proveedor (abreviado)
-    X[1.1,c,m]   % Unit S/
-    X[1.1,c,m]   % Total S/
-    X[1.0,c,m]   % Total US$
-  },
-  colsep=2pt,
-  rowsep=1pt,
-  rows={font=\footnotesize},
-  row{1}={font=\footnotesize\bfseries,halign=c,valign=m},
-  row{Z}={font=\footnotesize\bfseries},
-  rowhead=1, rowfoot=0,
-  hlines, vlines,
-}
-Componente
-  & Cant.
-  & Prov.
-  & \shortstack[c]{Precio\\unit.\\(S/.)}
-  & \shortstack[c]{Precio\\total\\(S/.)}
-  & \shortstack[c]{Precio\\total\\(US\$)} \\
-
-Pulsador \SI{6}{mm}$\times$\SI{6}{mm} (2 pines)
-  & 2 & Prov-A & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
-Condensador SMD 1206 (\SI{2.2}{nF})
-  & 1 & Prov-B & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
-Condensador SMD 1206 (\SI{10}{nF}) & 1 & Prov-B & S/ 0.50 & S/ 0.50 & \$ 0.15 \\ 
-Condensador SMD 1206 (\SI{100}{nF}) & 5 & Prov-B & S/ 0.50 & S/ 2.50 & \$ 0.74 \\ 
-Condensador SMD 1206 (\SI{1}{\micro\farad}) & 2 & Prov-B & S/ 0.50 & S/ 1.00 & \$ 0.30 \\ 
-Condensador electrolítico SMD (\SI{1}{\micro\farad}) & 1 & Prov-B & S/ 1.00 & S/ 1.00 & \$ 0.30 \\
-Condensador electrolítico SMD (\SI{330}{\micro\farad}) & 1 & Prov-B & S/ 0.80 & S/ 0.80 & \$ 0.24 \\ 
-Condensador electrolítico SMD (\SI{470}{\micro\farad}) & 1 & Prov-B & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
-Diodo Schottky SS36 & 2 & Prov-A & S/ 0.30 & S/ 0.60 & \$ 0.18 \\ 
-SM4T28CAY & 1 & Prov-C & S/ 3.27 & S/ 3.27 & \$ 0.97 \\ 
-Fusible & 1 & Prov-A & S/ 1.00 & S/ 1.00 & \$ 0.30 \\ 
-Porta fusible & 1 & Prov-A & S/ 0.80 & S/ 0.80 & \$ 0.24 \\
-Conector JST (2 pines) & 3 & Prov-A & S/ 0.60 & S/ 1.80 & \$ 0.53 \\
-Header macho de 40 pines & 1 & Prov-A & S/ 3.90 & S/ 3.90 & \$ 1.16 \\
-Bobina \SI{47}{\micro H} SMD (\SI{12.3}{mm}$\times$\SI{12.3}{mm}) & 1 & Prov-B & S/ 2.80 & S/ 2.80 & \$ 0.83 \\
-LED SMD 1206 (rojo) & 2 & Prov-B & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
-Bornera & 1 & Prov-A & S/ 0.70 & S/ 0.70 & \$ 0.21 \\
-Transistor NPN \SI{25}{V} \SI{300}{mA} (SOT-23) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
-Resistencia SMD 1206 (\SI{47}{k\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
-Resistencia SMD 1206 (\SI{10}{k\ohm}) & 9 & Prov-B & S/ 0.20 & S/ 1.80 & \$ 0.53 \\
-Resistencia SMD 1206 (\SI{1}{k\ohm}) & 3 & Prov-B & S/ 0.20 & S/ 0.60 & \$ 0.18 \\
-Resistencia SMD 1206 (\SI{100}{\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
-Resistencia SMD 1206 (\SI{470}{\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
-Resistencia SMD 1206 (\SI{4.7}{k\ohm}) & 1 & Prov-B & S/ 0.20 & S/ 0.20 & \$ 0.06 \\ 
-Resistencia SMD 1206 (\SI{5.1}{k\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\ 
-VNH7070BASTR & 1 & Prov-C & S/ 0.20 & S/ 0.20 & \$ 0.06 \\
-LM2594M-3.3 & 1 & Prov-C & S/ 18.22 & S/ 18.22 & \$ 5.41 \\
-ESP32-WROOM-32D-N4 & 1 & Prov-B & S/ 17.00 & S/ 17.00 & \$ 5.04 \\
-Módulo ENC28J60 & 1 & Prov-B & S/ 22.00 & S/ 22.00 & \$ 6.53 \\
-USB-TYPE-C-018 & 1 & Prov-A & S/ 0.70 & S/ 0.70 & \$ 0.21 \\
-TMAG5170A1QDGKT & 1 & Prov-C & S/ 11.37 & S/ 11.37 & \$ 3.37 \\
-\SetCell[c=4]{r} Total & S/ 96.96 & \$ 28.77 \\
-\end{longtblr}
-
-% Nota: equivalencias de proveedores (según recomendación del asesor)
-\begin{flushleft}
-\footnotesize\textit{Nota:} Prov-A = Hi-Fi Electrónica; Prov-B = Stacktronics; Prov-C = Mouser.
-\end{flushleft}
-
-
-
-
-\section{Costo de componentes y materiales mecánicos}
-% En esta sección se detallan las estimaciones de costos de fabricación de la carcasa y demás componentes. En la Tabla~\ref{tab:4.Costo carcasa} se presentan los costos de fabricación de la parte inferior y superior de la carcasa. Para el caso de la impresión 3D, se realizó una cotización previa en Laboratorio de Manufactura Digital de la PUCP, la cual se incluye en el Anexo~\ref{an:Anexo_H}. 
-
-% \begin{table}[H]
-% \centering
-% \caption{Costo de Fabricación de carcasa}
-% \label{tab:4.Costo carcasa}
-% \begin{tabular}{|c|c|c|} 
-% \hline
-% Componente                  & Cant. & Precio (S/.)  \\ 
-% \hline
-% Carcasa-Parte inferior-PETG & 1        & 34         \\ 
-% \hline
-% Carcasa-Parte superior-PETG & 1        & 18         \\ 
-% \hline
-% \multicolumn{2}{|c|}{Costo Total}            & 52         \\
-% \hline
-% \end{tabular}
-% \end{table}
-
-
-\section{Costo total}
-El costo total se resume en la siguiente Tabla~\ref{tab:4.Costo materiales} con un costo de materiales de S/.\,XXX,  
-
-\begin{table}[H]
-\centering
-\caption{Costo de materiales Final}
-\label{tab:4.Costo materiales}
-\begin{tabular}{|c|c|} 
-\hline
-Materiales            & Precio (S/.) \\ 
-\hline
-Materiales Eléctricos & XXX     \\ 
-\hline
-Materiales Mecánicos  & XXX    \\ 
-\hline
-Costo Total                 & XXX     \\
-\hline
-\end{tabular}
-\end{table}
