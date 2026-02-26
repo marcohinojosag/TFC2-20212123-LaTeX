@@ -21,6 +21,8 @@ DIV=14,						% Factor to calculate cannon of page construction ( Satzspiegels )
 draft=false,				% draft modus, on (option: true) or off (option: false)
 ]{scrreprt}    % document style: "article" from KOMA-Skript package, more  can be found on scrguide.pdf (look at internet.) 
 \input{style/packages}
+\input{style/usDefCmd/DefColors}
+
 % NOTA!:
 % usar \addchap cuando se quiere mostrar en el índice (o Toc = Table of contents )}
 %               sin que aparezca la palabra "Capítulo X" en el ToC
@@ -40,6 +42,7 @@ draft=false,				% draft modus, on (option: true) or off (option: false)
 \input{style/ResumenDedicatoriaAgradecimiento}
 %%%%%%% Índice
 \tableofcontents
+%\addcontentsline{toc}{chapter}{Listings}
 \cleardoublepage      % Para añadir numeración romana a la 2da pag. del ToC.
 \thispagestyle{empty}
 \newpage
@@ -65,7 +68,7 @@ draft=false,				% draft modus, on (option: true) or off (option: false)
 \printbibliography[heading=bibintoc,title={Bibliografía}]
 \ihead[]{Bibliografía}
 \cleardoublepage
-% %%%%%%% Anexos
+% %%%%%%% Anexos y Acrónimos
 \input{ANNEX/mainAnexos}
 
 \end{document}

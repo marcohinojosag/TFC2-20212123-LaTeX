@@ -3,13 +3,15 @@
 \label{ch:CH05}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\noindent
 En este capítulo se describen los elementos mecánicos empleados en la implementación del banco de pruebas. En primer lugar, se presenta el diseño de la carcasa, la cual integra los elementos de interfaz (botones, LEDs indicadores, puertos de programación y transferencia de datos) y los conectores para la alimentación y los terminales del motor bajo prueba (tipo banana). Posteriormente, se detalla la mesa de pruebas basada en perfiles de aluminio tipo V-SLOT de \(20\times 80~\mathrm{mm}\), seleccionados para estandarizar los puntos de fijación. Finalmente, se presentan la estructura de sujeción del motor, el mecanismo de acople solidario al eje para el montaje del imán, y la estructura destinada a fijar la \ac{PCB} del sensor de efecto \textit{hall}.
 
+\noindent
 En la Figura~\ref{fig:cad_general_sistema} se muestra el modelo CAD general del conjunto, a partir del cual se describen los componentes en las secciones siguientes.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.92\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD_TOTAL_FINAL.pdf}
+  \includegraphics[width=0.92\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD_TOTAL_FINAL.png}
   \caption{Modelo CAD general del sistema mecánico del banco de pruebas.}
   \label{fig:cad_general_sistema}
 \end{figure}
@@ -17,14 +19,16 @@ En la Figura~\ref{fig:cad_general_sistema} se muestra el modelo CAD general del 
 %============================================================
 \section{Diseño de la carcasa}
 \label{sec:carcasa}
-
+\noindent
 La carcasa del banco de pruebas se diseñó para proteger la electrónica, ordenar el cableado y centralizar los elementos de interacción del usuario durante la operación. Se priorizó un acabado en chapa metálica para incrementar la rigidez del conjunto y mejorar la resistencia ante el uso continuo.
 
 \subsection{Chapa metálica: desarrollo, dobleces y perforaciones}
 \label{subsec:carcasa_chapa}
 
+\noindent
 El chasis se fabrica a partir de una plancha de chapa metálica de espesor \(2~\mathrm{mm}\) y dimensiones \(364\times 330~\mathrm{mm}\). Sobre esta plancha se define el desarrollo con las líneas de doblez y los recortes necesarios para obtener la geometría final. Asimismo, se consideran perforaciones y ranuras a medida de los componentes y requerimientos de operación: alojamientos para LEDs, ventanas para puertos de comunicación, perforaciones para botones, conectores tipo banana, ranuras de ventilación y ranuras destinadas al agarre del chasis.
 
+\noindent
 El desarrollo propuesto de la plancha se muestra en la Figura~\ref{fig:carcasa_chapa_desarrollo}, donde se aprecian las zonas de recorte y las ubicaciones de los principales taladros/ranuras.
 
 \begin{figure}[H]
@@ -38,12 +42,13 @@ El desarrollo propuesto de la plancha se muestra en la Figura~\ref{fig:carcasa_c
 \subsection{Tapa desmontable para acceso y mantenimiento}
 \label{subsec:carcasa_tapa}
 
+\noindent
 Con el fin de facilitar inspección, correcciones de cableado y mantenimiento por falla de componentes internos, se diseñó una tapa desmontable que permite el acceso al interior del chasis sin desensamblar la estructura principal. El diseño de la tapa se presenta en la Figura~\ref{fig:carcasa_tapa_desmontable}.
 
 \begin{figure}[H]
   \centering
   % Sugerencia: renombrar el archivo sin espacios para evitar errores.
-  \includegraphics[width=0.82\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/TAPA DE CHASIS.pdf}
+  \includegraphics[width=0.82\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/TAPA DE CHASIS.png}
   \caption{Diseño de la tapa desmontable del chasis para acceso a los componentes internos.}
   \label{fig:carcasa_tapa_desmontable}
 \end{figure}
@@ -51,11 +56,12 @@ Con el fin de facilitar inspección, correcciones de cableado y mantenimiento po
 \subsection{Soporte de componentes internos y fijación de la \ac{PCB} de control}
 \label{subsec:carcasa_soportes_internos}
 
+\noindent
 La mayoría de los elementos eléctricos/electrónicos se integran al chasis mediante su propia geometría y sujetadores de montaje. En el caso particular de la \ac{PCB} de control, se definió una fijación en cuatro puntos mediante separadores de bronce con rosca M3, alineados con los taladros de las esquinas de la tarjeta, con el propósito de asegurar rigidez y mantener una separación adecuada respecto a la chapa. El criterio de montaje se ilustra en la Figura~\ref{fig:carcasa_separadores_pcb}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.82\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/SEPARADORES_CARCASA.pdf}
+  \includegraphics[width=0.82\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/SEPARADORES_CARCASA.png}
   \caption{Fijación de la \ac{PCB} de control mediante separadores de bronce M3 en cuatro puntos.}
   \label{fig:carcasa_separadores_pcb}
 \end{figure}
@@ -63,13 +69,14 @@ La mayoría de los elementos eléctricos/electrónicos se integran al chasis med
 \subsection{Componentes en el chasis y conexiones}
 \label{subsec:carcasa_interfaz}
 
+\noindent
 En el panel frontal se incorporaron alojamientos para el montaje de los botones de encendido, apagado y parada de emergencia, cuyas dimensiones fueron medidas previamente para asegurar un ajuste adecuado. Asimismo, se incluyeron conectores tipo banana para facilitar la conexión rápida de los terminales del motor bajo prueba y de la fuente externa de alimentación. Estas consideraciones se ilustran en la Figura~\ref{fig:carcasa_interfaz_subfig}, donde se muestran (a) las perforaciones destinadas a los botones de control y (b) la disposición de los conectores tipo banana en el panel de conexiones.
 
 \begin{figure}[H]
   \centering
   \begin{subfigure}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CHAPA_CARCASA.pdf}
+    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CHAPA_CARCASA.png}
     \caption{Perforaciones para botones de control y parada de emergencia.}
     \label{fig:carcasa_botones}
   \end{subfigure}
@@ -84,15 +91,17 @@ En el panel frontal se incorporaron alojamientos para el montaje de los botones 
   \label{fig:carcasa_interfaz_subfig}
 \end{figure}
 
+\noindent
 Adicionalmente, la carcasa integra LEDs indicadores y puertos para carga de código y transferencia de datos, los cuales se presentan en la Figura~\ref{fig:carcasa_interfaz_usuario}. Estos elementos permiten supervisar el estado del sistema y habilitan la comunicación con la interfaz de usuario durante la toma de datos.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD10.pdf}
+  \includegraphics[width=0.5\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD10.png}
   \caption{Distribución de botones, LEDs indicadores y puertos de programación/datos en la carcasa.}
   \label{fig:carcasa_interfaz_usuario}
 \end{figure}
 
+\noindent
 Como medida adicional de protección, se incorpora un interruptor general con fusible integrado ubicado al inicio de la línea de alimentación del sistema. Este elemento permite el corte inmediato de energía y brinda protección ante sobrecorriente, contribuyendo a resguardar el conjunto en caso de una falla eléctrica (p.\ ej., cortocircuito). La disposición de este elemento se muestra en la Figura~\ref{fig:carcasa_switch_fusible}.
 
 \begin{figure}[H]
@@ -107,27 +116,31 @@ Como medida adicional de protección, se incorpora un interruptor general con fu
 \subsection{Fijación entre el chasis y la mesa de pruebas}
 \label{subsec:fijacion_carcasa_mesa}
 
+\noindent
 La mesa de pruebas se implementa con perfiles de aluminio tipo V-SLOT de \(20\times 80~\mathrm{mm}\), lo que permite estandarizar los puntos de montaje mediante la ranura del perfil y reubicar la carcasa con facilidad durante el ajuste. La unión entre el chasis (chapa metálica) y la mesa de pruebas se realiza mediante cuatro apoyos, cada uno conformado por una unión atornillada con tuerca tipo martillo que genera presión sobre el perfil. La Figura~\ref{fig:fix_carcasa_vslot_detalle} muestra el ensamble empleado (tornillo, chapa y tuerca tipo martillo alojada en la ranura del perfil).
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD8.drawio.pdf}
+  \includegraphics[width=0.6\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD8_drawio.png}
   \caption{Detalle de fijación carcasa--mesa de pruebas mediante tornillo, arandela y tuerca tipo martillo sobre perfil V-SLOT.}
   \label{fig:fix_carcasa_vslot_detalle}
 \end{figure}
 
+\noindent
 Adicionalmente, el área efectiva de contacto entre la tuerca tipo martillo y el perfil define la presión de contacto asociada al apriete. En la Figura~\ref{fig:area_contacto_tuerca} se muestra el área de apoyo medida en CAD, \(A_c = 16~\mathrm{mm}^2\) por apoyo.
 
 \begin{figure}[H]
   \centering
   % Reemplaza el nombre del archivo por el que usarás en tu tesis
-  \includegraphics[width=0.75\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/area_tuerca.pdf}
+  \includegraphics[width=0.75\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/area_tuerca.png}
   \caption{Área de contacto referencial entre la tuerca tipo martillo y el perfil V-SLOT.}
   \label{fig:area_contacto_tuerca}
 \end{figure}
 
+\noindent
 Para estimar de forma preliminar la fuerza necesaria para que el conjunto deslice sobre el perfil (antes de reajustar la posición), se modela la resistencia al movimiento como fricción entre aluminio y acero (tuerca/tornillería). Para esta combinación, valores típicos reportados son \(\mu_s \approx 0.61\) (fricción estática) y \(\mu_k \approx 0.47\) (fricción cinética). \autocite{misumi_friction}
 
+\noindent
 Si se considera que cada apoyo aporta una fuerza normal de apriete \(F_{p,i}\), la capacidad de fricción total puede aproximarse como:
 \begin{align}
 N_{\text{tot}} &= \sum_{i=1}^{4} F_{p,i} + W, \label{eq:ntot_fix}\\
@@ -136,13 +149,15 @@ F_{k} &= \mu_k\,N_{\text{tot}}, \label{eq:fk_fix}
 \end{align}
 donde \(W\) es el peso total del subconjunto montado. En la práctica, cuando existe apriete, el término dominante suele ser \(\sum F_{p,i}\).
 
+\noindent
 Con el área de contacto por apoyo \(A_c\), la presión promedio de contacto puede estimarse como:
 \begin{align}
 A_{\text{tot}} &= 4A_c, \label{eq:atot_fix}\\
 p_{\text{avg}} &= \frac{N_{\text{tot}}}{A_{\text{tot}}}. \label{eq:pavg_fix}
 \end{align}
 
-\textit{Ejemplo numérico.} Suponiendo cuatro apoyos con un apriete moderado equivalente a \(F_{p,i}=500~\mathrm{N}\) por apoyo, se obtiene \(N_{\text{tot}}= 2000~\mathrm{N}\) (despreciando el peso del perfil V--SLORT frente al apriete). Con ello
+\noindent
+Si se tienen cuatro apoyos con un apriete moderado equivalente a \(F_{p,i}=500~\mathrm{N}\) por apoyo, se obtiene \(N_{\text{tot}}= 2000~\mathrm{N}\) (despreciando el peso del perfil V--SLORT frente al apriete). Con ello
 \begin{align}
 F_{s,\max} &= 0.61\,(2000)= 1220~\mathrm{N}, \label{eq:fsmax_num}\\
 F_k &= 0.47\,(2000)= 940~\mathrm{N}. \label{eq:fk_num}
@@ -153,29 +168,34 @@ p_{\text{avg}} &= \frac{2000}{64\times 10^{-6}}
 = 3.1\times 10^{7}~\mathrm{Pa}\;\;( 31~\mathrm{MPa}). \label{eq:pavg_num}
 \end{align}
 
+\noindent
 Este resultado respalda que, con cuatro puntos de fijación, el conjunto permanece estable ante esfuerzos de operación y vibración, y sólo deslizaría si se aplica una fuerza comparable o mayor a aproximadamente \(124~\mathrm{kgf}\) (\(F \geq 124~\mathrm{kgf}\)) o si se reduce el apriete.
 . Cabe resaltar que \(\mu_s\) y \(\mu_k\) dependen del acabado superficial, limpieza y posible lubricación; por ello, estos valores se emplean como una referencia de diseño. \autocite{misumi_friction}
 
 \section{Estructura de fijación de motores}
 \label{sec:fijacion_motores}
 
+\noindent
 Los soportes de fijación se implementan mediante \textit{brackets} montados sobre la bancada V-SLOT, con el objetivo de sujetar el motor de forma rígida y repetible, y permitir el ajuste de su posición a lo largo del perfil durante las pruebas. En la Figura~\ref{fig:brackets_general} se presenta una vista general de los \textit{brackets} diseñados para el montaje del motor y para el montaje del conjunto del sensor, los cuales comparten el mismo criterio de fijación a la ranura del perfil.
 
 \begin{figure}[H]
   \centering
   % Reemplazar la ruta por la ubicación final en tu proyecto
-  \includegraphics[width=0.7\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/BRACKETS.pdf}
+  \includegraphics[width=0.7\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/BRACKETS.png}
   \caption{Vista general de los \textit{brackets} diseñados para el montaje del motor y del conjunto del sensor sobre la bancada V-SLOT.}
   \label{fig:brackets_general}
 \end{figure}
+
+\noindent
 La geometría detallada del sistema de fijación y los criterios dimensionales empleados se presentan en el listado de planos que se presentan en el Anexo~\ref{an:Anexo_S}.
 
+\noindent
 Dado que muchos motores de corriente continua se encuentran parcialmente estandarizados por familias, como los motores tipo D25 o D37 cuya geometría se define principalmente por su diámetro, la zona del \textit{bracket} destinada a la sujeción del motor debe verificarse y ajustarse según la familia y dimensiones específicas del motor a ensayar. No obstante, se mantiene constante el tamaño global del \textit{bracket} y la distribución de agujeros destinados a la fijación sobre la ranura V-SLOT. Las geometrías editables y fijas se presentan en la Figura~\ref{fig:bracket_motor_detalle}. 
 
 \begin{figure}[H]
   \centering
   % Reemplazar la ruta por la ubicación final en tu proyecto
-  \includegraphics[width=0.82\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/BRACKET_MOTOR.pdf}
+  \includegraphics[width=0.5\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/BRACKET_MOTOR.png}
   \caption{Detalle referencial del \textit{bracket} de motor}
   \label{fig:bracket_motor_detalle}
 \end{figure}
@@ -184,8 +204,10 @@ Dado que muchos motores de corriente continua se encuentran parcialmente estanda
 \section{Mecanismo de acople de imán}
 \label{sec:acople_iman}
 
+\noindent
 Para transmitir el giro del eje hacia el imán que detectará el sensor de efecto \textit{hall} se emplea un acople mecánico de geometría simple, diseñado para montarse solidario al eje del motor y asegurar un montaje con un prisionero. El criterio de diseño prioriza una geometría compacta para reducir la masa añadida al eje, lo cual es relevante en la estimación de parámetros, especificamente para el parámetro de inercia del eje de motor.
 
+\noindent
 En la Figura~\ref{fig:acople_detalle_subfig} se presentan los elementos principales del acople. En particular, se identifica el alojamiento para el eje del motor (cuyo diámetro se ajusta según el motor a ensayar) y el orificio destinado al prisionero, el cual permite la sujeción por fricción del acople sobre el eje. Asimismo, el acople incorpora una zona de alojamiento para el imán de neodimio, de modo que este gire concéntrico al eje y mantenga una condición geométrica repetible frente al sensor.
 
 \begin{figure}[H]
@@ -193,7 +215,7 @@ En la Figura~\ref{fig:acople_detalle_subfig} se presentan los elementos principa
   \begin{subfigure}[t]{0.48\textwidth}
     \centering
     % Reemplazar por la ruta final en tu proyecto
-    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/A.pdf}
+    \includegraphics[width=0.9\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/A.png}
     \caption{Detalle general del acople: alojamiento del eje y orificio para prisionero (geometría editable según el eje).}
     \label{fig:acople_detalle_general}
   \end{subfigure}
@@ -201,7 +223,7 @@ En la Figura~\ref{fig:acople_detalle_subfig} se presentan los elementos principa
   \begin{subfigure}[t]{0.48\textwidth}
     \centering
     % Reemplazar por la ruta final en tu proyecto
-    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/MEDIDAS_ACOPLE.pdf}
+    \includegraphics[width=0.9\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/MEDIDAS_ACOPLE.png}
     \caption{Alojamiento del imán mediante inserción por presión (imán circular de \(5\times 3~\mathrm{mm}\)).}
     \label{fig:acople_medidas_iman}
   \end{subfigure}
@@ -209,30 +231,33 @@ En la Figura~\ref{fig:acople_detalle_subfig} se presentan los elementos principa
   \label{fig:acople_detalle_subfig}
 \end{figure}
 
+\noindent
 Para el prototipado, el acople se fabrica mediante impresión 3D y se valida durante las pruebas experimentales. Para la solución final, se considera un material no magnético, por ejemplo el Aluminio, con el fin de no perturbar el campo magnético del imán durante el sensado.
 %============================================================
 \section{Estructura de fijación del sensor de efecto \textit{hall}}
 \label{sec:fijacion_sensor_hall}
 
+\noindent
 El sensado de posición angular y velocidad angular se realiza mediante el integrado TMAG5170. Para garantizar la correcta detección del campo magnético del imán, la \ac{PCB} del sensor se fija sobre una estructura rígida que permita ubicar el TMAG5170 de manera coaxial con el eje del motor.
 
 \subsection{Principio de funcionamiento y criterio de alineamiento con el sensor TMAG5170}
 \label{subsec:alineamiento_tmag}
 
+\noindent
 El TMAG5170 estima el ángulo a partir de la variación del campo magnético en el plano \(XY\). Por ello, el imán debe montarse solidario al eje del motor y alinearse respecto a la zona activa del sensor. La Figura~\ref{fig:tmag_magnet_setup} presenta (a) un esquema de referencia del montaje del imán y (b) la ubicación aproximada de la zona activa en el integrado, empleada como guía para el alineamiento.
 
 \begin{figure}[H]
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD6.pdf}
+    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD6.png}
     \caption{Esquema de referencia para el montaje del imán respecto al sensor.}
     \label{fig:tmag_magnet_scheme}
 \end{subfigure}
 \hfill
 \begin{subfigure}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD7.pdf}
+    \includegraphics[width=\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/CAD7.png}
     \caption{Ubicación aproximada de la zona activa del sensor de efecto \textit{hall} en el integrado.}
     \label{fig:tmag_hall_location}
 \end{subfigure}
@@ -243,13 +268,15 @@ El TMAG5170 estima el ángulo a partir de la variación del campo magnético en 
 \subsection{Estructura de fijación del sensor y criterios de diseño}
 \label{subsec:bracket_sensor}
 
+\noindent
 La \ac{PCB} del TMAG5170 se monta sobre un \textit{bracket} dedicado que permite fijar el sensor a la mesa de pruebas manteniendo el alineamiento requerido con el eje del motor. Al igual que en la Sección~\ref{sec:fijacion_motores}, se estandarizó la geometría de sujeción hacia el perfil V-SLOT mediante la distribución de agujeros y el uso de tuercas tipo martillo; de este modo, el posicionamiento del soporte puede ajustarse a lo largo de la ranura sin modificar el patrón de fijación principal.
 
+\noindent
 En la Figura~\ref{fig:bracket_sensor} se muestra el \textit{bracket} del sensor, donde se diferencian las geometrías fijas asociadas al montaje sobre V-SLOT y las geometrías editables vinculadas a la unión con la \ac{PCB}. En particular, dado que las dimensiones de la \ac{PCB} son únicas, lo que se ajusta en el diseño es la distancia entre los puntos de sujeción del \textit{bracket} y los agujeros de montaje de la tarjeta, con el fin de preservar la alineación con el eje del motor. Las cotas completas de despiece se presentan en el Anexo~\ref{an:Anexo_S}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/BRACKET_SENSOR.pdf}
+  \includegraphics[width=0.65\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/BRACKET_SENSOR.png}
   \caption{\textit{Bracket} de fijación del sensor }
   \label{fig:bracket_sensor}
 \end{figure}
@@ -257,21 +284,23 @@ En la Figura~\ref{fig:bracket_sensor} se muestra el \textit{bracket} del sensor,
 \subsection{Criterio de coaxialidad entre eje y sensor}
 \label{subsec:coaxialidad_distancias}
 
+\noindent
 Para asegurar la coaxialidad entre el eje del motor y la zona activa del TMAG5170, el \textit{bracket} del motor y el \textit{bracket} del sensor se diseñan de forma conjunta, de manera que la posición relativa entre ambos quede definida desde el \ac{CAD}. Como referencia geométrica, se determinó una separación de \(13.8~\mathrm{mm}\) entre centros (eje del motor y centro de referencia del sensor), la cual se ilustra en la Figura~\ref{fig:distancia_centro_centro}. Esta cota guía el diseño de las perforaciones y el posicionamiento de ambos soportes para reducir errores por desalineamiento.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.78\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/distancia_agujeros_centro_motor.pdf}
+  \includegraphics[width=0.78\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/distancia_agujeros_centro_motor.png}
   \caption{Referencia de separación centro--centro entre el \textit{bracket} del motor y el \textit{bracket} del sensor para asegurar la coaxialidad.}
   \label{fig:distancia_centro_centro}
 \end{figure}
 
+\noindent
 Adicionalmente, se establece una separación aproximada de \(5~\mathrm{mm}\) entre el imán montado en el extremo del acople del eje y el sensor; esta distancia se ha probado para el sensado del campo magnético del imán de neodiomio. Esta referencia se presenta en la Figura~\ref{fig:distancia_iman_sensor} y se considera durante el ajuste final del conjunto sobre la mesa de pruebas.
 
-% Nota: evita espacios en el nombre del archivo. Por ejemplo, renombra a "Distancia_al_sensor.pdf".
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.78\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/DIstancia al sensor.pdf}
+  \includegraphics[width=0.78\linewidth]{CHPTRS/CH05_DIS_MECANICO/Fig/DIstancia al sensor.png}
   \caption{Referencia de separación entre el imán y el TMAG5170 para el sensado angular.}
   \label{fig:distancia_iman_sensor}
 \end{figure}
@@ -280,7 +309,8 @@ Adicionalmente, se establece una separación aproximada de \(5~\mathrm{mm}\) ent
 \section{Listado de planos}
 \label{sec:listado_planos_mecanicos}
 
-En esta sección se recopilan los planos mecánicos generados para el banco de pruebas. Se incluyen cinco planos de despiece correspondientes a los subconjuntos principales y un plano de ensamble general del sistema.
+\noindent
+En esta sección se recopilan los planos mecánicos generados para el banco de pruebas. Se incluyen cinco planos de despiece correspondientes a los subconjuntos principales y un plano de ensamble general del sistema. Los planos que se referencian en la Tabla \ref{tab:planos_mecanicos} se presentaran en el Anexo \ref{an:Anexo_S}.
 
 \begin{table}[H]
 \centering
@@ -304,4 +334,3 @@ Ensamble & A2 & ENSAMBLE DE MESA DE PRUEBAS & DM-E01-A2 \\
 \hline
 \end{tabular}
 \end{table}
-

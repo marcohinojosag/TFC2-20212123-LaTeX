@@ -2,8 +2,10 @@
 \ihead[]{Capítulo 6: Diseño e implementación del software}
 \label{ch:CH06}
 
+\noindent
 En este capítulo se describe el diseño del software del sistema, incluyendo la lógica de control implementada en el microcontrolador y la interfaz gráfica de usuario desarrollada para la ejecución de las pruebas. Se presenta la interfaz mediante la cual el usuario puede controlar todo el procedimiento de estimación de parámetros del motor, desde la configuración de la prueba hasta la visualización y análisis de resultados. 
 
+\noindent
 En dicha interfaz se registra la adquisición de datos en tiempo real mediante gráficas, se permite la comparación entre resultados obtenidos en distintos ensayos y se habilita la validación del modelo del motor que se desea caracterizar. En la Figura~\ref{fig:sw_arquitectura_general} se presenta la interfaz diseñada en MATLAB, mostrando la disposición de los elementos de control, paneles de visualización y áreas de resultados. Esta vista permite observar cómo se organizan los componentes principales para iniciar pruebas, registrar datos y estimar parámetros del motor bajo prueba.
 
 \begin{figure}[H]
@@ -16,16 +18,21 @@ En dicha interfaz se registra la adquisición de datos en tiempo real mediante g
 \section{Diseño y lógica de la interfaz}
 \label{sec:diseno_ui}
 
+\noindent
 En esta sección se presentan los componentes gráficos que conforman la lógica de la interfaz de usuario, organizada en tres partes principales: ingreso de datos, presentación de datos y resultados y validaciones. Cada una de estas etapas estructura el flujo de interacción con el usuario y define el orden en que se ejecutan las acciones dentro del entorno gráfico.
 
 \subsection{Ingreso de datos}
 
+\noindent
 La primera etapa de la interfaz corresponde al ingreso de datos por parte del usuario. En esta sección, el usuario debe verificar inicialmente que el microcontrolador se encuentre correctamente conectado al puerto de la computadora, y seleccionar manualmente el puerto COM correspondiente para habilitar la transmisión serial de los datos de sensado.
 
+\noindent
 Adicionalmente, se presentan dos paneles editables. En el primero, el usuario puede ingresar los parámetros reales del motor disponibles en la ficha técnica, mientras que en el segundo puede especificar la proporción de reducción en caso el motor cuente con una caja reductora. Estos campos pueden activarse o desactivarse de forma opcional, ya que no influyen directamente en el proceso de estimación de parámetros; sin embargo, permiten realizar posteriormente una comparación entre los parámetros estimados y los valores reales, mostrando métricas de error que facilitan la validación del modelo por el usuario.
 
+\noindent
 Asimismo, el usuario dispone de dos botones principales. El botón de \textit{Comenzar sensado} envía un comando al microcontrolador para ejecutar la rutina de adquisición de datos, permitiendo repetir el registro hasta que las señales obtenidas sean adecuadas para la estimación de parámetros bajo criterio del usuario. Esto resulta necesario en caso se presenten inconvenientes durante la medición, como desalineación del imán acoplado al eje, mal contacto en los cables de alimentación o en las borneras del motor, o registro incompleto de datos si se interrumpe la rutina de sensado. Por su parte, el botón \textit{Comenzar estimación} utiliza la información recolectada y la transfiere a un programa interno desarrollado en MATLAB, encargado de calcular los parámetros que mejor se ajusten a los datos experimentales. 
 
+\noindent
 Los componentes visuales correspondientes a esta sección se muestran en la Figura~\ref{fig:ui_detalle_1}.
 \begin{figure}[H]
 \centering
@@ -36,8 +43,10 @@ Los componentes visuales correspondientes a esta sección se muestran en la Figu
 
 \subsection{Presentación de datos}
 
+\noindent
 La segunda etapa corresponde a la visualización de las señales adquiridas durante la rutina de sensado. En esta sección se muestran las gráficas de voltaje, corriente y velocidad angular en función del tiempo, permitiendo al usuario evaluar la calidad de la información registrada antes de proceder con la estimación de parámetros.
 
+\noindent
 A partir de estas gráficas, el usuario puede determinar si es necesario repetir la adquisición de datos o si la información obtenida es consistente para continuar con el proceso de estimación. Como se mencionó en la subsección anterior, los botones disponibles permiten ejecutar nuevamente la rutina de recolección de datos o confirmar el conjunto registrado para su posterior procesamiento. Las gráficas correspondientes se presentan en la Figura~\ref{fig:ui_detalle_2}.
 
 \begin{figure}[H]
@@ -49,12 +58,16 @@ A partir de estas gráficas, el usuario puede determinar si es necesario repetir
 
 \subsection{Resultados y validaciones}
 
+\noindent
 La tercera etapa de la interfaz corresponde a la presentación de resultados y validación del modelo. En esta sección se muestran los valores estimados de los parámetros del motor en los espacios indicados en la Figura~\ref{fig:ui_detalle_3}. Estos campos no son editables por el usuario y tienen como única función visualizar los resultados obtenidos a partir del proceso de estimación.
 
+\noindent
 Como se indicó previamente, si el usuario desea comparar los parámetros estimados con los valores reales del motor, deberá haber ingresado dichos datos en la sección de ingreso. De este modo, la interfaz puede mostrar el porcentaje de error correspondiente.
 
+\noindent
 Adicionalmente, una vez presentados los parámetros estimados, se habilita un botón que permite ejecutar una rutina de validación del modelo. Esta acción envía el comando para realizar una prueba dinámica del motor ante entradas tipo escalón de voltaje, siguiendo una secuencia definida de \(2~\mathrm{s}\) de giro en un sentido, \(2~\mathrm{s}\) de reposo, \(2~\mathrm{s}\) de giro en sentido opuesto y \(2~\mathrm{s}\) de reposo. En paralelo, se genera la respuesta de una planta modelada utilizando los parámetros estimados, bajo la misma secuencia de excitación.
 
+\noindent
 Esta comparación permite al usuario evaluar si el modelo obtenido reproduce adecuadamente el comportamiento real del motor o si es necesario repetir el proceso de estimación. Para mayor detalle sobre el modelado del motor y los algoritmos empleados en la estimación, se remite al Anexo~\ref{an:Anexo_C}.
 
 \begin{figure}[H]
@@ -67,11 +80,13 @@ Esta comparación permite al usuario evaluar si el modelo obtenido reproduce ade
 \section{Diagrama de flujo de la lógica de la interfaz}
 \label{sec:flujo_ui}
 
+\noindent
 Con el fin de sintetizar la secuencia de interacción descrita en las secciones anteriores, se presenta un diagrama de flujo que recopila la lógica general de la interfaz de usuario, incluyendo las etapas de ingreso de datos, adquisición y visualización de señales, estimación de parámetros y validación del modelo. 
 
+\noindent
 El flujo completo se muestra en la Figura~\ref{fig:flujo_interfaz}, donde se resume el comportamiento estructurado de la interfaz desde la configuración inicial hasta la comparación final entre el modelo estimado y el real del motor.
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{CHPTRS/CH06_DIS_SW/Fig/Flujo_interfaz.png}
 \caption{Diagrama de flujo general de la lógica de la interfaz de usuario.}
@@ -81,8 +96,10 @@ El flujo completo se muestra en la Figura~\ref{fig:flujo_interfaz}, donde se res
 \section{Inicialización del sistema y funcionamiento de envío de datos}
 \label{sec:inicializacion_envio}
 
+\noindent
 Al iniciar el sistema, el microcontrolador configura los periféricos necesarios para la captura y establece la comunicación con la interfaz. Una vez recibidos los parámetros de operación, se ejecuta la rutina de adquisición con un periodo de muestreo definido, almacenando las variables medidas durante un intervalo de tiempo acotado. Al finalizar la captura, los datos se transmiten hacia MATLAB para la ejecución del algoritmo de estimación.
 
+\noindent
 La Figura~\ref{fig:flujo_sensado} resume la lógica empleada para el sensado de variables, destacando la secuencia de comandos recibidos y enviados entre la interfaz y el microcontrolador.
 
 \begin{figure}[ht!]
@@ -102,16 +119,17 @@ Comando & Descripción \\
 \hline
 MXX & Inicia captura estándar con ciclo de trabajo XX (0 a 100). \\
 \hline
-S / \textbf{STOP} & Detiene la rutina activa. \\
+S / STOP & Detiene la rutina activa. \\
 \hline
 P & Inicia la rutina de prueba de modelo. \\
 \hline
 \end{tabular}
 \end{table}
 
+\noindent
 El formato de cada línea transmitida se detalla en la Tabla~\ref{tab:sw_formato_muestra}, donde cada columna corresponde a una variable específica, la cual se convierte en un vector para análisis y visualización.
 
-\begin{table}[H]
+\begin{table}[ht!]
 \centering
 \caption{Formato de una muestra transmitida por el microcontrolador.}
 \label{tab:sw_formato_muestra}

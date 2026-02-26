@@ -1,33 +1,31 @@
 %%%%%%% Resumen
+
 \addchap{Resumen}
 
-% Los motores de corriente continua (DC) son utlizados ampliamente en aplicaciones industriales y académicas por su sencillez de control y buena relación costo–prestaciones. La obtención precisa de sus parámetros eléctricos y mecánicos es esencial para el modelado, el diseño de controladores y el diagnóstico de fallas; sin embargo, los procedimientos tradicionales suelen ser manuales, lentos y propensos a errores. Este trabajo de investigación presenta el diseño e implementación de una máquina semiautomatizada para la estimación de parámetros de motores DC de hasta 12\,V, a partir de la excitación por voltaje de entrada y la medición de la velocidad angular como variable de salida.
-
-%El presente trabajo de investigación aborda el diseño e implementación X. En el primer capítulo se presentan los antecedentes, la motivación, los objetivos y el alcance de la máquina a diseñar. Los capítulos segundo y tercero desarrollan el marco teórico, explicando los conceptos fundamentales para el diseño de X. Además, se recopilan investigaciones previas relevantes y se comparan tecnologías utilizadas de X.
-
-% El sistema propuesto estima de manera integrada la resistencia e inductancia del devanado, la constante de fuerza contraelectromotriz (voltaje–velocidad), la constante de torque (torque–corriente), el coeficiente de fricción viscosa y la inercia del eje. La solución se estructura como un banco de prueba compacto que genera señales de excitación, adquiere datos, ejecuta algoritmos de identificación y reporta los resultados con trazabilidad. Para ello, se desarrolla el diseño conceptual mediante la definición de requisitos, la estructura de funciones y la matriz morfológica; posteriormente, se detallan y materializan los dominios mecánico, electrónico, de software y de control del sistema.
-
-% La validación incluye simulaciones y ensayos experimentales con motores DC comerciales dentro del rango de 12\,V, comparando los parámetros estimados frente a mediciones de referencia obtenidas mediante procedimientos de laboratorio. Los resultados evidencian repetibilidad y concordancia dentro de márgenes aceptables para propósitos de modelado y control, demostrando la viabilidad de una estimación semiautomatizada, rápida y segura. Finalmente, se discuten limitaciones (suposición de fricción predominantemente viscosa, cargas pasivas y régimen SISO) y se proponen extensiones futuras, como la incorporación de medición de corriente en línea, modelos de fricción no lineal y pruebas bajo variación de carga.
-
 \noindent
-El presente trabajo de investigación aborda el diseño e implementación de un banco de pruebas semiautomatizado para la estimación de parámetros de motores DC de hasta 12\,V. En el primer capítulo se presentan los antecedentes, la motivación, los objetivos y el alcance de la máquina a diseñar. Los capítulos segundo y tercero desarrollan el marco teórico, explicando los conceptos fundamentales para la identificación de parámetros y para el diseño del sistema propuesto; además, se recopilan investigaciones previas relevantes y se comparan tecnologías utilizadas en bancos de prueba y plataformas orientadas a la estimación de parámetros de motores.
-
-\vspace{0.6em}
-
-A partir de ello, el trabajo propone una solución que estima parámetros eléctricos y mecánicos a partir de la aplicación de señales de excitación en el voltaje de entrada y la medición de variables de salida del sistema. El desarrollo se realiza con un enfoque iterativo basado en las metodologías VDI~2221 y VDI~2206, lo cual permite definir requisitos, funciones y una ruta de diseño para materializar el banco en sus dominios principales: electrónico, mecánico y de SW. En el diseño electrónico se considera la arquitectura del sistema, la selección de componentes y el desarrollo de la PCB; mientras que en el diseño de SW se contempla la comunicación y la interacción mediante una GUI.
-
-\vspace{0.6em}
-
-Finalmente, se reportan pruebas e implementaciones parciales mediante PoC que validan decisiones de diseño, y se presenta un análisis de costos para una implementación a nivel TRL 4, considerando componentes, fabricación, diseño y horas de trabajo del autor. El documento cierra con conclusiones y recomendaciones para trabajos futuros.
-
+Los motores de corriente continua DC son ampliamente utilizados en aplicaciones industriales y académicas debido a su facilidad de control y a su favorable relación costo para su estudio. La determinación precisa de sus parámetros tanto eléctricos como mecánicos resulta de gran ayuda para el modelado matemático, el diseño de controladores y el diagnóstico de fallas. No obstante, los métodos tradicionales de estimación suelen ser manuales y estos pueden estar expuestos a errores por fallas en la medición empírica de sus parámetros o por no contar con equipo especializado para hacer estas pruebas.
+\\
+\noindent
+Bajo dicha premisa, el presente trabajo desarrolla el diseño e implementación de un banco de pruebas semiautomatizado orientado a la estimación de parámetros de motores DC de hasta 12\,V, a partir de la aplicación de señales de voltaje de entrada al motor y la medición de sus principales variables cuando esta en funcionamiento.
+\\
+\noindent
+El documento inicia con el Capítulo \ref{ch:CH01}, donde se presentan los antecedentes, la motivación, los objetivos y el alcance del sistema propuesto. Posteriormente, en el Capítulo \ref{ch:CH02} se expone el marco teórico que sustenta la identificación de parámetros y el diseño del banco, incluyendo la revisión de investigaciones previas y la comparación de tecnologías empleadas en plataformas similares.
+\\
+\noindent
+El desarrollo del sistema se realiza bajo un enfoque iterativo basado en las metodologías VDI~2221 y VDI~2206, lo que permite estructurar los requisitos, las funciones y las etapas de diseño en los dominios electrónico, mecánico y de SW. Esto se detalla principalmente en el Capítulo \ref{ch:CH03}, que trata del diseño conceptual para dar a continuación el diseño del sistema divididos en 3 capítulos que velan por su dominio: Electrónico, Mecánico y de Software correspondientes a los capítulos \ref{ch:CH04}, \ref{ch:CH05} y \ref{ch:CH06}, respectivamente.
+\\
+\noindent
+Finalmente, se presentan pruebas experimentales y pruebas de concepto PoC que validan las principales decisiones de diseño y los resultados obtenidos luego de estas validaciones en el Capítulo \ref{ch:CH07}. Asimismo, se incluye un análisis de costos para una implementación equivalente a un nivel TRL~4, considerando componentes, fabricación, diseño y horas de desarrollo en el Capítulo \ref{ch:CH08}. El trabajo concluye con las principales conclusiones y recomendaciones para investigaciones futuras.
 \clearpage
 %%%%%%% Dedicatoria
-\addchap{Dedicatoria}
-\begin{quote}
-Mi documento de tesis está dedicado a \lipsum[1]
-\end{quote}
+% \addchap{Dedicatoria}
+% \begin{quote}
+% Mi documento de tesis está dedicado a \lipsum[1]
+% \end{quote}
 %%%%%%% Agradecimientos
 \addchap{Agradecimientos}
-\begin{quote}
-Quisiera agradecer a todas las personas que me apoyaron durante el desarrollo de esta tesis. Especialmente gracias a (i) toda mi familia que me motivó a terminar este trabajo, (ii) a mi asesor de tesis xxxx, siempre estuvo disponible para guiarme en la dirección correcta, (iii) al responsable del Laboratorio yyyy, el Ingeniero Z, que me apoyo en el buen uso del equipo, y (iv) a ....
-\end{quote}
+\noindent
+Deseo expresar mi sincero agradecimiento a todas las personas que me acompañaron y apoyaron durante el desarrollo de esta tesis. En primer lugar, agradezco profundamente a mi familia y amigos, quienes me brindaron motivación constante y respaldo incondicional para culminar este trabajo. A mi asesor de tesis, Mag. Ing. Enrique Vidal, por su tiempo, disposición y guía permanente a lo largo de todo el proceso. Su orientación fue fundamental para encaminar el desarrollo del proyecto, fortalecer su enfoque técnico y metodológico, así como para mejorar la redacción del documento. Asimismo, agradezco sus valiosos consejos y el material proporcionado para la realización de las pruebas experimentales, los cuales fueron de gran utilidad para la investigación. Al Ingeniero Celso de la Cruz, por compartir su experiencia, aportar una visión clara de los requerimientos técnicos del proyecto y contribuir con sus conocimientos en teoría de control, los cuales fueron aprovechados correctamente para la elaboración de este trabajo.
+
+\noindent
+A todos ellos, mi más sincero reconocimiento.

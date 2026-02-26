@@ -29,14 +29,14 @@ A continuación, los cálculos se desarrollan para el estado de saturación de l
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{ANNEX/Fig/AU/Diseno_rele1.drawio.pdf}
+    \includegraphics[width=\linewidth]{ANNEX/Fig/AU/Diseno_rele1.pdf}
     \caption{Etapa de conmutación del relé mediante transistor 2N3904.}
     \label{fig:canal_rele_etapa_bjt}
 \end{subfigure}
 \hfill
 \begin{subfigure}[t]{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{ANNEX/Fig/AU/Diseno_Rele2.drawio.pdf}
+    \includegraphics[width=\linewidth]{ANNEX/Fig/AU/Diseno_Rele2.pdf}
     \caption{Etapa de aislamiento mediante optoacoplador PC817.}
     \label{fig:canal_rele_etapa_opto}
 \end{subfigure}
@@ -113,11 +113,6 @@ R_{\text{LED}}=1~\mathrm{k}\Omega.
 \label{eq:rled_sel}
 \end{align}
 
-% (Opcional, si deseas justificar tu elección práctica)
-% En la implementación también se verificó que un valor mayor, \(R_{\text{LED}}=4.7~\mathrm{k}\Omega\),
-% produce un encendido visible con menor consumo; no obstante, dicha selección reduce la corriente del LED
-% por debajo del rango de diseño y puede depender del tipo de LED y de las condiciones de iluminación.
-
 %------------------------------------------------------------
 \subsection{Corriente de base requerida para saturación del 2N3904}
 \label{subsec:ib_requerida}
@@ -158,14 +153,14 @@ La base del 2N3904 se polariza desde el lado aislado a 5~V a través del fototra
 \vspace{-1.25em}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.78\linewidth]{ANNEX/Fig/AU/Vec_SAT.pdf}
+    \includegraphics[width=0.98\linewidth]{ANNEX/Fig/AU/Vec_SAT.pdf}
     \caption{Tensión colector-emisor del fototransistor del PC817, \(V_{CE(sat),\text{PC817}}\), en función de la corriente.}
     \label{fig:pc817_vcesat}
 \end{figure}
 \vspace{-1.25em}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.78\linewidth]{ANNEX/Fig/AU/Vbe_SAT.drawio.pdf}
+    \includegraphics[width=0.98\linewidth]{ANNEX/Fig/AU/Vbe_SAT.pdf}
     \caption{Tensión base-emisor del 2N3904 en saturación, \(V_{BE(sat)}\), en función de \(I_C\).}
     \label{fig:2n3904_vcesat}
 \end{figure}
@@ -222,7 +217,7 @@ La resistencia \(R_1\) limita la corriente del diodo emisor de luz del PC817. Pa
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.78\linewidth]{ANNEX/Fig/AU/V_forward.pdf}
+    \includegraphics[width=0.98\linewidth]{ANNEX/Fig/AU/V_forward.pdf}
     \caption{Tensión directa del diodo emisor de luz del PC817, \(V_{F,\text{PC817}}\), en función de \(I_F\).}
     \label{fig:pc817_vf}
 \end{figure}

@@ -3,9 +3,35 @@
 \label{ch:CH09}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Conclusiones y Recomendaciones
-Para finalizar este trabajo de investigación, se presentan las observaciones y conclusiones obtenidas a lo largo del desarrollo de este, las cuales no solo evidencian que los principales objetivos del diseño conceptual fueron alcanzados, sino que también destacan el aprendizaje sobre motores de corriente continua.
-\section{Conclusiones}
-% CONCLUSIONES
-\section{Trabajo Futuro}
-% Trabajo futuro
+\noindent
+Para finalizar este trabajo de investigación, se presentan las observaciones y conclusiones obtenidas a lo largo del desarrollo de este, las cuales no solo evidencian que los principales objetivos del diseño conceptual fueron alcanzados, sino que también destacan el aprendizaje sobre motores \ac{DC}.
+\section*{Conclusiones}
+\begin{itemize}
 
+\item Se culminó el diseño conceptual del sistema mediante la integración de los subsistemas mecánico, electrónico y de \ac{SW}, realizando pruebas con \ac{HW} físico que permitieron validar las funcionalidades del banco de pruebas. Sin embargo, se identificó que el algoritmo de estimación aún puede ser perfeccionado, particularmente en el tratamiento del ruido de medición y dar resultados concluyentes de los motores. Por ello, si bien el diseño conceptual y su validación experimental han sido completados, se requiere continuar iterando el desarrollo del algoritmo para mejorar la precisión y confiabilidad de los parámetros estimados.
+
+\item El análisis económico realizado demuestra que la viabilidad económica del banco de pruebas depende directamente del escenario de implementación considerado. Si se contemplan todos los costos asociados al desarrollo incluyendo diseño, licencias de \ac{SW} e importaciones, el monto total supera ampliamente el requerimiento presupuestal establecido. No obstante, al restringir el análisis a los costos reales de fabricación e implementación física del sistema, se obtiene un valor que se mantiene dentro del margen de S/.1000, incluso considerando la importación de los componentes electrónicos principales. Esto evidencia que la solución propuesta es técnicamente viable y económicamente competitiva cuando se separan los costos de desarrollo de los costos de reproducción del prototipo.
+
+\end{itemize}
+\section*{Trabajo Futuro}
+
+\begin{itemize}
+
+\item Debido a limitaciones en los instrumentos de medición disponibles durante el desarrollo del proyecto, particularmente en el sensado de corriente con una pinza amperométrica, se trabajó con una ganancia genérica para escalar la señal de corriente, convertida en voltaje por la resistencia $R_{sense}$, brindada por el fabricante del \textit{driver} de motor. Como trabajo futuro, se recomienda realizar un proceso de calibración experimental del sistema de medición de corriente, empleando instrumentos de mayor precisión para hallar el valor más preciso de esta ganancia, ya que, como se pudo evidenciar en el Capítulo \ref{ch:CH07}, hubo mediciones no tan precisas al momento de ejecutar la rutina para la prueba del modelo estimado. 
+
+\item En el análisis económico se identificó que varios de los componentes principales del sistema, como el \textit{driver} de motor y el sensor de efecto \textit{hall}, no se encuentran disponibles en el mercado local, por lo que deben ser importados desde proveedores internacionales. Como mejora futura, se recomienda evaluar alternativas tecnológicas disponibles en el mercado nacional que puedan cumplir con las mismas funciones que los componentes importados para cumplir efectivamente con el requerimiento de usuario referente a los costos, así como acuerdos con proveedores que permitan reducir costos de importación. Asimismo, se observó que, si bien la fabricación 
+
+\item En cuanto al desarrollo de \ac{SW}, se recomienda migrar la aplicación de estimación de parámetros a lenguajes de programación de código abierto, como Python. Como se analizó en el Capítulo \ref{ch:CH08}, el uso de MATLAB implica costos significativos por licencias y \textit{toolboxes}. Una implementación en \ac{SW} libre además de reducir la inversión necesaria para replicar el banco de pruebas, permitiría integrar una \ac{GUI} más intuitiva y optimizada para el registro de resultados. Asimismo, es necesario seguir realizando más validaciones mediante ensayos con una mayor variedad de motores que cuenten con fichas técnicas de fabricante, con el fin de realizar una comparación de precisión entre los algoritmos de estimación propuestos y los métodos empíricos tradicionales.
+
+\item Respecto al diseño del \ac{HW} mecánico, se plantea como mejora la adaptación del sistema de sujeción para motores de dimensiones reducidas o geometrías no convencionales. Si bien los perfiles V-SLOT actuales proporcionan un buen ajuste para carcasas cilíndricas de 12V, motores más pequeños o con formas irregulares requieren otros componentes de fijación. Se sugiere investigar el uso de nuevos perfiles que aseguren la estabilidad mecánica y la correcta alineación de estos motores durante el proceso de caracterización.
+
+\item Para optimizar la calidad del sensado de las variables físicas, se requiere mejorar la precisión en el montaje del sistema de medición angular. Se observó que la coaxialidad entre el imán acoplado al eje y el sensor de efecto \textit{hall} es determinante para obtener lecturas de velocidad estables y sin ruido excesivo. Como trabajo futuro, se recomienda, igualmente, realizar pruebas adicionales mediante prototipado rápido para diseñar un acople centrado que garantice que el imán se mantenga en la posición óptima respecto al integrado. Esto, sumado a la implementación de filtros digitales ayudará para mejorar la estimación.
+
+\end{itemize}
+
+% \section{Conclusiones}
+
+% \begin{itemize}
+
+% \
+% \end{itemize}

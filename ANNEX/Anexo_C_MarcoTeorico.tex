@@ -393,7 +393,162 @@ A continuación, se presentarán los métodos planteados por \cite{libro_aleman}
     Métodos no paramétricos, que permiten obtener modelos no paramétricos del sistema bajo estudio. Algunos de estos métodos son: análisis de la respuesta transitoria, análisis de la respuesta en frecuencia, análisis de la correlación, análisis espectral, análisis de Fourier, etc.
     Métodos paramétricos, que permiten obtener modelos paramétricos. Estos métodos requieren la elección de una posible estructura del modelo, de un criterio de ajuste de parámetros y, por último, de la estimación de los parámetros que mejor ajustan el modelo a los datos experimentales.
 
+    \subsection{Estimación paramétrica del motor \ac{DC} mediante mínimos cuadrados}
+
+    A diferencia de los métodos empíricos presentados en la sección anterior, en los cuales cada parámetro se determina a partir de ensayos específicos y condiciones particulares de operación, el enfoque adoptado en este trabajo consiste en formular el modelo dinámico del motor \ac{DC} en una estructura lineal en parámetros y estimar todos los coeficientes de interés de manera simultánea mediante el método de mínimos cuadrados. 
     
+    En problemas de control e identificación de sistemas, la estimación paramétrica consiste en ajustar un modelo matemático previamente definido a partir de datos experimentales de entrada–salida. El objetivo es determinar el vector de parámetros físicos $\theta$ que mejor describe el comportamiento dinámico observado del sistema bajo un criterio de minimización del error.
+    
+    \subsubsection*{Formulación lineal en parámetros}
+    
+    Utilizando el modelo dinámico del motor \ac{DC} presentado en la sección 
+\ref{sec:CH02_ModeloMDC}, y partiendo de las ecuaciones eléctricas y mecánicas 
+ que se presentarán a continuación, es posible reformular el sistema en una estructura lineal en los parámetros. Esta reescritura es fundamental, ya que permite aplicar técnicas de estimación basadas en mínimos cuadrados al expresar el modelo como un problema de regresión lineal.
+
+Para la parte eléctrica, la ecuación
+
+\begin{align*}
+    u(t) = R\,i(t) + L\,\frac{di(t)}{dt} + K_e\,\omega(t),
+\end{align*}
+
+puede reorganizarse agrupando las variables medibles como regresores y los 
+parámetros físicos como incógnitas. Así, se obtiene
+
+\begin{align*}
+    u(t) =  \begin{bmatrix}
+    i(t) & \dfrac{di(t)}{dt} & \omega(t)
+    \end{bmatrix}
+    \begin{bmatrix}
+    R \\ L \\ K_e
+    \end{bmatrix}.
+\end{align*}
+
+Definiendo el vector de regresores eléctricos como
+
+\begin{align*}
+    \varphi_e(t) =
+    \begin{bmatrix}
+    i(t) & \dfrac{di(t)}{dt} & \omega(t)
+    \end{bmatrix},
+\end{align*}
+
+y el vector de parámetros eléctricos como
+
+\begin{align*}
+    \theta_e =
+    \begin{bmatrix}
+    R & L & K_e
+    \end{bmatrix}^{\top},
+\end{align*}
+
+la ecuación eléctrica puede escribirse en la forma compacta
+
+\begin{align*}
+    u(t) \approx \varphi_e(t)\,\theta_e.
+\end{align*}
+
+Obsérvese que el modelo es lineal respecto a los parámetros agrupados en 
+$\theta_e$, aun cuando el sistema físico sea dinámico.
+
+De manera análoga, partiendo de la ecuación mecánica 
+
+\begin{align*}
+    J\,\dot{\omega}(t) + B\,\omega(t) = K_t\,i(t),
+\end{align*}
+
+y despejando la derivada de la velocidad angular, se obtiene
+
+\begin{align*}
+    \frac{d\omega(t)}{dt} =
+    \frac{K_t}{J}\, i(t) - \frac{B}{J}\, \omega(t).
+\end{align*}
+
+Definiendo el vector de regresores mecánicos como
+
+\begin{align*}
+    \varphi_m(t) =
+    \begin{bmatrix}
+    i(t) & \omega(t)
+    \end{bmatrix},    
+\end{align*}
+
+y el vector de parámetros agrupados como
+
+
+\begin{align*}
+    \beta =
+    \begin{bmatrix}
+    \dfrac{K_t}{J} \\[6pt]
+    -\dfrac{B}{J}
+    \end{bmatrix},
+\end{align*}
+
+
+la dinámica mecánica puede escribirse como
+
+\begin{align*}
+    \dot{\omega}(t) \approx \varphi_m(t)\,\beta.
+\end{align*}
+
+Es importante notar que, aunque $J$ y $B$ aparecen como cocientes en los 
+parámetros agrupados, el modelo continúa siendo lineal en los parámetros 
+contenidos en $\beta$. Esta propiedad permite estimarlos mediante técnicas 
+de regresión lineal, para posteriormente recuperar los parámetros físicos 
+originales utilizando las relaciones algebraicas correspondientes.
+    
+    % \subsection{Estimación por mínimos cuadrados fuera de línea}
+    
+    % A partir de $N$ muestras discretizadas con periodo de muestreo $\Delta t$, se construyen las matrices de regresión
+    
+    % \[
+    % \Phi_e \in \mathbb{R}^{N\times 3}, 
+    % \qquad
+    % \Phi_m \in \mathbb{R}^{N\times 2},
+    % \]
+    
+    % y los vectores de salida correspondientes
+    
+    % \[
+    % u \in \mathbb{R}^{N}, 
+    % \qquad
+    % \dot{\omega} \in \mathbb{R}^{N}.
+    % \]
+    
+    % La estimación por mínimos cuadrados ordinarios adopta la forma matricial
+    
+    % \begin{align}
+    % \widehat{\theta}_e &= (\Phi_e^\top \Phi_e)^{-1}\Phi_e^\top u,
+    % \\
+    % \widehat{\beta} &= (\Phi_m^\top \Phi_m)^{-1}\Phi_m^\top \dot{\omega}.
+    % \end{align}
+    
+    % Una vez obtenidos los coeficientes, los parámetros físicos se recuperan como
+    
+    % \begin{align}
+    % \widehat{K_t} &= \widehat{K_e},
+    % \\
+    % \widehat{J} &= \frac{\widehat{K_t}}{\widehat{\beta}_1},
+    % \\
+    % \widehat{B} &= -\widehat{\beta}_2\,\widehat{J}.
+    % \end{align}
+    
+    % Este procedimiento permite estimar simultáneamente $R$, $L$, $K_e$, $J$ y $B$ a partir de un único experimento dinámico, reduciendo considerablemente el tiempo requerido respecto al método empírico tradicional.
+    
+    % \subsection{Implementación en \textsc{MATLAB}}
+    
+    % La implementación computacional se realiza fuera de línea una vez capturado el conjunto de datos experimentales $\{u(t),i(t),\omega(t)\}$. Los pasos principales son:
+    
+    % \begin{enumerate}
+    % \item Conversión de unidades a \ac{SI} (mV a V, mA a A).
+    % \item Filtrado suave de las señales mediante un filtro de Savitzky–Golay para reducir el ruido en las derivadas.
+    % \item Cálculo numérico de $\dfrac{di}{dt}$ y $\dfrac{d\omega}{dt}$ mediante diferencias centradas.
+    % \item Construcción de las matrices $\Phi_e$ y $\Phi_m$.
+    % \item Resolución de los sistemas lineales utilizando el operador ``\texttt{\textbackslash}'' de \textsc{MATLAB}, que implementa factorización QR para estabilidad numérica.
+    % \end{enumerate}
+    
+    % La estimación se ejecuta en una única rutina, integrada en la interfaz desarrollada, permitiendo obtener los parámetros del motor en cuestión de segundos. Posteriormente, los valores estimados se emplean para simular el modelo dinámico y comparar su respuesta con los datos experimentales, validando así la consistencia del ajuste.
+    
+    % De esta forma, el método propuesto no solo reduce la complejidad experimental, sino que integra la identificación y validación dentro de un mismo entorno computacional. 
     % \subsection{Modelos paramétricos para la identificación de sistemas lineales}
     
     % Según la información de \cite{yo cito}, se tienen los siguientes modelos de caja negra basados en polinomios en el operador de retardo \(q^{-1}\).

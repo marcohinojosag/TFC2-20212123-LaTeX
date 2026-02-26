@@ -28,7 +28,23 @@ Manufactura con plantilla \textit{stencil} & US\$ 24.80 & US\$ 63.46 & US\$ 88.2
 \end{tabular}
 \caption*{\textit{Nota: Fecha de consulta: miércoles 04 de febrero de 2026.}}
 \end{table}
-
+Adcionalmente se presenta el costo de manufactura de \ac{PCB}s en el mercado local peruano, en la Tabla \ref{tab:costo_pcbs_pruebas} se presenta el costo de la manufactura de una \ac{PCB} de pruebas de un tamaño reducido 
+\begin{table}[H]
+\centering
+\caption{Costo referencial de \ac{PCB}s fabricadas para pruebas}
+\label{tab:costo_pcbs_pruebas}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{Ítem} & Proveedor & Cant. & Precio S/. \\
+\hline
+\ac{PCB} de pruebas TMAG5170 & Mercado peruano & 1 & 20 \\
+\hline
+\ac{PCB} de pruebas VNH7070BAS & Mercado peruano & 1 & 20 \\
+\hline
+\multicolumn{3}{|c|}{Costo total} & 40 \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Cotización de componentes electrónicos}
 
@@ -58,28 +74,25 @@ Sensor TMAG5170A1QDGKR & Mouser Perú & 1 & 11.37 \\
 
 Además del costo de los componentes, el pedido considera cargos por envío y, cuando aplique, costos de importación como aranceles, aduana e impuestos. \autocite{mouser_envio_tarifa_plana}. Para esta cotización, el costo de envío mostrado en la plataforma corresponde a S/ 200.00. La selección del método de envío se define principalmente por el plazo de entrega y las condiciones de cobro al destinatario.
 
-\begin{table}[H]
-\centering
-\caption{Lista de costos de los componentes electrónicos}
-\label{tab:costos_electronicos_anexo}
-
-\begin{tblr}[
-  theme = pucp,
+\begin{longtblr}[theme=pucp,
+  label   = {tab:costos_electronicos},
+  caption = {Lista de costos de los componentes electrónicos},
 ]{
   width=\linewidth,
   colspec = {
-    X[3.2,l,m]
-    X[0.7,c,m]
-    X[0.9,c,m]
-    X[1.1,c,m]
-    X[1.1,c,m]
-    X[1.0,c,m]
+    X[3.2,l,m]   % Componente
+    X[0.7,c,m]   % Cant.
+    X[0.9,c,m]   % Proveedor (abreviado)
+    X[1.1,c,m]   % Unit S/
+    X[1.1,c,m]   % Total S/
+    X[1.0,c,m]   % Total US$
   },
   colsep=2pt,
   rowsep=1pt,
   rows={font=\footnotesize},
   row{1}={font=\footnotesize\bfseries,halign=c,valign=m},
   row{Z}={font=\footnotesize\bfseries},
+  rowhead=1, rowfoot=0,
   hlines, vlines,
 }
 Componente
@@ -90,91 +103,47 @@ Componente
   & \shortstack[c]{Precio\\total\\(US\$)} \\
 
 Pulsador \SI{6}{mm}$\times$\SI{6}{mm} (2 pines)
-  & 2 & Prov-A & 0.30 & 0.60 & 0.18 \\
+  & 2 & Prov-A & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
 Condensador SMD 1206 (\SI{2.2}{nF})
-  & 1 & Prov-B & 0.50 & 0.50 & 0.15 \\
-Condensador SMD 1206 (\SI{10}{nF})
-  & 1 & Prov-B & 0.50 & 0.50 & 0.15 \\
-Condensador SMD 1206 (\SI{100}{nF})
-  & 5 & Prov-B & 0.50 & 2.50 & 0.74 \\
-Condensador SMD 1206 (\SI{1}{\micro\farad})
-  & 2 & Prov-B & 0.50 & 1.00 & 0.30 \\
-Condensador electrolítico SMD (\SI{1}{\micro\farad})
-  & 1 & Prov-B & 1.00 & 1.00 & 0.30 \\
-Condensador electrolítico SMD (\SI{330}{\micro\farad})
-  & 1 & Prov-B & 0.80 & 0.80 & 0.24 \\
-Condensador electrolítico SMD (\SI{470}{\micro\farad})
-  & 1 & Prov-B & 0.50 & 0.50 & 0.15 \\
-Diodo Schottky SS36
-  & 2 & Prov-A & 0.30 & 0.60 & 0.18 \\
-SM4T28CAY
-  & 1 & Prov-C & 3.27 & 3.27 & 0.97 \\
-Fusible
-  & 1 & Prov-A & 1.00 & 1.00 & 0.30 \\
-Porta fusible
-  & 1 & Prov-A & 0.80 & 0.80 & 0.24 \\
-Conector JST (2 pines)
-  & 3 & Prov-A & 0.60 & 1.80 & 0.53 \\
-Header macho de 40 pines
-  & 1 & Prov-A & 3.90 & 3.90 & 1.16 \\
-Bobina \SI{47}{\micro H} SMD (\SI{12.3}{mm}$\times$\SI{12.3}{mm})
-  & 1 & Prov-B & 2.80 & 2.80 & 0.83 \\
-LED SMD 1206 (rojo)
-  & 2 & Prov-B & 0.30 & 0.60 & 0.18 \\
-Bornera
-  & 1 & Prov-A & 0.70 & 0.70 & 0.21 \\
-Transistor NPN \SI{25}{V} \SI{300}{mA} (SOT-23)
-  & 2 & Prov-B & 0.20 & 0.40 & 0.12 \\
-Resistencia SMD 1206 (\SI{47}{k\ohm})
-  & 2 & Prov-B & 0.20 & 0.40 & 0.12 \\
-Resistencia SMD 1206 (\SI{10}{k\ohm})
-  & 9 & Prov-B & 0.20 & 1.80 & 0.53 \\
-Resistencia SMD 1206 (\SI{1}{k\ohm})
-  & 3 & Prov-B & 0.20 & 0.60 & 0.18 \\
-Resistencia SMD 1206 (\SI{100}{\ohm})
-  & 2 & Prov-B & 0.20 & 0.40 & 0.12 \\
-Resistencia SMD 1206 (\SI{470}{\ohm})
-  & 2 & Prov-B & 0.20 & 0.40 & 0.12 \\
-Resistencia SMD 1206 (\SI{4.7}{k\ohm})
-  & 1 & Prov-B & 0.20 & 0.20 & 0.06 \\
-Resistencia SMD 1206 (\SI{5.1}{k\ohm})
-  & 2 & Prov-B & 0.20 & 0.40 & 0.12 \\
-VNH7070BASTR
-  & 1 & Prov-C & 0.20 & 0.20 & 0.06 \\
-LM2594M-3.3
-  & 1 & Prov-C & 18.22 & 18.22 & 5.41 \\
-ESP32-WROOM-32D-N4
-  & 1 & Prov-B & 17.00 & 17.00 & 5.04 \\
-Módulo ENC28J60
-  & 1 & Prov-B & 22.00 & 22.00 & 6.53 \\
-USB-TYPE-C-018
-  & 1 & Prov-A & 0.70 & 0.70 & 0.21 \\
-TMAG5170A1QDGKT
-  & 1 & Prov-C & 11.37 & 11.37 & 3.37 \\
-\SetCell[c=4]{r}{\bfseries Total} & 96.96 & 28.77 \\
-\end{tblr}
-\end{table}
+  & 1 & Prov-B & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
+Condensador SMD 1206 (\SI{10}{nF}) & 1 & Prov-B & S/ 0.50 & S/ 0.50 & \$ 0.15 \\ 
+Condensador SMD 1206 (\SI{100}{nF}) & 5 & Prov-B & S/ 0.50 & S/ 2.50 & \$ 0.74 \\ 
+Condensador SMD 1206 (\SI{1}{\micro\farad}) & 2 & Prov-B & S/ 0.50 & S/ 1.00 & \$ 0.30 \\ 
+Condensador electrolítico SMD (\SI{1}{\micro\farad}) & 1 & Prov-B & S/ 1.00 & S/ 1.00 & \$ 0.30 \\
+Condensador electrolítico SMD (\SI{330}{\micro\farad}) & 1 & Prov-B & S/ 0.80 & S/ 0.80 & \$ 0.24 \\ 
+Condensador electrolítico SMD (\SI{470}{\micro\farad}) & 1 & Prov-B & S/ 0.50 & S/ 0.50 & \$ 0.15 \\
+Diodo Schottky SS36 & 2 & Prov-A & S/ 0.30 & S/ 0.60 & \$ 0.18 \\ 
+SM4T28CAY & 1 & Prov-C & S/ 3.27 & S/ 3.27 & \$ 0.97 \\ 
+Fusible & 1 & Prov-A & S/ 1.00 & S/ 1.00 & \$ 0.30 \\ 
+Porta fusible & 1 & Prov-A & S/ 0.80 & S/ 0.80 & \$ 0.24 \\
+Conector JST (2 pines) & 3 & Prov-A & S/ 0.60 & S/ 1.80 & \$ 0.53 \\
+Header macho de 40 pines & 1 & Prov-A & S/ 3.90 & S/ 3.90 & \$ 1.16 \\
+Bobina \SI{47}{\micro H} SMD (\SI{12.3}{mm}$\times$\SI{12.3}{mm}) & 1 & Prov-B & S/ 2.80 & S/ 2.80 & \$ 0.83 \\
+LED SMD 1206 (rojo) & 2 & Prov-B & S/ 0.30 & S/ 0.60 & \$ 0.18 \\
+Bornera & 1 & Prov-A & S/ 0.70 & S/ 0.70 & \$ 0.21 \\
+Transistor NPN \SI{25}{V} \SI{300}{mA} (SOT-23) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+Resistencia SMD 1206 (\SI{47}{k\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+Resistencia SMD 1206 (\SI{10}{k\ohm}) & 9 & Prov-B & S/ 0.20 & S/ 1.80 & \$ 0.53 \\
+Resistencia SMD 1206 (\SI{1}{k\ohm}) & 3 & Prov-B & S/ 0.20 & S/ 0.60 & \$ 0.18 \\
+Resistencia SMD 1206 (\SI{100}{\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+Resistencia SMD 1206 (\SI{470}{\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\
+Resistencia SMD 1206 (\SI{4.7}{k\ohm}) & 1 & Prov-B & S/ 0.20 & S/ 0.20 & \$ 0.06 \\ 
+Resistencia SMD 1206 (\SI{5.1}{k\ohm}) & 2 & Prov-B & S/ 0.20 & S/ 0.40 & \$ 0.12 \\ 
+VNH7070BASTR & 1 & Prov-C & S/ 0.20 & S/ 0.20 & \$ 0.06 \\
+LM2594M-3.3 & 1 & Prov-C & S/ 18.22 & S/ 18.22 & \$ 5.41 \\
+ESP32-WROOM-32D-N4 & 1 & Prov-B & S/ 17.00 & S/ 17.00 & \$ 5.04 \\
+Módulo ENC28J60 & 1 & Prov-B & S/ 22.00 & S/ 22.00 & \$ 6.53 \\
+USB-TYPE-C-018 & 1 & Prov-A & S/ 0.70 & S/ 0.70 & \$ 0.21 \\
+% ... filas anteriores ...
+TMAG5170A1QDGKT & 1 & Prov-C & S/ 11.37 & S/ 11.37 & \$ 3.37 \\
+\SetCell[c=4]{r} Total & S/ 96.96 & \$ 28.77 \\
+\end{longtblr}
 
 \begin{flushleft}
 \footnotesize\textit{Nota:} Prov-A = Hi-Fi Electrónica; Prov-B = Stacktronics; Prov-C = Mouser.
 \end{flushleft}
 
-\begin{table}[H]
-\centering
-\caption{Costo referencial de \ac{PCB}s fabricadas para pruebas}
-\label{tab:costo_pcbs_pruebas}
-\begin{tabular}{|l|c|c|c|}
-\hline
-\multicolumn{1}{|c|}{Ítem} & Proveedor & Cant. & Precio S/. \\
-\hline
-\ac{PCB} de pruebas TMAG5170 & Mercado peruano & 1 & 20 \\
-\hline
-\ac{PCB} de pruebas VNH7070BAS & Mercado peruano & 1 & 20 \\
-\hline
-\multicolumn{3}{|c|}{Costo total} & 40 \\
-\hline
-\end{tabular}
-\end{table}
+
 
 % %noindent
 % Este anexo resume cotizaciones referenciales asociadas a la fabricación de las \ac{PCB}s del prototipo, así como opciones de envío y servicios adicionales disponibles en plataformas de compra y manufactura.

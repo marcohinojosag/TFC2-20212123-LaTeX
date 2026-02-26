@@ -2,19 +2,23 @@
 \ihead[]{Capítulo 8: Costos de implementación}
 \label{ch:CH08}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
 En este capítulo se presenta la estimación económica necesaria para obtener un prototipo funcional del banco de pruebas. El análisis contempla el costo de materiales, los procesos de fabricación y ensamble, los recursos utilizados durante las pruebas de validación, así como los costos asociados al diseño y actividades complementarias. El sistema se basa principalmente en componentes disponibles en el mercado local peruano; sin embargo, para algunos componentes se consideran referencias de proveedores internacionales. En tales casos, se toman como base los precios publicados en plataformas de venta en línea.
 \noindent
-Las listas detalladas de cotizaciones de componentes electrónicos, mecánicos, materias primas y procesos de manufactura se presentan en los anexos correspondientes: el Anexo~\ref{an:Anexo_H} para manufactura aditiva, el Anexo~\ref{an:Anexo_D} para costos asociados al uso de \ac{SW}, y los Anexos~\ref{an:Anexo_R} y~\ref{an:Anexo_Z} para componentes mecánicos y electrónicos, respectivamente. En el presente capítulo se presentaran únicamente los resúmenes consolidados de dichos costos. 
+Las listas detalladas de cotizaciones de componentes electrónicos, mecánicos, materias primas y procesos de manufactura se presentan en los anexos correspondientes: el Anexo~\ref{an:Anexo_H} para manufactura aditiva, el Anexo~\ref{an:Anexo_D} para costos asociados al uso de \ac{SW}, y los Anexo~\ref{an:Anexo_R} y Anexo~\ref{an:Anexo_Z} para componentes mecánicos y electrónicos, respectivamente. En el presente capítulo se presentaran únicamente los resúmenes consolidados de dichos costos. 
 \noindent
 Asimismo, para efectos de conversión se considera un tipo de cambio de referencia de 1~USD = S/.\,3.35, correspondiente al valor del dólar registrado el día 15 de febrero de 2026.
 
 
-\section{Costo de materias primas}
+\section{Costo de productos}
 
-Esta sección resume el costo de la materia prima necesaria para la implementación del prototipo. Se consideran tanto componentes mecánicos como electrónicos en su estado original, sin incluir procesos de fabricación ni ensamble.
+\noindent
+En esta sección, se presentan los costos de los productos y materiales empleados en la implementación del banco de pruebas. Por el lado mecánico, se consideran los elementos utilizados para la fabricación del chasis, soportes y mecanismos de sujeción del motor y del sistema de sensado. Por el lado electrónico, se incluyen los componentes necesarios para el diseño de la \ac{PCB}, así como los dispositivos complementarios requeridos para la alimentación del sistema y los elementos de interacción con el usuario, tales como botones e indicadores luminosos. En esta etapa no se contemplan aún los costos asociados a procesos de fabricación ni ensamble, sino únicamente la adquisición de los elementos físicos que conforman la solución.
+
 \subsection{Costos de materiales mecánicos}
 
-En la Tabla~\ref{tab:costos_materias_mecanicos} se presenta el resumen de los materiales mecánicos empleados.
+\noindent
+En la Tabla~\ref{tab:costos_materias_mecanicos} se presenta el resumen de costos de los materiales mecánicos empleados.
 
 \begin{table}[H]
 \centering
@@ -23,180 +27,595 @@ En la Tabla~\ref{tab:costos_materias_mecanicos} se presenta el resumen de los ma
 
 \vspace{0.5em}
 
-\begin{tabular}{|p{7cm}|c|c|c|}
+\begin{tabular}{|p{7cm}||c|c|}
 \hline
-Descripción & Cant. & Costo (S/.) & Costo (US\$) \\
+Producto & Precio (S/.) & Precio (US\$) \\
 \hline
-Perfil V-SLOT (20x80 mm) & 18 & 21.60 & 6.45 \\
+Perfil V-SLOT (20x80 mm) & S/. 21.60 & US\$ 6.45 \\
 \hline
-Tornillos Allen cabeza hexagonal M5 x 6 mm & 12 & 24.00 & 7.16 \\
+Tornillos Allen cabeza hexagonal M5 x 6 mm & S/. 24.00 & US\$ 7.16 \\
 \hline
-Tuerca cabeza de martillo & 12 & 11.40 & 3.40 \\
+Tuerca cabeza de martillo & S/. 11.40 & US\$ 3.40 \\
 \hline
-Separadores de bronce (M3x10 mm) & 4 & 4.00 & 1.19 \\
+Separadores de bronce (M3x10 mm) & S/. 4.00 & US\$ 1.19 \\
 \hline
-Plancha de aluminio de 2 mm de espesor & 1 & 64.00 & 19.10 \\
+Plancha de aluminio de 2 mm de espesor & S/. 64.00 & US\$ 19.10 \\
 \hline
-Prisionero de 3 mm & 1 & 0.20 & 0.06 \\
+Prisionero de 3 mm & S/. 0.20 & US\$ 0.06 \\
 \hline
-Tornillos cabeza hexagonal M3 & 2 & 0.80 & 0.24 \\
+Tornillos cabeza hexagonal M3 & S/. 0.80 & US\$ 0.24 \\
 \hline
-Tuercas M3 & 2 & 0.20 & 0.06 \\
+Tornillos hexagonal M5 & S/. 1.20 & US\$ 0.36 \\
 \hline
-Tornillos cabeza hexagonal M5 & 2 & 1.20 & 0.36 \\
+Tuercas M3 & S/. 0.20 & US\$ 0.06 \\
 \hline
-Tuercas M5 & 2 & 0.40 & 0.12 \\
+Tuercas M5 & S/. 0.40 & US\$ 0.12 \\
 \hline
-\textbf{Total} &  & \textbf{127.80} & \textbf{38.15} \\
+Imán de neodimio 5x3 mm & S/. 0.40 & US\$ 0.12 \\
+\hline
+\multicolumn{1}{|c||}{Total} & S/. 128.20 & US\$ 38.27 \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Costos de componentes electrónicos}
+
+\noindent
 En la Tabla~\ref{tab:costos_electronicos_resumen} se muestra el costo total de los componentes electrónicos utilizados.
 
 \begin{table}[H]
 \centering
-\caption{Resumen general de componentes electrónicos}
+\caption{Detalle de costos de componentes eléctricos complementarios}
 \label{tab:costos_electronicos_resumen}
-\begin{tabular}{|p{8cm}|c|c|}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
 \hline
-Concepto & Costo (S/.) & Costo (US\$) \\
+Producto & Precio (S/.) & Precio (US\$) \\
 \hline
-Componentes electrónicos totales & 96.96 & 28.77 \\
+Componentes de la PCB & S/. 69.69 & US\$ 20.80 \\
 \hline
-\textbf{Total} & \textbf{96.96} & \textbf{28.77} \\
+Conectores Banana & S/. 1.80 & US\$ 0.54 \\
+\hline
+Kill-Switch (Stop-electrónico) & S/. 5.00 & US\$ 1.49 \\
+\hline
+Fuente AC-DC (12V-2A) & S/. 20.00 & US\$ 5.97 \\
+\hline
+Indicadores LED (12V) & S/. 6.00 & US\$ 1.79 \\
+\hline
+Conector switch con fusible & S/. 10.00 & US\$ 2.99 \\
+\hline
+Cable 18 AWG (2 metros) & S/. 3.00 & US\$ 0.90 \\
+\hline
+Cable 16 AWG (2 metros) & S/. 5.00 & US\$ 1.49 \\
+\hline
+\multicolumn{1}{|c||}{Total} & S/. 120.49 & US\$ 35.97 \\
 \hline
 \end{tabular}
 \end{table}
 
-En la Tabla~\ref{tab:comparacion_electronicos_local_importado} se presenta la comparación entre un escenario con componentes adquiridos localmente y otro considerando importaciones.
+\noindent
+Adicionalmente, en la Tabla~\ref{tab:comparacion_electronicos_local_importado} se presenta el desglose de los costos asociados a los componentes de la \ac{PCB}, diferenciando aquellos que pueden adquirirse en el mercado local de aquellos que requieren importación. De esta manera, se presenta qué parte del costo total corresponde a la adquisición directa de componentes y qué parte está asociada a gastos de importación. Este análisis permite evaluar la posibilidad de reducir el costo final mediante la sustitución o adaptación de ciertos componentes por alternativas disponibles en el mercado local. El detalle específico de los componentes considerados en cada caso se presenta con mayor profundidad en el Anexo~\ref{an:Anexo_Z}.
 
-\begin{table}[H]
+\begin{table}[h]
 \centering
-\caption{Comparación de componentes electrónicos: escenario local vs importado}
+\caption{Costo de componentes de la PCB}
 \label{tab:comparacion_electronicos_local_importado}
-\begin{tabular}{|p{6cm}|c|c|}
+
+\begin{tabularx}{\linewidth}{|X||c|c|c|c|}
 \hline
-Escenario & Costo (S/.) & Costo (US\$) \\
+Costo de componentes de PCB & Precio (S/.) & Precio envío (S/.) & Precio total (S/.) & Precio total (US\$) \\
 \hline
-Adquisición local & XXX & XXX \\
+Componentes para la PCB en mercado local 
+& S/. 50.87 
+& S/. 0.00 
+& S/. 50.87 
+& US\$ 15.19 \\
 \hline
-Importación incluida & XXX & XXX \\
+Componentes para la PCB importados 
+& S/. 46.09 
+& S/. 200.00 
+& S/. 246.09 
+& US\$ 73.46 \\
 \hline
-\end{tabular}
+\end{tabularx}
 \end{table}
+
+
 
 \section{Costos de fabricación y ensamble}
+
+\noindent
+En esta sección se presentan los costos asociados a los procesos de fabricación y ensamble del sistema. Por el lado mecánico, se consideran los gastos correspondientes a la manufactura del chasis y de los elementos de sujeción, incluyendo procesos como corte laser, mecanizado y doblado. En cuanto al sistema electrónico, se incluyen los costos relacionados con la fabricación de la \ac{PCB}, así como el proceso de ensamblaje y soldadura de los componentes que la conforman.
 \subsection{Costos de fabricación de piezas mecánicas}
-
+\noindent
 En la Tabla~\ref{tab:costos_fabricacion_mecanica_resumen} se muestran los procesos requeridos para la fabricación de las piezas mecánicas.
-
-% (Aquí colocarás la tabla que me pasarás)
-\subsection{Costos de fabricación de \ac{PCB}}
-En la Tabla~\ref{tab:pcb_local} se muestra el costo estimado para fabricación local de la \ac{PCB}.
-
 \begin{table}[H]
 \centering
-\caption{Fabricación local de \ac{PCB}}
-\label{tab:pcb_local}
-\begin{tabular}{|p{7cm}|c|c|}
+\caption{Estimación de costos de fabricación mecánica}
+\label{tab:costos_fabricacion_mecanica_resumen}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
 \hline
-Concepto & Costo (S/.) & Costo (US\$) \\
+Proceso de fabricación & Precio (S/.) & Precio (US\$) \\
 \hline
-Material virgen & XXX & XXX \\
-Proceso manual & XXX & XXX \\
-Insumos adicionales & XXX & XXX \\
+Corte láser de plancha (chasis) 
+& S/. 90.00 
+& US\$ 26.87 \\
 \hline
-\textbf{Total fabricación local} & \textbf{XXX} & \textbf{XXX} \\
+Doblado (chasis) 
+& S/. 40.00 
+& US\$ 11.94 \\
+\hline
+Corte láser de plancha (soportes de motor y sensor) 
+& S/. 40.00 
+& US\$ 11.94 \\
+\hline
+Doblado (soportes de motor y sensor) 
+& S/. 10.00 
+& US\$ 2.99 \\
+\hline
+Impresión 3D (acople de imán) 
+& S/. 20.00 
+& US\$ 5.97 \\
+\hline
+Inserto para prisionero 
+& S/. 5.00 
+& US\$ 1.49 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 205.00 
+& US\$ 61.19 \\
 \hline
 \end{tabular}
 \end{table}
+\subsection{Costos de fabricación de \ac{PCB}}
+
+\noindent
+En la Tabla~\ref{tab:pcb_local} se muestra el costo estimado para la fabricación local de la \ac{PCB}.
+\begin{table}[H]
+\centering
+\caption{Costo estimado de manufactura local de \ac{PCB}}
+\label{tab:pcb_local}
+
+\vspace{0.5em}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}m{7cm}||c|c|}
+\hline
+Proceso de fabricación & Precio (S/.) & Precio (US\$) \\
+\hline
+Manufactura de las 2 PCBs (2 capas) 
+& S/. 45.00 
+& US\$ 13.43 \\
+\hline
+Manufactura de las 2 PCBs (2 capas) con ensamble de componentes 
+& S/. 105.00 
+& US\$ 31.34 \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
 En la Tabla~\ref{tab:pcb_internacional} se presenta el costo de fabricación internacional considerando importación.
 
 \begin{table}[H]
 \centering
-\caption{Fabricación internacional de \ac{PCB} con importación}
+\caption{Comparación de alternativas de servicio manufactura de \ac{PCB}}
 \label{tab:pcb_internacional}
-\begin{tabular}{|p{7cm}|c|c|}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{6.3cm}||c|c|c|c|}
 \hline
-Concepto & Costo (S/.) & Costo (US\$) \\
+Proceso de fabricación 
+& \shortstack{Precio fab.\\(US\$)} 
+& \shortstack{Precio envío\\(US\$)} 
+& \shortstack{Precio total\\(US\$)} 
+& \shortstack{Precio total\\(S/.)} \\
 \hline
-Fabricación (2 unidades) & XXX & XXX \\
-Envío internacional & XXX & XXX \\
-Costos de importación & XXX & XXX \\
+Manufactura de las 2 PCBs (2 capas) 
+& US\$ 10.80 
+& US\$ 34.56 
+& US\$ 45.36 
+& S/. 151.96 \\
 \hline
-\textbf{Total fabricación internacional} & \textbf{XXX} & \textbf{XXX} \\
+Manufactura de las 2 PCBs (2 capas) con ensamble de componentes 
+& US\$ 132.99 
+& US\$ 49.00 
+& US\$ 181.99 
+& S/. 609.67 \\
+\hline
+Manufactura de las 2 PCBs (2 capas) con plantilla stencil 
+& US\$ 24.80 
+& US\$ 63.46 
+& US\$ 88.26 
+& S/. 295.67 \\
 \hline
 \end{tabular}
 \end{table}
 
 \section{Costos de diseño y otros}
+
+\noindent
+En esta sección se presentan los costos asociados al desarrollo integral del banco de pruebas. Se considera un monto estimado destinado al diseño del sistema, el cual contempla las iteraciones necesarias propias del proceso de ingeniería, el modelado en \ac{CAD}, la validación de los circuitos electrónicos, así como la programación e integración del \ac{HW} y \ac{SW}. Asimismo, se incluye el costo asociado al uso de licencias del \ac{SW} empleado para el desarrollo de la \ac{GUI} y la ejecución del algoritmo de estimación.
+
+\noindent
+Cómo se presentó en el Capítulo \ref{ch:CH06}, para este trabajo se utiliza el entorno MATLAB, el cual requiere el pago de una licencia para su uso. Además, el uso de \textit{toolboxes} específicos para la creación de interfaces gráficas, la comunicación con microcontroladores y la ejecución de algoritmos de estimación implica costos adicionales sobre la licencia base del programa.
 \subsection{Costo de diseño}
 
+\noindent
+Para la estimación del costo de diseño, se adoptó un valor de S/.20 por hora como tarifa referencial de servicios profesionales de ingeniería. Este valor se determinó a partir del sueldo promedio reportado para ingenieros mecatrónicos en el mercado laboral peruano, el cual asciende aproximadamente a S/.138 por día según la plataforma laboral Indeed \autocite{indeed_mecatronica_2026}. Considerando una jornada laboral estándar de ocho horas, el equivalente horario es cercano a S/.17.25 por hora; por ello, se adoptó un valor redondeado de S/.20.
+\noindent
+En cuanto al tiempo dedicado al desarrollo del proyecto, se estima que el autor invirtió en promedio media jornada semanal, equivalente a 20 horas por semana, durante un periodo de ocho semanas. Esto representa un total de 160 horas de trabajo técnico asociadas al modelado \ac{CAD}, diseño electrónico, programación, integración del \ac{HW} y \ac{SW}, así como pruebas y validaciones experimentales.
+
+\noindent
 En la Tabla~\ref{tab:costo_diseno_ingenieril} se presenta la estimación de los costos asociados al diseño del sistema.
 
 \begin{table}[H]
 \centering
-\caption{Estimación de costos de diseño ingenieril}
+\caption{Estimación de costos de diseño}
 \label{tab:costo_diseno_ingenieril}
-\begin{tabular}{|p{5cm}|c|c|c|}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{5cm}|c||c|c|}
 \hline
-Rubro & Unidad & Valor & Costo (S/.) \\
+Rubro & Unidad & Costo (S/.) & Costo (US\$) \\
 \hline
-Honorarios por hora & S/. / hora & 40.00 & -- \\
-Cantidad de horas semanales & horas/semana & 8 & -- \\
-Cantidad de semanas & semanas & 15 & -- \\
+Honorarios por hora & S/. / hora & S/. 20.00 & US\$ 5.97 \\
 \hline
-\textbf{Costo total de diseño} &  &  & \textbf{4,800.00} \\
+Cantidad de horas semanales & horas/semana & 20 & -- \\
+\hline
+Cantidad de semanas & semanas & 8 & -- \\
+\hline
+\multicolumn{2}{|c||}{Costo total de diseño} 
+& S/. 3,200.00 
+& US\$ 955.22 \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Costo por utilización de \ac{SW}}
 
-Para la creación de la interfaz gráfica y la ejecución del algoritmo de estimación se utiliza el \ac{SW} MATLAB. La licencia del programa base implica un costo anual, al cual se adiciona el costo individual de cada \textit{toolbox} requerido para el desarrollo del proyecto.
+\noindent
+Para la creación de la interfaz gráfica y la ejecución del algoritmo de estimación se utiliza el \ac{SW} MATLAB. En el presente trabajo se considera el costo de la licencia estudiantil MATLAB and Simulink Student Suite, la cual incluye funcionalidades base como el desarrollo de aplicaciones mediante App Designer. Adicionalmente, se requieren \textit{toolboxes} específicos para la optimización de parámetros, la compatibilidad con \ac{HW} y el análisis de sistemas de control para el modelado del motor utilizando los parámetros estimados. 
 
-El análisis detallado de estos costos, se discutirá en el Capítulo~\ref{ch:CH09} como parte del trabajo futuro del proyecto.
+\noindent
+En la Tabla~\ref{tab:costos_software_matlab} se presenta la estimación actualizada de estos costos.
+
+\begin{table}[H]
+\centering
+\caption{Estimación de costos por utilización de MATLAB y \textit{toolboxes}}
+\label{tab:costos_software_matlab}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
+\hline
+Software / Licencia & Costo (S/.) & Costo (US\$) \\
+\hline
+MATLAB and Simulink Student Suite 
+& S/. 231.15 
+& US\$ 69.00 \\
+\hline
+Optimization Toolbox (Student) 
+& S/. 60.30 
+& US\$ 18.00 \\
+\hline
+Arduino Support Package (Student) 
+& S/. 60.30 
+& US\$ 18.00 \\
+\hline
+Control System Toolbox (Student) 
+& S/. 60.30 
+& US\$ 18.00 \\
+\hline
+\multicolumn{1}{|c||}{Total estimado de software} 
+& S/. 412.05 
+& US\$ 123.00 \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
+Cabe señalar que el presente trabajo se desarrolló en un entorno académico, en el cual la institución dispone de licencias institucionales del software MATLAB y sus respectivos \textit{toolboxes}. Por tal motivo, el costo presentado en esta sección corresponde únicamente a una estimación referencial del valor comercial del \ac{SW} utilizado. En consecuencia, para efectos del análisis económico final del prototipo en contexto académico, estos costos pueden no ser considerados dentro de la inversión directa del proyecto.
+
+\subsection{Costos de pruebas y prototipado}
+
+\noindent
+De mismo modo, se presentan los costos asociados al prototipado y validación de la solución propuesta. Estos gastos corresponden a la fabricación de \ac{PCB}s de pruebas diseñadas para evaluar el funcionamiento del \textit{driver} del motor y el sensor de efecto \textit{hall}, así como la compra de componentes electrónicos empleados para validar diseño desarrollado en el Capítulo~\ref{ch:CH04}. 
+\noindent
+Asimismo, se consideran los costos de fabricación de estructuras de sujeción y prototipos a escala utilizados para validar las propuestas mecánicas descritas en el Capítulo~\ref{ch:CH05}. Cabe señalar que los valores presentados corresponden exclusivamente a los costos de pruebas del sistema; el costo de los motores empleados durante las validaciones no se considera dentro del presente análisis económico. En la Tabla~\ref{tab:costos_pruebas} se presenta el detalle de los costos de implementación y validación.
+
+\vspace{0.5em}
+
+\begin{table}[H]
+\centering
+\caption{Costos asociados a pruebas y prototipado}
+\label{tab:costos_pruebas}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
+\hline
+Concepto & Precio (S/.) & Precio (US\$) \\
+\hline
+Manufactura de PCB de pruebas para integrados utilizados 
+& S/. 40.00 
+& US\$ 11.94 \\
+\hline
+Corte láser de placas de acrílico 
+& S/. 20.00 
+& US\$ 5.97 \\
+\hline
+Prototipado mediante impresión 3D 
+& S/. 20.00 
+& US\$ 5.97 \\
+\hline
+Perfil V-SLOT (20x40) 
+& S/. 12.00 
+& US\$ 3.58 \\
+\hline
+Componentes de sujeción 
+& S/. 35.40 
+& US\$ 10.57 \\
+\hline
+Componentes electrónicos para pruebas 
+& S/. 50.00 
+& US\$ 14.93 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 177.40 
+& US\$ 52.96 \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Costo total de la solución}
+
+\noindent
+Finalmente, se presenta el resumen de los costos totales asociados a la implementación del banco de pruebas. Se consideran los montos correspondientes a los componentes mecánicos y electrónicos, los procesos de fabricación, así como el costo de diseño del sistema y otras consideraciones asociadas al desarrollo del proyecto. Con el objetivo de realizar un análisis comparativo, se plantean dos escenarios: el primero contempla la importación de componentes electrónicos y la manufactura internacional de la \ac{PCB}; el segundo se restringe principalmente al mercado local. De esta manera, se evalúa la viabilidad económica de ambas alternativas en función de los requerimientos establecidos en el Capítulo~\ref{ch:CH03}.
+
 \subsection{Costo total considerando importaciones}
 
+\noindent
+En este primer escenario se consideran los costos asociados a una implementación con un estándar de calidad elevado, incluyendo la adquisición de componentes electrónicos importados y la manufactura de la \ac{PCB} mediante una empresa especializada como JLCPCB \autocite{jlcpcb_quote_es}. Dicha empresa ofrece el servicio de fabricación y ensamble de componentes, lo que implica que la tarjeta electrónica puede ser entregada completamente soldada. Con este servicio se reduce la necesidad de adquirir individualmente los componentes electrónicos principales, ya que estos pueden ser suministrados directamente por el proveedor dentro del proceso de ensamble.
+
+\noindent
+En este escenario, el principal incremento en el costo total se debe a los gastos asociados al envío internacional y el propio servicio de ensamble. No obstante, se obtiene una mayor garantía en términos de acabado, precisión en el ruteo y calidad de ensamblaje. Los demás costos mecánicos y estructurales pueden ser asumidos en el mercado local.
+
+\noindent
+En la Tabla~\ref{tab:total_importado_completo} se presenta el costo total considerando todos los rubros del proyecto, incluyendo el costo de diseño y el costo por utilización del \ac{SW}. Este escenario representa la inversión completa necesaria para replicar el desarrollo del sistema desde su etapa inicial.
+
 \begin{table}[H]
 \centering
-\caption{Costo total del sistema considerando importaciones}
-\label{tab:costo_total_importado}
-\begin{tabular}{|p{7cm}|c|c|}
+\caption{Costo total considerando importaciones, diseño y licencia de \ac{SW}}
+\label{tab:total_importado_completo}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
 \hline
-Concepto & Costo (S/.) & Costo (US\$) \\
+Concepto & Precio (S/.) & Precio (US\$) \\
 \hline
-Materias primas & XXX & XXX \\
-Fabricación y ensamble & XXX & XXX \\
-Diseño y otros & 4,800.00 & 1,432.84 \\
+Componentes mecánicos 
+& S/. 128.20 
+& US\$ 38.27 \\
 \hline
-\textbf{Costo total} & \textbf{XXX} & \textbf{XXX} \\
+Componentes electrónicos sin contar componentes de \ac{PCB} 
+& S/. 50.80 
+& US\$ 15.16 \\
+\hline
+Manufactura de chasis y soportes mecánicos 
+& S/. 205.00 
+& US\$ 61.19 \\
+\hline
+Manufactura y ensamble de \ac{PCB} 
+& S/. 609.00 
+& US\$ 181.79 \\
+\hline
+Costo de diseño 
+& S/. 3,200.00 
+& US\$ 955.22 \\
+\hline
+Costo de pruebas 
+& S/. 177.40 
+& US\$ 52.96 \\
+\hline
+Costo por utilización de \ac{SW} 
+& S/. 412.05 
+& US\$ 123.00 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 4,782.45 
+& US\$ 1,427.60 \\
 \hline
 \end{tabular}
 \end{table}
 
+\noindent
+Por otro lado, si se restringe el análisis únicamente a los costos directamente asociados a la implementación física del sistema, es decir, excluyendo el costo de diseño y el costo por utilización del \ac{SW}— se obtiene el resultado mostrado en la Tabla~\ref{tab:total_importado_sin_diseno}. Este escenario representa el costo real de reproducción del prototipo una vez que el desarrollo ya ha sido realizado.
+
+\begin{table}[H]
+\centering
+\caption{Costo total considerando importaciones sin incluir diseño ni \ac{SW}}
+\label{tab:total_importado_sin_diseno}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
+\hline
+Concepto & Precio (S/.) & Precio (US\$) \\
+\hline
+Componentes mecánicos 
+& S/. 128.20 
+& US\$ 38.27 \\
+\hline
+Componentes electrónicos sin contar componentes de \ac{PCB} 
+& S/. 50.80 
+& US\$ 15.16 \\
+\hline
+Manufactura de chasis y soportes mecánicos 
+& S/. 205.00 
+& US\$ 61.19 \\
+\hline
+Manufactura y ensamble de \ac{PCB} 
+& S/. 609.00 
+& US\$ 181.79 \\
+\hline
+Costo de pruebas 
+& S/. 177.40 
+& US\$ 52.96 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 1,170.40 
+& US\$ 349.37 \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
+De los resultados obtenidos se observa que el primer escenario es el más costoso, ya que contempla la totalidad de los gastos asociados al desarrollo e implementación del sistema. Esto representa la estimación más completa si se desea replicar el proyecto desde su etapa inicial de diseño hasta su validación final. Sin embargo, el costo total supera ampliamente el monto de S/. 1000 establecido como requerimiento del usuario.
+
+\noindent
+Por otro lado, el escenario que excluye los costos de diseño y \ac{SW} se aproxima considerablemente al límite presupuestal, superándolo ligeramente. Esto sugiere que, mediante la optimización de la adquisición de componentes en el mercado local o la reducción de costos de importación, la solución podría ajustarse al presupuesto establecido.
 \subsection{Costo total en escenario local}
 
+\noindent
+En este escenario se prioriza la utilización de componentes disponibles en el mercado local y la manufactura nacional de la \ac{PCB}, reduciendo así los costos asociados a importaciones. Al igual que en el caso del escenario con importaciones, inicialmente se presenta el costo total considerando todos los rubros del proyecto, incluyendo el costo de diseño y el costo por utilización del \ac{SW}. El resultado se muestra en la Tabla~\ref{tab:total_local_completo}. Esta alternativa resulta ser la menos viable desde el punto de vista presupuestal, ya que excede, al igual que el escenario anterior, ampliamente el requerimiento de S/.1000 establecido por el usuario.
+
 \begin{table}[H]
 \centering
-\caption{Costo total del sistema restringido al mercado local}
-\label{tab:costo_total_local}
-\begin{tabular}{|p{7cm}|c|c|}
+\caption{Costo total en escenario local considerando diseño y \ac{SW}}
+\label{tab:total_local_completo}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
 \hline
-Concepto & Costo (S/.) & Costo (US\$) \\
+Concepto & Precio (S/.) & Precio (US\$) \\
 \hline
-Materias primas & XXX & XXX \\
-Fabricación local & XXX & XXX \\
-Diseño y otros & 4,800.00 & 1,432.84 \\
+Componentes mecánicos 
+& S/. 128.20 
+& US\$ 38.27 \\
 \hline
-\textbf{Costo total} & \textbf{XXX} & \textbf{XXX} \\
+Componentes electrónicos 
+& S/. 120.49 
+& US\$ 35.97 \\
+\hline
+Manufactura de chasis y soportes mecánicos 
+& S/. 205.00 
+& US\$ 61.19 \\
+\hline
+Manufactura y ensamble de \ac{PCB} 
+& S/. 105.00 
+& US\$ 31.34 \\
+\hline
+Costo de diseño 
+& S/. 3,200.00 
+& US\$ 955.22 \\
+\hline
+Costo de pruebas 
+& S/. 100.00 
+& US\$ 29.85 \\
+\hline
+Costo por utilización de \ac{SW} 
+& S/. 412.05 
+& US\$ 123.00 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 4,270.74 
+& US\$ 1,274.85 \\
 \hline
 \end{tabular}
 \end{table}
 
+\noindent
+No obstante, si se excluyen los costos de diseño y el uso del \ac{SW} —considerando que estos corresponden a la etapa de desarrollo y no a la reproducción del prototipo— se obtiene el resultado mostrado en la Tabla~\ref{tab:total_local_sin_diseno}.
+
+\begin{table}[H]
+\centering
+\caption{Costo total en escenario local sin considerar diseño ni \ac{SW}}
+\label{tab:total_local_sin_diseno}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
+\hline
+Concepto & Precio (S/.) & Precio (US\$) \\
+\hline
+Componentes mecánicos 
+& S/. 128.20 
+& US\$ 38.27 \\
+\hline
+Componentes electrónicos 
+& S/. 120.49 
+& US\$ 35.97 \\
+\hline
+Manufactura de chasis y soportes mecánicos 
+& S/. 205.00 
+& US\$ 61.19 \\
+\hline
+Manufactura y ensamble de \ac{PCB} 
+& S/. 105.00 
+& US\$ 31.34 \\
+\hline
+Costo de pruebas 
+& S/. 177.40 
+& US\$ 52.96 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 736.09 
+& US\$ 219.73 \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent
+Como se observa, el costo total de implementación asciende a S/.736.09, valor que se encuentra considerablemente por debajo del límite de S/.1000. Esto permite disponer de un margen amplio para adaptar el diseño con componentes alternativos disponibles en el mercado local, sin comprometer el presupuesto establecido.
+
+\noindent
+Finalmente, incluso considerando la importación de los componentes electrónicos principales originalmente seleccionados para el diseño, el costo total continúa dentro del margen presupuestal, como se muestra en la Tabla~\ref{tab:total_local_con_importacion}. Esto demuestra que la solución propuesta mantiene viabilidad económica aun cuando se requiera incorporar dispositivos específicos que no se encuentren disponibles localmente.
+
+\begin{table}[H]
+\centering
+\caption{Costo total en escenario local incluyendo importación de componentes electrónicos}
+\label{tab:total_local_con_importacion}
+
+\vspace{0.5em}
+
+\begin{tabular}{|p{7cm}||c|c|}
+\hline
+Concepto & Precio (S/.) & Precio (US\$) \\
+\hline
+Componentes mecánicos 
+& S/. 128.20 
+& US\$ 38.27 \\
+\hline
+Componentes electrónicos incluyendo importación 
+& S/. 320.49 
+& US\$ 95.67 \\
+\hline
+Manufactura de chasis y soportes mecánicos 
+& S/. 205.00 
+& US\$ 61.19 \\
+\hline
+Manufactura y ensamble de \ac{PCB} 
+& S/. 105.00 
+& US\$ 31.34 \\
+\hline
+Costo de pruebas 
+& S/. 177.40 
+& US\$ 52.96 \\
+\hline
+\multicolumn{1}{|c||}{Total} 
+& S/. 936.09 
+& US\$ 279.43 \\
+\hline
+\end{tabular}
+\end{table}
 
 
